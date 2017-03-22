@@ -1,0 +1,70 @@
+<script>
+  jQuery(document).ready(function () {
+    jQuery("tr:even").addClass("even");
+
+    jQuery('#teacher_select').change(function() {
+      self.location = '<%= rmgr_students_path %>?teacher_id='+ jQuery('#teacher_select').val();
+    });
+  });
+</script>
+
+<div class="content box-960 container" style="margin-bottom: 10px;">
+
+  <div class="small-breadcrumb">
+    <div class="left-breadcrumb">
+      <a href="<%= rmgr_overviews_path %>">Overview</a>
+      <a href="#"><i class="fa fa-angle-right"></i>Students</a>
+    </div>
+    <div class="right-breadcrumb">
+    </div>
+    <div class="clear"></div>
+    <div style="margin-bottom:20px;" class="decoration"></div>
+  </div>
+
+  <% if flash[:notice] %>
+      <blockquote class="quote-one green-quote">
+        <div style="float:left;margin-left:15px;"><strong><%= flash[:notice]['title'] %></strong>
+          <span style="margin-left:10px;color:black;"><%= flash[:notice]['msg'] %></span>
+        </div>
+      </blockquote>
+      <br/>
+  <% end %>
+
+  <h4>Read-A-Thon Students List</h4>
+
+  <%= form_for rmgr_students_path, method: 'get' do |f| %>
+      Select Teacher:
+      <%= f.select :teacher_id, options_for_select(@teachers, @teacher_id), {}, {id: 'teacher_select', style: 'width:230px;', class: 'contactField field-deco requiredField'} %>
+  <% end %>
+  <br/>
+
+  <table class="table">
+    <tbody>
+    <tr>
+      <th style="width:100px;">GRADE</th>
+      <th>LAST</th>
+      <th>FIRST</th>
+      <th>CODE</th>
+      <th>EMAIL</th>
+      <th></th>
+    </tr>
+    <% @students.each do |student| %>
+        <tr>
+          <td><%= student.teacher.grade %></td>
+          <td><%= student.last %></td>
+          <td><%= student.first %></td>
+          <td><%= student.code %></td>
+          <td><%= student.email %></td>
+          <td>
+            <%= link_to 'edit', edit_rmgr_student_path(student), style: 'display:inline;' %>&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;
+            <%= link_to 'delete', rmgr_student_path(student), style: 'display:inline;', method: 'delete', confirm: 'Are you sure?' %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <br/>
+
+  <%= link_to 'Add Family', new_rmgr_student_path, class: 'button button-blue half-bottom', style: "float:left; margin-right:10px;" %>
+  <%= link_to "Send Welcome Flyers", rmgr_teacher_send_flyer_path(@teacher_id), class: 'button button-light', style: 'width:200px; float:right; margin-left:10px;' %>
+</div>

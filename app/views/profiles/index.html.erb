@@ -1,0 +1,113 @@
+<script>
+    jQuery(document).ready(function () {
+        jQuery(".onk_membership").click(function () {
+            $('#onk_membership_form').submit()
+        });
+    });
+</script>
+
+<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" target="_blank" id="onk_membership_form" method="post">
+  <input type="hidden" name="cmd" value="_cart"/>
+  <input type="hidden" name="upload" value="1"/>
+  <input type="hidden" name="business" value="mgiacomi-facilitator@gltech.com"/>
+  <input type="hidden" name="currency_code" value="USD"/>
+  <input type="hidden" name="notify_url" value="<%= onk_receipt_url %>"/>
+  <input type="hidden" name="shopping_url" value="<%= home_url %>"/>
+  <input type="hidden" name="invoice" value="<%= current_family.id %>-<%= Time.now.to_i %>"/>
+  <input type="hidden" name="item_name_1" value="ONK Membership"/>
+  <input type="hidden" name="item_number_1" value="<%= current_family.bread_winner.first %> <%= current_family.bread_winner.last %>"/>
+  <input type="hidden" name="quantity_1" value="1"/>
+  <input type="hidden" name="amount_1" value="26"/>
+</form>
+
+<div class="content">
+  <div class="box-960">
+    <%= render '/includes/breadcrumb', page_name: 'Overview' %>
+
+    <div class="one-half-responsive no-bottom" style="margin-right:0;">
+      <p class="dropcaps dropcaps-1">
+        Welcome to the Westwind Portal.  Use the portal to view who is attending your weekend, pay for Westwind, electronically sign your waivers, specify dietary restrictions, request a roommate, and volunteer for Westwind Activities.
+        <br/><br/>
+      <table>
+        <tr>
+          <td style="text-align:left;font-weight:bold;">Family:</td>
+          <td style="text-align:left;"><%= current_family.name %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left;font-weight:bold;">Lottery#</td>
+          <td style="text-align:left;"><%= current_family.lottery %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left;font-weight:bold;">Weekend:</td>
+          <td style="text-align:left;"><%= current_family.week_desc %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left;font-weight:bold;">Phone:</td>
+          <td style="text-align:left;"><%= current_family.phone %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left;font-weight:bold;">Email:</td>
+          <td style="text-align:left;"><%= current_family.email %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left;font-weight:bold;">Adults:</td>
+          <td style="text-align:left;"><%= current_family.adults %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left;font-weight:bold;">Kids:</td>
+          <td style="text-align:left;"><%= current_family.kids %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left;font-weight:bold;">Weekend Total:</td>
+          <td style="text-align:left;"><%= number_to_currency(current_family.weekend_total) %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left;font-weight:bold;">Amount Due:</td>
+          <td style="text-align:left;"><%= number_to_currency(current_family.amount_due) %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left;font-weight:bold;">ONK Member:</td>
+          <td style="text-align:left;"><%= current_family.onk_member? %></td>
+        </tr>
+      </table>
+      </p>
+      <br/>
+    </div>
+
+    <div class="decoration hide-if-responsive"></div>
+
+    <div class="one-fifth-responsive one-half-full" style="float:right;">
+      <span style="font-weight:bold;">Outstanding:</span>
+      <blockquote class="quote-one red-quote">
+        <a style="text-decoration: underline;" href="<%= payments_index_path %>">Make Payment</a>
+          <% unless current_family.onk_member? %>
+              <a class="onk_membership" style="text-decoration: underline;" href="#">Become an Oya No Kai member</a>
+          <% end %>
+        Electronically Sign Waivers (available soon)
+      </blockquote>
+      <br/>
+      <span style="font-weight:bold;">Optional:</span>
+      <blockquote class="quote-one blue-quote">
+        <ul>
+          <a style="color:rgba(52, 152, 219,1.0);text-decoration: underline;" href="<%= profile_campers_path %>">Volunteer for Activities</a>
+          <a style="color:rgba(52, 152, 219,1.0);text-decoration: underline;" href="<%= profile_campers_path %>">Specify Dietary Restrictions</a>
+        </ul>
+      </blockquote>
+      <br/>
+      <span style="font-weight:bold;">Completed:</span>
+      <blockquote class="quote-one green-quote">
+        <% if current_family.onk_member? %>
+            Become an Oya No Kai member
+        <% end %>
+      </blockquote>
+      <br/>
+      <span style="font-weight:bold;">Other families attending your weekend:</span><br/>
+      <% @others.each do |family| %>
+          <%= family.bread_winner.first %> <%= family.bread_winner.last %>,
+      <% end %>
+    </div>
+    <div class="clear"></div>
+    <br/>
+  </div>
+</div>
+

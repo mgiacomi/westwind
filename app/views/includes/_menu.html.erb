@@ -1,0 +1,92 @@
+<script>
+  jQuery(document).ready(function () {
+    jQuery("#logout1").click(function () {
+      jQuery("#logout_form1").submit();
+    });
+    jQuery("#logout2").click(function () {
+      jQuery("#logout_form2").submit();
+    });
+  });
+</script>
+
+<%= form_tag(destroy_user_session_path, id: 'logout_form1', method: 'delete') do %><% end %>
+<%= form_tag(logout_path, id: 'logout_form2', method: 'post') do %><% end %>
+
+<ul class="navigation">
+  <li class="mobile-navigation-breadcrumb">
+    <em>Navigation</em>
+  </li>
+  <% if current_user != nil %>
+    <li style="margin-right:0;margin-left:30px;">
+      <p id="logout1" style="margin-top:15px;">
+        <i class="fa fa-user"></i>
+        <i class="fa fa-circle"></i>
+        Admin Logout
+        <!--em><%= current_user.email %></em-->
+      </p>
+    </li>
+  <% elsif current_family != nil %>
+    <li style="margin-right:0;">
+      <p id="logout2" style="margin-top:15px;">
+        <i class="fa fa-user"></i>
+        <i class="fa fa-circle"></i>
+        Logout
+        <em><%= current_family.name %></em>
+      </p>
+    </li>
+    <li>
+      <p style="margin-top:15px;">
+        <a href="#">
+          <i class="fa fa-home"></i>
+          <i class="fa fa-circle"></i>
+          Waivers
+          <em>incomplete</em>
+        </a>
+      </p>
+    </li>
+    <li>
+      <p style="margin-top:15px;">
+        <a href="<%= payments_index_path %>">
+          <i class="fa fa-home"></i>
+          <i class="fa fa-circle"></i>
+          Payments
+          <em>deposit made</em>
+        </a>
+      </p>
+    </li>
+    <li>
+      <p style="margin-top:15px;">
+        <a href="<%= profile_campers_path %>">
+          <i class="fa fa-home"></i>
+          <i class="fa fa-circle"></i>
+          Campers
+          <em>details and prefs</em>
+        </a>
+      </p>
+    </li>
+    <li>
+      <p style="margin-top:15px;">
+        <a href="<%= profile_index_path %>">
+          <i class="fa fa-home"></i>
+          <i class="fa fa-circle"></i>
+          Overview
+          <em>overall status</em>
+        </a>
+      </p>
+    </li>
+  <% else %>
+    <li>
+      <p style="margin-top:15px;">
+        <a href="<%= forgot_s_url %>">
+          <i class="fa fa-home"></i>
+          <i class="fa fa-circle"></i>
+          Lost Login
+          <em>get your code via email</em>
+        </a>
+      </p>
+    </li>
+  <% end %>
+  <li class="mobile-navigation-breadcrumb">
+    <em>Copyright 2016. All rights reserved.</em>
+  </li>
+</ul>

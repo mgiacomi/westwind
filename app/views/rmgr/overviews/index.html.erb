@@ -1,0 +1,66 @@
+<script>
+  jQuery(document).ready(function () {
+    jQuery("tr:even").addClass("even");
+  });
+</script>
+
+<div class="content box-960 container" style="margin-bottom: 10px;">
+
+  <div class="small-breadcrumb">
+    <div class="left-breadcrumb">
+      <a href="#">Overview</a>
+    </div>
+    <div class="right-breadcrumb">
+      <a href="<%= rmgr_teachers_path %>"><i class="fa fa-list-alt"></i>Teacher Admin</a>
+      <a href="<%= rmgr_students_path %>"><i class="fa fa-user"></i>Student Admin</a>
+    </div>
+    <div class="clear"></div>
+    <div style="margin-bottom:20px;" class="decoration"></div>
+  </div>
+
+  <h4 style="float:left;">Read-A-Thon Administration</h4>
+  <div style="float:right;"><%= Time.zone.now.strftime "%m/%d/%Y %H:%M:%S" %></div>
+  <div style="clear:both"></div>
+
+  <table class="table">
+    <tbody>
+    <tr>
+      <th>TEACHER</th>
+      <th class="table-title dblue-title">GRADE</th>
+      <th class="table-title red-title">SETUP</th>
+      <th class="table-title green-title">REGISTERED</th>
+      <th class="table-title purple-title">MINUTES</th>
+      <th class="table-title orange-title">PLEDGED</th>
+      <th class="table-title blue-title">COLLECTED</th>
+    </tr>
+    <% [@summary_k, @summary_1, @summary_2, @summary_3, @summary_4, @summary_5].each do |summary| %>
+      <% summary[:teachers].each do |teacher| %>
+        <tr>
+          <td class="table-sub-title dblue-title"><%= teacher[:last] %></td>
+          <td><%= teacher[:grade] %></td>
+          <td><%= teacher[:setup] %></td>
+          <td><%= teacher[:registered] %></td>
+          <td><%= teacher[:minutes] %></td>
+          <td class="price"><%= number_to_currency(teacher[:pledged]) %></td>
+          <td class="price"><%= number_to_currency(teacher[:collected]) %></td>
+        </tr>
+      <% end %>
+    <% end %>
+    <tr style="font-weight:bold;">
+      <td class="table-sub-title dblue-title">TOTALS</td>
+      <td></td>
+      <td><%= @summary_t[:setup] %></td>
+      <td><%= @summary_t[:registered] %></td>
+      <td><%= @summary_t[:minutes] %></td>
+      <td class="price"><%= number_to_currency(@summary_t[:pledged]) %></td>
+      <td class="price"><%= number_to_currency(@summary_t[:collected]) %></td>
+    </tr>
+    </tbody>
+  </table>
+  <br/>
+
+  <%= link_to "Collected Pledges", rmgr_collected_path(format: 'csv'), class: 'button button-light', style: 'width:200px; float:right; margin-left:10px;' %>
+  <%= link_to "Uncollected Pledges", rmgr_uncollected_path(format: 'csv'), class: 'button button-light', style: 'width:200px; float:right; margin-left:10px;' %>
+  <%= link_to 'Unregistered Students', rmgr_unregistered_path(format: 'csv'), class: 'button button-light half-bottom', style: "float:right; margin-right:10px;" %>
+
+</div>

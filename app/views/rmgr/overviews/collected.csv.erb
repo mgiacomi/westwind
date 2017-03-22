@@ -1,0 +1,23 @@
+<%- headers = ['People', 'Grade', 'Last', 'First', 'Pledge Id', 'Pledge Email', 'Pledge Request', 'Pledge Nick Name', 'Pledge Type', 'Pledge Amount', 'Pledge Min', 'Pledge Max', 'Amount Owed'] -%>
+<%= CSV.generate_line headers -%>
+<%=
+  CSV.generate do |csv|
+    @pledges.each do |pledge|
+      csv << [
+          pledge.student.teacher.last,
+          pledge.student.teacher.grade,
+          pledge.student.last,
+          pledge.student.first,
+          pledge.id,
+          pledge.email,
+          pledge.email_sent_date.nil? ? "" : pledge.email_sent_date.strftime("%m/%d/%Y"),
+          pledge.name,
+          pledge.ptype,
+          pledge.amount,
+          pledge.min_amt,
+          pledge.max_amt,
+          pledge.total_owed
+      ]
+    end
+  end.html_safe
+%>

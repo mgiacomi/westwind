@@ -1,0 +1,25 @@
+<div class="content box-960 container" style="margin-bottom: 10px;">
+
+  <div class="small-breadcrumb">
+    <div class="left-breadcrumb">
+      <a href="<%= rmgr_overviews_path %>">Overview</a>
+      <a href="<%= rmgr_teachers_path %>"><i class="fa fa-angle-right"></i>Teachers</a>
+      <a href="#"><i class="fa fa-angle-right"></i>Edit Teacher</a>
+    </div>
+    <div class="right-breadcrumb">
+    </div>
+    <div class="clear"></div>
+    <div style="margin-bottom:20px;" class="decoration"></div>
+  </div>
+
+  <h4>Read-A-Thon Edit Teacher</h4>
+
+  <%= form_for [:rmgr, @teacher] do |f| %>
+
+      <%= render 'edit', f: f, msg: "leave blank if you don't want to change it" %>
+
+      <%= f.submit "Update People", class: 'button button-blue half-bottom', style: "height:40px; float:left; margin-right:10px;" %>
+      <%= link_to "Back", :back, class: 'button button-light', style: 'width:90px; float:left; margin-left:10px;' %>
+
+  <% end %>
+</div>

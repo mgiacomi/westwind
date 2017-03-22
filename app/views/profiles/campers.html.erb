@@ -1,0 +1,103 @@
+<script>
+    jQuery(document).ready(function () {
+        jQuery(".toggle_prefs").click(function () {
+            var people_id = jQuery(this).data("people-id");
+            var column = jQuery(this).data("column");
+            jQuery("#people").val(people_id);
+            jQuery("#col").val(column);
+            jQuery("#toggle_update").submit();
+        });
+    });
+</script>
+
+<%= form_tag(profile_toggle_path, id: 'toggle_update', method: 'post') do %>
+    <input type="hidden" id="people" name="id"/>
+    <input type="hidden" id="col" name="col"/>
+<% end %>
+
+<div class="content">
+  <div class="box-960">
+    <%= render '/includes/breadcrumb', page_name: 'Campers' %>
+    Details about people in your party.  Let us know your eating preferences, allergies, and volunteer preferences.
+    <br/><br/>
+    <div class="one-half-responsive no-bottom" style="margin-right:0;">
+      <% @adults.each do |adult| %>
+        <blockquote class="quote-one blue-quote">
+          <span style="font-weight:bold;color:black;"><%= adult.last %>, <%= adult.first %></span><br/>
+          Dietary Issues:<br/>
+          <table style="width:97%">
+            <tr>
+              <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="vegetarian" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.vegetarian? %>checkbox-unselected-1<% end %>">Vegetarian</a></td>
+              <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="vegan" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.vegan? %>checkbox-unselected-1<% end %>">Vegan</a></td>
+            </tr>
+            <tr>
+              <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="pescetarian" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.pescetarian? %>checkbox-unselected-1<% end %>">Pescetarian</a></td>
+              <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="gluten_free" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.gluten_free? %>checkbox-unselected-1<% end %>">Gluten Free</a></td>
+            </tr>
+            <tr>
+              <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="lactose_free" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.lactose_free? %>checkbox-unselected-1<% end %>">Lactose Free</a></td>
+              <td></td>
+            </tr>
+          </table>
+          Volunteer Opportunities:<br/>
+          <table style="width:97%;">
+            <tr>
+              <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="volunteer_meal_captain" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.volunteer_meal_captain? %>checkbox-unselected-1<% end %>">Meal Captain</a></td>
+              <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="volunteer_sand_castles" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.volunteer_sand_castles? %>checkbox-unselected-1<% end %>">Sand Castles</a></td>
+            </tr>
+            <tr>
+              <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="volunteer_campfire_leader" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.volunteer_campfire_leader? %>checkbox-unselected-1<% end %>">Campfire Leader</a></td>
+              <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="volunteer_crafts" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.volunteer_crafts? %>checkbox-unselected-1<% end %>">Crafts</a></td>
+            </tr>
+            <tr>
+              <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="volunteer_cascade_head" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.volunteer_cascade_head? %>checkbox-unselected-1<% end %>">Cascade Head</a></td>
+              <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="volunteer_mud_mucking" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.volunteer_mud_mucking? %>checkbox-unselected-1<% end %>">Mud Mucking</a></td>
+            </tr>
+          </table>
+          Allergies:
+          <%= form_tag(profile_allergies_path, method: 'post') do %>
+              <input type="hidden" name="id" value="<%= adult.id %>" />
+              <textarea name="allergies" style="width:97%"><%= adult.allergies -%></textarea>
+              <input type="submit" class="button button-dark" style="height:25px; font-size: 80%;padding-top:5px;" value="Update Allergies"/><br/>
+          <% end %>
+        </blockquote>
+        <br/>
+      <% end %>
+    </div>
+
+    <div class="decoration hide-if-responsive"></div>
+
+    <div class="one-fifth-responsive one-half-full" style="float:right;">
+      <% @kids.each do |kid| %>
+          <blockquote class="quote-one green-quote">
+            <span style="font-weight:bold;color:black;"><%= kid.last %>, <%= kid.first %></span><br/>
+            Dietary Issues:<br/>
+            <table style="width:97%">
+              <tr>
+                <td style="text-align: left;"><a href="#" data-people-id="<%= kid.id %>" data-column="vegetarian" class="toggle_prefs checkbox checkbox-class-1 <% unless kid.vegetarian? %>checkbox-unselected-1<% end %>">Vegetarian</a></td>
+                <td style="text-align: left;"><a href="#" data-people-id="<%= kid.id %>" data-column="vegan" class="toggle_prefs checkbox checkbox-class-1 <% unless kid.vegan? %>checkbox-unselected-1<% end %>">Vegan</a></td>
+              </tr>
+              <tr>
+                <td style="text-align: left;"><a href="#" data-people-id="<%= kid.id %>" data-column="pescetarian" class="toggle_prefs checkbox checkbox-class-1 <% unless kid.pescetarian? %>checkbox-unselected-1<% end %>">Pescetarian</a></td>
+                <td style="text-align: left;"><a href="#" data-people-id="<%= kid.id %>" data-column="gluten_free" class="toggle_prefs checkbox checkbox-class-1 <% unless kid.gluten_free? %>checkbox-unselected-1<% end %>">Gluten Free</a></td>
+              </tr>
+              <tr>
+                <td style="text-align: left;"><a href="#" data-people-id="<%= kid.id %>" data-column="lactose_free" class="toggle_prefs checkbox checkbox-class-1 <% unless kid.lactose_free? %>checkbox-unselected-1<% end %>">Lactose Free</a></td>
+                <td></td>
+              </tr>
+            </table>
+            Allergies:
+            <%= form_tag(profile_allergies_path, method: 'post') do %>
+                <input type="hidden" name="id" value="<%= kid.id %>" />
+                <textarea name="allergies" style="width:97%"><%= kid.allergies -%></textarea>
+                <input type="submit" class="button button-dark" style="height:25px; font-size: 80%;padding-top:5px;" value="Update Allergies"/><br/>
+            <% end %>
+          </blockquote>
+          <br/>
+      <% end %>
+    </div>
+    <div class="clear"></div>
+    <br/>
+  </div>
+</div>
+
