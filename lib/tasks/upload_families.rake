@@ -4,7 +4,7 @@ task :upload_families => :environment do
   ['ww_week1.csv', 'ww_week2.csv', 'ww_week3.csv', 'ww_waitlist.csv'].each do |filename|
 
     puts "Running File: #{filename}"
-    csv = CSV.read("/download/tmp/#{filename}")
+    csv = CSV.read(filename")
 
     case filename
       when 'ww_week1.csv'

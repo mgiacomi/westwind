@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160709001021) do
+ActiveRecord::Schema.define(version: 20160703031841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(version: 20160709001021) do
     t.boolean  "pescetarian",                           default: false
     t.boolean  "gluten_free",                           default: false
     t.boolean  "lactose_free",                          default: false
+    t.boolean  "no_dietary_issues",                     default: false
+    t.boolean  "no_allergies",                          default: false
     t.text     "allergies"
     t.boolean  "volunteer_meal_captain",                default: false
     t.boolean  "volunteer_campfire_leader",             default: false
@@ -70,8 +72,6 @@ ActiveRecord::Schema.define(version: 20160709001021) do
     t.string   "waiver_signed_relationship", limit: 56
     t.string   "waiver_signed_name",         limit: 56
     t.datetime "waiver_signed_date"
-    t.boolean  "no_dietary_issues",                     default: false
-    t.boolean  "no_allergies",                          default: false
   end
 
   create_table "users", force: :cascade do |t|
