@@ -14,6 +14,8 @@ class CreatePeople < ActiveRecord::Migration
       t.boolean  "pescetarian",               default: false
       t.boolean  "gluten_free",               default: false
       t.boolean  "lactose_free",              default: false
+      t.boolean  "no_dietary_issues",         default: false
+      t.boolean  "no_allergies",              default: false
       t.text     "allergies"
 
       t.boolean  "volunteer_meal_captain",    default: false

@@ -13,6 +13,23 @@ class ProfilesController < ApplicationController
 
   def toggle
     person = People.find params[:id]
+
+    if params[:col] == 'no_dietary_issues'
+      person.vegetarian = false
+      person.vegan = false
+      person.pescetarian = false
+      person.gluten_free = false
+      person.lactose_free = false
+    end
+
+    if ['vegetarian', 'vegan', 'pescetarian','gluten_free','lactose_free'].include? params[:col]
+      person.no_dietary_issues = false
+    end
+
+    if params[:col] == 'no_allergies'
+      person.allergies = ''
+    end
+
     person.toggle params[:col]
     person.save
     redirect_to :profile_campers, notice: "Updated Preferences for #{person.first}"
@@ -20,6 +37,7 @@ class ProfilesController < ApplicationController
 
   def allergies
     person = People.find params[:id]
+    person.no_allergies = false
     person.allergies = params[:allergies]
     person.save
     redirect_to :profile_campers, notice: "Updated Allergies for #{person.first}"

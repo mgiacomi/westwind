@@ -8,6 +8,20 @@ class Family < ActiveRecord::Base
     People.where(family_id: id, grade: 'Adult').first
   end
 
+  def diet_and_allergy_complete?
+    People.where(family_id: id).each do |person|
+      if !person.vegetarian? && !person.vegan? && !person.pescetarian? && !person.gluten_free? && !person.lactose_free? && !person.no_dietary_issues?
+        return false
+      end
+      if !person.no_allergies? && person.allergies.blank?
+        puts "before"
+        return false
+      end
+    end
+
+    true
+  end
+
   def total_paid
     Payment.where(family_id: id).sum(:amount)
   end

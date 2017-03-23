@@ -19,13 +19,17 @@
   <div class="box-960">
     <%= render '/includes/breadcrumb', page_name: 'Campers' %>
     Details about people in your party.  Let us know your eating preferences, allergies, and volunteer preferences.
+    <span style="text-decoration: underline;">You must select an option for Dietary Issues</span>.  If you have no Dietary Issues then make sure to select that,
+    or you have not completed your preferences.  Same for allergies.  <span style="text-decoration: underline;">If you have an allergy then list it,
+    otherwise you need to select "No Allergies"</span>.
+
     <br/><br/>
     <div class="one-half-responsive no-bottom" style="margin-right:0;">
       <% @adults.each do |adult| %>
         <blockquote class="quote-one blue-quote">
           <span style="font-weight:bold;color:black;"><%= adult.last %>, <%= adult.first %></span><br/>
           Dietary Issues:<br/>
-          <table style="width:97%">
+          <table style="width:97%;margin-bottom:10px;">
             <tr>
               <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="vegetarian" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.vegetarian? %>checkbox-unselected-1<% end %>">Vegetarian</a></td>
               <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="vegan" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.vegan? %>checkbox-unselected-1<% end %>">Vegan</a></td>
@@ -36,11 +40,19 @@
             </tr>
             <tr>
               <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="lactose_free" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.lactose_free? %>checkbox-unselected-1<% end %>">Lactose Free</a></td>
-              <td></td>
+              <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="no_dietary_issues" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.no_dietary_issues? %>checkbox-unselected-1<% end %>">No Dietary Issues</a></td>
             </tr>
           </table>
+          Food Allergies:
+          <%= form_tag(profile_allergies_path, method: 'post') do %>
+              <input type="hidden" name="id" value="<%= adult.id %>" />
+              <textarea name="allergies" style="width:97%"><%= adult.allergies -%></textarea>
+              <span style="float:left;"><input type="submit" class="button button-dark" style="height:25px; font-size: 80%;padding-top:5px;" value="Update Allergies"/></span>
+              <span style="float:right;margin-right:15px;color:black;"><a href="#" data-people-id="<%= adult.id %>" data-column="no_allergies" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.no_allergies? %>checkbox-unselected-1<% end %>">No Food Allergies</a></span>
+              <div style="clear:both;margin-bottom:10px;"></div>
+          <% end %>
           Volunteer Opportunities:<br/>
-          <table style="width:97%;">
+          <table style="width:97%;margin-bottom:10px;">
             <tr>
               <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="volunteer_meal_captain" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.volunteer_meal_captain? %>checkbox-unselected-1<% end %>">Meal Captain</a></td>
               <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="volunteer_sand_castles" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.volunteer_sand_castles? %>checkbox-unselected-1<% end %>">Sand Castles</a></td>
@@ -54,12 +66,6 @@
               <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="volunteer_mud_mucking" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.volunteer_mud_mucking? %>checkbox-unselected-1<% end %>">Mud Mucking</a></td>
             </tr>
           </table>
-          Allergies:
-          <%= form_tag(profile_allergies_path, method: 'post') do %>
-              <input type="hidden" name="id" value="<%= adult.id %>" />
-              <textarea name="allergies" style="width:97%"><%= adult.allergies -%></textarea>
-              <input type="submit" class="button button-dark" style="height:25px; font-size: 80%;padding-top:5px;" value="Update Allergies"/><br/>
-          <% end %>
         </blockquote>
         <br/>
       <% end %>
@@ -72,7 +78,7 @@
           <blockquote class="quote-one green-quote">
             <span style="font-weight:bold;color:black;"><%= kid.last %>, <%= kid.first %></span><br/>
             Dietary Issues:<br/>
-            <table style="width:97%">
+            <table style="width:97%;margin-bottom:10px;">
               <tr>
                 <td style="text-align: left;"><a href="#" data-people-id="<%= kid.id %>" data-column="vegetarian" class="toggle_prefs checkbox checkbox-class-1 <% unless kid.vegetarian? %>checkbox-unselected-1<% end %>">Vegetarian</a></td>
                 <td style="text-align: left;"><a href="#" data-people-id="<%= kid.id %>" data-column="vegan" class="toggle_prefs checkbox checkbox-class-1 <% unless kid.vegan? %>checkbox-unselected-1<% end %>">Vegan</a></td>
@@ -83,14 +89,16 @@
               </tr>
               <tr>
                 <td style="text-align: left;"><a href="#" data-people-id="<%= kid.id %>" data-column="lactose_free" class="toggle_prefs checkbox checkbox-class-1 <% unless kid.lactose_free? %>checkbox-unselected-1<% end %>">Lactose Free</a></td>
-                <td></td>
+                <td style="text-align: left;"><a href="#" data-people-id="<%= kid.id %>" data-column="no_dietary_issues" class="toggle_prefs checkbox checkbox-class-1 <% unless kid.no_dietary_issues? %>checkbox-unselected-1<% end %>">No Dietary Issues</a></td>
               </tr>
             </table>
-            Allergies:
+            Food Allergies:
             <%= form_tag(profile_allergies_path, method: 'post') do %>
                 <input type="hidden" name="id" value="<%= kid.id %>" />
                 <textarea name="allergies" style="width:97%"><%= kid.allergies -%></textarea>
-                <input type="submit" class="button button-dark" style="height:25px; font-size: 80%;padding-top:5px;" value="Update Allergies"/><br/>
+                <span style="float:left;"><input type="submit" class="button button-dark" style="height:25px; font-size: 80%;padding-top:5px;" value="Update Allergies"/></span>
+                <span style="float:right;margin-right:15px;color:black;"><a href="#" data-people-id="<%= kid.id %>" data-column="no_allergies" class="toggle_prefs checkbox checkbox-class-1 <% unless kid.no_allergies? %>checkbox-unselected-1<% end %>">No Food Allergies</a></span>
+                <div style="clear:both;margin-bottom:10px;"></div>
             <% end %>
           </blockquote>
           <br/>
