@@ -1,23 +1,28 @@
 <script>
     jQuery(document).ready(function () {
-        jQuery(".onk_membership").click(function () {
-            $('#onk_membership_form').submit()
+        jQuery(".ww_full_payment").click(function () {
+            $('#pp_amount').val("<%= current_family.amount_due %>");
+            $('#ww_payment_form').submit()
+        });
+        jQuery(".ww_deposit").click(function () {
+            $('#pp_amount').val("100");
+            $('#ww_payment_form').submit()
         });
     });
 </script>
 
-<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" target="_blank" id="onk_membership_form" method="post">
+<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" target="_blank" id="ww_payment_form" method="post">
   <input type="hidden" name="cmd" value="_cart"/>
   <input type="hidden" name="upload" value="1"/>
   <input type="hidden" name="business" value="mgiacomi-facilitator@gltech.com"/>
   <input type="hidden" name="currency_code" value="USD"/>
-  <input type="hidden" name="notify_url" value="<%= onk_receipt_url %>"/>
+  <input type="hidden" name="notify_url" value="<%= payments_receipt_url %>"/>
   <input type="hidden" name="shopping_url" value="<%= home_url %>"/>
   <input type="hidden" name="invoice" value="<%= current_family.id %>-<%= Time.now.to_i %>"/>
-  <input type="hidden" name="item_name_1" value="ONK Membership"/>
+  <input type="hidden" name="item_name_1" value="Westwind Payment"/>
   <input type="hidden" name="item_number_1" value="<%= current_family.bread_winner.first %> <%= current_family.bread_winner.last %>"/>
   <input type="hidden" name="quantity_1" value="1"/>
-  <input type="hidden" name="amount_1" value="26"/>
+  <input id="pp_amount" type="hidden" name="amount_1" value=""/>
 </form>
 
 <div class="content">
@@ -77,6 +82,42 @@
     <div class="decoration hide-if-responsive"></div>
 
     <div class="one-fifth-responsive one-half-full" style="float:right;">
+
+      <% if current_family.amount_due == 0 %>
+        <blockquote class="quote-one green-quote">
+          You have made all your payments.
+        </blockquote>
+      <% else %>
+          <% if current_family.total_paid < 100 %>
+              At this point only a deposit is required to hold your spot.  If you just pay the deposit you will owe the
+              by May 1st.<br/>
+              <a href="#" class="ww_deposit button button-icon button-blue"><i class="fa fa-dollar"></i>Pay Deposit $100</a>
+              <br/><br/>
+          <% end %>
+
+          Complete your Westwind payment<br/>
+          <a href="#" class="ww_full_payment button button-icon button-green"><i class="fa fa-dollar"></i>Pay Full Amount <%= number_to_currency(current_family.amount_due) %></a>
+      <% end %>
+      <br/><br/>
+
+      <span style="font-weight:bold;">Payment History:</span>
+      <table class="table">
+        <tbody>
+        <tr>
+          <th class="table-title blue-title">Payment Date</th>
+          <th class="table-title blue-title">Type</th>
+          <th class="table-title blue-title">Amount</th>
+        </tr>
+        <% current_family.payments.each do |payment| %>
+        <tr>
+          <td><%= payment.pmtdate.strftime "%m/%d/%Y" %></td>
+          <td><%= payment.pmttype %></td>
+          <td class="price"><%= number_to_currency(payment.amount) %></td>
+        </tr>
+        <% end %>
+        </tbody>
+      </table>
+
     </div>
     <div class="clear"></div>
     <br/>
