@@ -1,5 +1,6 @@
 class PaymentsController < ApplicationController
   before_action :require_code
+  skip_before_action :verify_authenticity_token, :only => [:receipt, :onk_receipt]
 
   def index
   end
