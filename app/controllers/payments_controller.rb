@@ -13,7 +13,7 @@ class PaymentsController < ApplicationController
       payment.amount = params[:payment_gross]
       payment.fee = params[:payment_fee]
       payment.pmtdate = params[:payment_date]
-      payment.pmtnum = "Paypal"
+      payment.pmttype = "Paypal"
       payment.family_id = family_id
       payment.user = current_user
 
