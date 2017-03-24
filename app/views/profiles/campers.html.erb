@@ -19,7 +19,7 @@
   <div class="box-960">
     <%= render '/includes/breadcrumb', page_name: 'Campers' %>
     Details about people in your party.  Let us know your eating preferences, allergies, and volunteer preferences.
-    <span style="text-decoration: underline;">You must select an option for Dietary Issues</span>.  If you have no Dietary Issues then make sure to select that,
+    <span style="text-decoration: underline;">You must select an option for Dietary Preferences</span>.  If you have No Dietary Preferences then make sure to select that,
     or you have not completed your preferences.  Same for allergies.  <span style="text-decoration: underline;">If you have an allergy then list it,
     otherwise you need to select "No Allergies"</span>.
 
@@ -28,7 +28,7 @@
       <% @adults.each do |adult| %>
         <blockquote class="quote-one blue-quote">
           <span style="font-weight:bold;color:black;"><%= adult.last %>, <%= adult.first %></span><br/>
-          Dietary Issues:<br/>
+          Dietary Preferences:<br/>
           <table style="width:97%;margin-bottom:10px;">
             <tr>
               <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="vegetarian" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.vegetarian? %>checkbox-unselected-1<% end %>">Vegetarian</a></td>
@@ -40,7 +40,7 @@
             </tr>
             <tr>
               <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="lactose_free" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.lactose_free? %>checkbox-unselected-1<% end %>">Lactose Free</a></td>
-              <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="no_dietary_issues" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.no_dietary_issues? %>checkbox-unselected-1<% end %>">No Dietary Issues</a></td>
+              <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="no_dietary_issues" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.no_dietary_issues? %>checkbox-unselected-1<% end %>">No Dietary Preferences</a></td>
             </tr>
           </table>
           Food Allergies:
@@ -77,7 +77,7 @@
       <% @kids.each do |kid| %>
           <blockquote class="quote-one green-quote">
             <span style="font-weight:bold;color:black;"><%= kid.last %>, <%= kid.first %></span><br/>
-            Dietary Issues:<br/>
+            Dietary Preferences:<br/>
             <table style="width:97%;margin-bottom:10px;">
               <tr>
                 <td style="text-align: left;"><a href="#" data-people-id="<%= kid.id %>" data-column="vegetarian" class="toggle_prefs checkbox checkbox-class-1 <% unless kid.vegetarian? %>checkbox-unselected-1<% end %>">Vegetarian</a></td>
