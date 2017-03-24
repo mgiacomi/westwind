@@ -15,7 +15,6 @@ class PaymentsController < ApplicationController
       payment.pmtdate = params[:payment_date]
       payment.pmttype = "Paypal"
       payment.family_id = family_id
-      payment.user = current_user
 
       if payment.save
         logger.info "Saved Payment: #{params[:invoice]} #{params[:payment_gross]} #{params[:payment_status]} #{params[:payment_date]}"
