@@ -33,9 +33,9 @@ class Family < ActiveRecord::Base
   def weekend_total
     case week
       when 1
-        amount = 105
-      when 2
         amount = 70
+      when 2
+        amount = 105
       when 3
         amount = 70
       else
