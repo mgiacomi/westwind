@@ -14,7 +14,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Richmond Read-A-Thon</title>
+  <title>ONK Camp Westwind</title>
 
   <style type="text/css">
     p {
@@ -847,9 +847,9 @@
                         <td class="mcnImageContent"
                             style="padding-right: 9px; padding-left: 9px; padding-top: 0; padding-bottom: 0; text-align:center;"
                             valign="top">
-                          <img src="http://www.read4richmond.com/images/mailer/readathon.jpg"
-                               style="max-width:450px; padding-bottom: 0; display: inline !important; vertical-align: bottom;"
-                               class="mcnImage" width="450" align="middle">
+                              <img src="https://westwindonk.herokuapp.com/images/onk_logo_s.png"
+                               style="max-width:250px; padding-bottom: 0; display: inline !important; vertical-align: bottom;"
+                               class="mcnImage" width="250" align="middle">
                         </td>
                       </tr>
                       </tbody>
@@ -905,22 +905,31 @@
                                         style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;"
                                         valign="top">
 
-                                      <h2 style="-webkit-appearance: none;margin: 0 0 15px;padding: 0;border: 0;font-size: 18px;vertical-align: baseline;outline: none;text-size-adjust: none;box-sizing: border-box;font-weight: 600;color: #1F1F1F;font-family: 'Source Sans Pro';, sans-serif;font-style: normal;font-variant-ligatures: normal;font-variant-caps: normal;letter-spacing: normal;orphans: 2;text-align: center;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;-webkit-text-stroke-width: 0px;background-color: #FFFFFF;">We've extended the Read-A-Thon for one extra day just for you!</h2>
-
                                       <p>
-                                        <span style="-webkit-text-stroke-width: 0;background-color: #FFFFFF;color: #464646;display: inline !important;float: none;font-family: verdana,geneva,sans-serif;font-size: 14px;font-style: normal;font-variant-caps: normal;font-variant-ligatures: normal;font-weight: normal;letter-spacing: normal;orphans: 2;text-align: start;text-indent: 0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0px;">
-                                          It's not too late to support the Read For Richmond Read-A-Thon with your pledge. <%= @student.first %> has been reading every day in class - <strong><a href="http://www.read4richmond.com/autologin/<%= @student.code %>">log on today to see their progress</a></strong>.
+                                        <span>
+                                          Hello <%= @family.name %> family,
                                           <br/><br/>
-                                          If your child has been reading at home, you can estimate their reading time and add it all in today!
+                                          Here is your personalized url to access the Westwind Portal <a href="<%= login_url @family.code %>"><%= login_url @family.code %></a>
                                           <br/><br/>
-                                          You can also make a direct contribution to the <a href="https://allhandsraised.org/donate/">Richmond Foundation</a>.  Remember, the Read-A-Thon supports the Foundation's mission: funding staff positions at Richmond.  Whether you contribute through the Read-A-Thon, make a direct gift online, or drop a check in the big blue mailbox, you are supporting Richmond's dual-immersion model and the enrichments and activities that mean so much to our kids.
+                                          Using the Westwind Portal you can:
+                                          <ul>
+                                            <li>View details about your weekend assignment</li>
+                                            <li>Pay your trip deposit, or full payment</li>
+                                            <li>Become an ONK member</li>
+                                            <li>Set your dietary preferences</li>
+                                            <li>Volunteer to lead weekend events</li>
+                                          </ul><br/>
+                                          If you have any problems logging in please contact us at westwind@oyanokai.org
                                           <br/><br/>
-                                          Together we can do it!  Issho ni ganbarou!
-                                          <br/><br/>
-                                          the Richmond School Foundation
+                                          Thanks,
+                                          The Westwind Team
+                                          Rich Burt
+                                          Laurent Avondstandt
+                                          Matt Giacomini
                                         </span>
                                         <br>
                                       </p>
+
                                     </td>
                                   </tr>
                                   </tbody>
@@ -976,8 +985,8 @@
                             style="text-align:center; padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;"
                             valign="top">
                           <br/>
-                          <em>Copyright © read4richmond.com, All rights reserved.</em><br>
-                          http://www.read4richmond.com/
+                          <em>Copyright © Oya No Kai, All rights reserved.</em><br>
+                          http://www.oyanokai.org/
                         </td>
                       </tr>
                       </tbody>

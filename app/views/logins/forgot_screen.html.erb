@@ -13,20 +13,9 @@
       <%= form_tag(forgot_e_path, method: "post") do %>
           <img src="/images/westwind_logo.gif" alt="img">
           <p class="half-bottom">Enter your email address to get your login url.</p>
-
-          <% if flash[:alert] %>
-              <div class="small-notification red-notification" style="margin-bottom:10px;">
-                <p class="center-text uppercase" style="margin-top:0;">
-                  <i class="fa fa-warning"></i>
-                  <%= flash[:alert] %>
-                  <a href="#" class="close-small-notification">x</a>
-                </p>
-              </div>
-          <% end %>
-
           <em><i class="fa fa-envelope"></i>Email Address</em>
-          <input onfocus="if (this.value=='') this.value = ''" onblur="if (this.value=='') this.value = ''" type="text" name="code" value="" class="green-focus login-box-one-pwd half-bottom">
-          <input type="submit" class="button button-green center-button" value="Email Code"/>
+          <input onfocus="if (this.value=='') this.value = ''" onblur="if (this.value=='') this.value = ''" type="text" name="email" value="" class="green-focus login-box-one-pwd half-bottom">
+          <input type="submit" class="button button-green center-button" value="Email Login Info"/>
           <em class="forgot-login no-bottom" style="margin-top:10px;">Need help from a person? Email us <a href="mailto:westwind@oyanokai.org">westwind@oyanokai.org</a></em>
       <% end %>
     </div>

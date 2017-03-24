@@ -54,7 +54,7 @@ class Family < ActiveRecord::Base
       when 3
         'Weekend 3 June 2 - Jun 4'
       else
-        puts "Wait List"
+        "Wait List"
     end
   end
 end

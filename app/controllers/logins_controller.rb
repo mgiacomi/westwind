@@ -17,14 +17,13 @@ class LoginsController < ApplicationController
   end
 
   def forgot_email
-    student = Family.find_by_code params[:code]
+    family = Family.find_by_email params[:email]
 
-    if student.nil? || params[:email] == nil
+    if family.nil?
       redirect_to :forgot_s, alert: "Email not found"
     else
-      student.update_attribute :email, params[:email]
-      cookies[:code] = student.code
-      redirect_to :home, notice: "Your Login email has been emailed to you."
+      GeneralMailer.welcome_flyer(family).deliver
+      redirect_to :home, notice: "Login instructions have been emailed to you."
     end
   end
 

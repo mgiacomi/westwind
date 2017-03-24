@@ -31,9 +31,9 @@ class PaymentsController < ApplicationController
       family.onk_member = true
 
       if family.save
-        logger.info "ONK Membership added for registration id: #{registration.id}"
+        logger.info "ONK Membership added for family: #{family.name}"
       else
-        logger.info "Failed to add ONK Membership for registration id: #{registration.id}"
+        logger.info "Failed to add ONK Membership for family: #{family.name}"
       end
     end
   end

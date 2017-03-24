@@ -60,6 +60,25 @@
 
     <div class="boxed">
 
+      <% if flash[:notice] %>
+          <div class="small-notification blue-notification" style="margin-bottom:10px;">
+            <p class="center-text" style="margin-top:0;">
+              <i class="fa fa-info"></i>
+              <%= flash[:notice] %>
+              <a href="#" class="close-small-notification">x</a>
+            </p>
+          </div>
+      <% end %>
+      <% if flash[:alert] %>
+          <div class="small-notification yellow-notification" style="margin-bottom:10px;">
+            <p class="center-text" style="margin-top:0;">
+              <i class="fa fa-warning"></i>
+              <%= flash[:alert] %>
+              <a href="#" class="close-small-notification">x</a>
+            </p>
+          </div>
+      <% end %>
+
       <%= yield %>
 
       <!------------------->

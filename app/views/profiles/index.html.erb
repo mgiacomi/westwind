@@ -77,44 +77,52 @@
     <div class="decoration hide-if-responsive"></div>
 
     <div class="one-fifth-responsive one-half-full" style="float:right;">
-      <span style="font-weight:bold;">Required, Not yet completed:</span>
-      <blockquote class="quote-one red-quote">
-        <% if current_family.amount_due > 0 %>
-            <a style="text-decoration: underline;" href="<%= payments_index_path %>">Make Payment</a>
-        <% end %>
-        <% unless current_family.onk_member? %>
-          <a class="onk_membership" style="text-decoration: underline;" href="#">Become an Oya No Kai member</a>
-        <% end %>
-        Electronically Sign Waivers (available soon)
-        <% unless current_family.diet_and_allergy_complete? %>
-          <a style="text-decoration: underline;" href="<%= profile_campers_path %>">Specify Dietary Restrictions and Allergies</a>
-        <% end %>
-      </blockquote>
-      <br/>
-      <span style="font-weight:bold;">Optional:</span>
-      <blockquote class="quote-one blue-quote">
-        <ul>
-          <a style="color:rgba(52, 152, 219,1.0);text-decoration: underline;" href="<%= profile_campers_path %>">Volunteer to Lead Activities</a>
-        </ul>
-      </blockquote>
-      <br/>
-      <span style="font-weight:bold;">Completed:</span>
-      <blockquote class="quote-one green-quote">
-        <% if current_family.onk_member? %>
-          Become an Oya No Kai member<br/>
-        <% end %>
-        <% if current_family.total_paid > 99 %>
-            Deposit has been paid<br/>
-        <% end %>
-        <% if current_family.amount_due == 0 %>
-            Full payment has been made<br/>
-        <% end %>
-        <% if current_family.diet_and_allergy_complete? %>
-            Specify Dietary Restrictions and Allergies<br/>
-        <% end %>
-      </blockquote>
-      <br/>
-      <span style="font-weight:bold;">Other families attending your weekend:</span><br/>
+      <% if current_family.week > 0 %>
+        <span style="font-weight:bold;">Required, Not yet completed:</span>
+        <blockquote class="quote-one red-quote">
+          <% if current_family.amount_due > 0 %>
+              <a style="text-decoration: underline;" href="<%= payments_index_path %>">Make Payment</a>
+          <% end %>
+          <% unless current_family.onk_member? %>
+            <a class="onk_membership" style="text-decoration: underline;" href="#">Become an Oya No Kai member</a>
+          <% end %>
+          Electronically Sign Waivers (available soon)
+          <% unless current_family.diet_and_allergy_complete? %>
+            <a style="text-decoration: underline;" href="<%= profile_campers_path %>">Specify Dietary Restrictions and Allergies</a>
+          <% end %>
+        </blockquote>
+        <br/>
+        <span style="font-weight:bold;">Optional:</span>
+        <blockquote class="quote-one blue-quote">
+          <ul>
+            <a style="color:rgba(52, 152, 219,1.0);text-decoration: underline;" href="<%= profile_campers_path %>">Volunteer to Lead Activities</a>
+          </ul>
+        </blockquote>
+        <br/>
+        <span style="font-weight:bold;">Completed:</span>
+        <blockquote class="quote-one green-quote">
+          <% if current_family.onk_member? %>
+            Become an Oya No Kai member<br/>
+          <% end %>
+          <% if current_family.total_paid > 99 %>
+              Deposit has been paid<br/>
+          <% end %>
+          <% if current_family.amount_due == 0 %>
+              Full payment has been made<br/>
+          <% end %>
+          <% if current_family.diet_and_allergy_complete? %>
+              Specify Dietary Restrictions and Allergies<br/>
+          <% end %>
+        </blockquote>
+        <br/>
+      <% end %>
+
+      <% if current_family.week > 0 %>
+        <span style="font-weight:bold;">Other families attending your weekend:</span><br/>
+      <% else %>
+        <span style="font-weight:bold;">Other families currently on the wait list:</span><br/>
+      <% end %>
+
       <% @others.each do |family| %>
           <%= family.bread_winner.first %> <%= family.bread_winner.last %>,
       <% end %>
