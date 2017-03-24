@@ -16,7 +16,9 @@
   <li class="mobile-navigation-breadcrumb">
     <em>Navigation</em>
   </li>
+
   <% if current_user != nil %>
+
     <li style="margin-right:0;margin-left:30px;">
       <p id="logout1" style="margin-top:15px;">
         <i class="fa fa-user"></i>
@@ -25,7 +27,19 @@
         <!--em><%= current_user.email %></em-->
       </p>
     </li>
+    <li style="margin-right:0;">
+      <p id="admbyweek" style="margin-top:15px;">
+        <a href="<%= wmgr_weeks_path %>">
+          <i class="fa fa-user"></i>
+          <i class="fa fa-circle"></i>
+          Weekly View
+          <em>admin by week</em>
+        </a>
+      </p>
+    </li>
+
   <% elsif current_family != nil %>
+
     <li style="margin-right:0;">
       <p id="logout2" style="margin-top:15px;">
         <i class="fa fa-user"></i>
@@ -74,7 +88,9 @@
         </a>
       </p>
     </li>
+
   <% else %>
+
     <li>
       <p style="margin-top:15px;">
         <a href="<%= forgot_s_url %>">

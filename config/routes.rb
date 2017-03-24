@@ -25,8 +25,8 @@ Rails.application.routes.draw do
   #  resources :teachers, :students
   #end
 
-  match '/wmgr'                  => 'wmgr/overviews#index',        :as => :wmgr_overviews,     :via => :get
-  match '/wmgr/pledge/email/:id' => 'wmgr/overviews#pledge_email', :as => :wmgr_pledge_email,  :via => :get
+  match '/wmgr'       => 'wmgr/overviews#index',  :as => :wmgr_overviews,  :via => :get
+  match '/wmgr/weeks' => 'wmgr/weeks#index',      :as => :wmgr_weeks,      :via => :get
 
   root 'logins#home'
 

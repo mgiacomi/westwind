@@ -1,4 +1,4 @@
-class Rmgr::OverviewsController < ApplicationController
+class Wmgr::OverviewsController < ApplicationController
   before_filter :authenticate_user!
   before_filter do
     redirect_to :denied unless current_user.admin?

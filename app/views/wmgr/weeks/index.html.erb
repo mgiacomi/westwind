@@ -1,0 +1,114 @@
+<script>
+    jQuery(document).ready(function () {
+        jQuery("tr:odd").addClass("even");
+    });
+</script>
+
+<div class="content">
+  <div class="full-bottom"></div>
+  <div class="box-960 half-bottom">
+
+    <div class="horizontalTab r-tabs">
+      <ul class="r-tabs-nav">
+        <li class="r-tabs-tab r-tabs-state-active"><a href="#tab-1" class="r-tabs-anchor">Week 1</a></li>
+        <li class="r-tabs-state-default r-tabs-tab"><a href="#tab-2" class="r-tabs-anchor">Week 2</a></li>
+        <li class="r-tabs-state-default r-tabs-tab"><a href="#tab-3" class="r-tabs-anchor">Week 3</a></li>
+      </ul>
+
+      <div class="r-tabs-accordion-title r-tabs-state-active"><a href="#tab-1" class="r-tabs-anchor">Tab 1</a></div>
+      <div id="tab-1" class="r-tabs-panel r-tabs-state-active" style="overflow: hidden; display: block;">
+        <h6 class="half-bottom">Week 1</h6>
+        <p class="half-bottom">
+
+          <table class="table">
+            <tbody><tr>
+              <th class="table-title">Loggery #</th>
+              <th class="table-title">Family</th>
+              <th class="table-title">Adults</th>
+              <th class="table-title">Kids</th>
+              <th class="table-title">ONK</th>
+              <th class="table-title">Paid</th>
+              <th class="table-title">Due</th>
+            </tr>
+            <% @week1.each do |family| %>
+                <tr>
+                  <td><%= family.lottery %></td>
+                  <td><%= family.name %></td>
+                  <td><%= family.adults %></td>
+                  <td><%= family.kids %></td>
+                  <td><%= family.onk_member? ? "Y" : "" %></td>
+                  <td><%= number_to_currency(family.total_paid) %></td>
+                  <td><%= number_to_currency(family.amount_due) %></td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+
+        </p>
+      </div>
+      <div class="r-tabs-accordion-title"><a href="#tab-2" class="r-tabs-anchor">Tab 2</a></div>
+      <div id="tab-2" class="r-tabs-state-default r-tabs-panel">
+        <h6 class="half-bottom">Week 2</h6>
+        <p class="half-bottom">
+
+          <table class="table">
+            <tbody><tr>
+              <th class="table-title">Loggery #</th>
+              <th class="table-title">Family</th>
+              <th class="table-title">Adults</th>
+              <th class="table-title">Kids</th>
+              <th class="table-title">ONK</th>
+              <th class="table-title">Paid</th>
+              <th class="table-title">Due</th>
+            </tr>
+            <% @week2.each do |family| %>
+                <tr>
+                  <td><%= family.lottery %></td>
+                  <td><%= family.name %></td>
+                  <td><%= family.adults %></td>
+                  <td><%= family.kids %></td>
+                  <td><%= family.onk_member? ? "Y" : "" %></td>
+                  <td><%= number_to_currency(family.total_paid) %></td>
+                  <td><%= number_to_currency(family.amount_due) %></td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+
+        </p>
+      </div>
+      <div class="r-tabs-accordion-title"><a href="#tab-3" class="r-tabs-anchor">Tab 3</a></div>
+      <div id="tab-3" class="r-tabs-state-default r-tabs-panel">
+        <h6 class="half-bottom">Week 3</h6>
+        <p class="half-bottom">
+
+          <table class="table">
+            <tbody><tr>
+              <th class="table-title">Loggery #</th>
+              <th class="table-title">Family</th>
+              <th class="table-title">Adults</th>
+              <th class="table-title">Kids</th>
+              <th class="table-title">ONK</th>
+              <th class="table-title">Paid</th>
+              <th class="table-title">Due</th>
+            </tr>
+            <% @week3.each do |family| %>
+                <tr>
+                  <td><%= family.lottery %></td>
+                  <td><%= family.name %></td>
+                  <td><%= family.adults %></td>
+                  <td><%= family.kids %></td>
+                  <td><%= family.onk_member? ? "Y" : "" %></td>
+                  <td><%= number_to_currency(family.total_paid) %></td>
+                  <td><%= number_to_currency(family.amount_due) %></td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
