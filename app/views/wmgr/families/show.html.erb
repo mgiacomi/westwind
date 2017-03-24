@@ -28,7 +28,7 @@
 
     <span style="font-weight:bold;"><%= @family.name %> Family</span><br/><br/>
 
-    <a href="#" class="onk_membership checkbox checkbox-class-1 <%= @family.onk_member? ? 'checkbox-unselected-1' : '' %>">ONK Member</a>
+    <a href="#" class="onk_membership checkbox checkbox-class-1 <%= @family.onk_member? ? '' : 'checkbox-unselected-1' %>">ONK Member</a>
 
     <% if @payment.errors.any? %>
         <div id="error_explanation">
