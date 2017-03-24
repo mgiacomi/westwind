@@ -81,7 +81,7 @@
           <td><%= payment.pmtdate.strftime "%m/%d/%Y" %></td>
           <td><%= payment.pmttype %></td>
           <td class="price"><%= number_to_currency(payment.amount) %></td>
-          <td class="price"><%= number_to_currency(payment.amount) %></td>
+          <td class="price"><%= number_to_currency(payment.fee) %></td>
           <td><img data-payment-id="<%= payment.id %>" class="remove_pmt" style="display:inline;" src="/images/remove.png"/></td>
         </tr>
       <% end %>
