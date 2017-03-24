@@ -7,15 +7,14 @@ class PaymentsController < ApplicationController
 
   def receipt
     if params[:payment_status] == "Completed"
-      reg_id = params[:invoice].split('-')[0]
-      registration = Registration.find reg_id
+      family_id = params[:invoice].split('-')[0]
 
       payment = Payment.new
       payment.amount = params[:payment_gross]
       payment.fee = params[:payment_fee]
       payment.pmtdate = params[:payment_date]
       payment.pmtnum = "Paypal"
-      payment.registration = registration
+      payment.family_id = family_id
       payment.user = current_user
 
       if payment.save
@@ -28,11 +27,11 @@ class PaymentsController < ApplicationController
 
   def onk_receipt
     if params[:payment_status] == "Completed"
-      reg_id = params[:invoice].split('-')[0]
-      registration = Registration.find reg_id
-      registration.onk = true
+      id = params[:invoice].split('-')[0]
+      family = Family.find id
+      family.onk_member = true
 
-      if registration.save
+      if family.save
         logger.info "ONK Membership added for registration id: #{registration.id}"
       else
         logger.info "Failed to add ONK Membership for registration id: #{registration.id}"
