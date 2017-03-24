@@ -1,7 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.action_mailer.default_url_options = { :host => 'read4richmond.com' }
+  config.action_mailer.default_url_options = { :host => 'westwindonk.herokuapp.com' }
 
   ActionMailer::Base.smtp_settings = {
       :user_name => ENV['SENDGRID_USERNAME'],
