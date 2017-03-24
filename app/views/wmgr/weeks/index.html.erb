@@ -33,7 +33,7 @@
             <% @week1.each do |family| %>
                 <tr>
                   <td><%= family.lottery %></td>
-                  <td><%= family.name %></td>
+                  <td><a style="text-decoration: underline" href="<%= wmgr_family_path(family.id) %>"><%= family.name %></a></td>
                   <td><%= family.adults %></td>
                   <td><%= family.kids %></td>
                   <td><%= family.onk_member? ? "Y" : "" %></td>
@@ -64,7 +64,7 @@
             <% @week2.each do |family| %>
                 <tr>
                   <td><%= family.lottery %></td>
-                  <td><%= family.name %></td>
+                  <td><a style="text-decoration: underline" href="<%= wmgr_family_path(family.id) %>"><%= family.name %></a></td>
                   <td><%= family.adults %></td>
                   <td><%= family.kids %></td>
                   <td><%= family.onk_member? ? "Y" : "" %></td>
@@ -95,7 +95,7 @@
             <% @week3.each do |family| %>
                 <tr>
                   <td><%= family.lottery %></td>
-                  <td><%= family.name %></td>
+                  <td><a style="text-decoration: underline" href="<%= wmgr_family_path(family.id) %>"><%= family.name %></a></td>
                   <td><%= family.adults %></td>
                   <td><%= family.kids %></td>
                   <td><%= family.onk_member? ? "Y" : "" %></td>

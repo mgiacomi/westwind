@@ -25,8 +25,12 @@ Rails.application.routes.draw do
   #  resources :teachers, :students
   #end
 
-  match '/wmgr'       => 'wmgr/overviews#index',  :as => :wmgr_overviews,  :via => :get
-  match '/wmgr/weeks' => 'wmgr/weeks#index',      :as => :wmgr_weeks,      :via => :get
+  match '/wmgr'                => 'wmgr/overviews#index',          :as => :wmgr_overviews,      :via => :get
+  match '/wmgr/weeks'          => 'wmgr/weeks#index',              :as => :wmgr_weeks,          :via => :get
+  match '/wmgr/family/:id'     => 'wmgr/families#show',            :as => :wmgr_family,         :via => :get
+  match '/wmgr/family/onk/:id' => 'wmgr/families#onk',             :as => :wmgr_onk,            :via => :post
+  match '/wmgr/payment/:id'    => 'wmgr/families#payment',         :as => :wmgr_payment,        :via => [:post,:put]
+  match '/wmgr/delete/payment' => 'wmgr/families#payment_delete',  :as => :wmgr_payment_delete, :via => :post
 
   root 'logins#home'
 

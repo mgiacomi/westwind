@@ -1,0 +1,92 @@
+<script>
+    jQuery(document).ready(function () {
+        jQuery("tr:odd").addClass("even");
+
+        jQuery(".onk_membership").click(function () {
+            $('#onk_member_form').submit()
+        });
+
+        jQuery(".remove_pmt").click(function () {
+            var payment_id = jQuery(this).data("payment-id");
+            jQuery("#payment_id").val(payment_id);
+            jQuery("#payment_delete_form").submit();
+        });
+
+    });
+</script>
+
+<%= form_tag wmgr_payment_delete_path, method: :post, id: 'payment_delete_form' do %>
+    <input type="hidden" id="payment_id" name="id"/>
+<% end %>
+
+<%= form_tag wmgr_onk_path(@family.id), method: :post, id: 'onk_member_form' do %>
+<% end %>
+
+<div class="content">
+  <div class="full-bottom"></div>
+  <div class="box-960 half-bottom">
+
+    <span style="font-weight:bold;"><%= @family.name %> Family</span><br/><br/>
+
+    <a href="#" class="onk_membership checkbox checkbox-class-1 <%= @family.onk_member? ? 'checkbox-unselected-1' : '' %>">ONK Member</a>
+
+    <% if @payment.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@payment.errors.count, "error") %> Error(s):</h2>
+
+          <ul>
+            <% @payment.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <br/>
+
+    <%= form_for @payment, :url => wmgr_payment_path(@family) do |f| %>
+        <table style="width:400px;border:1px solid #000">
+          <tr>
+            <td style="background-color:lightgrey;color:black;"><p style="margin-bottom:0;">Payment Type:</p></td>
+            <td style="background-color:grey;"><%= f.text_field :pmttype, style: "height:25px;" %></td>
+          </tr>
+          <tr>
+            <td style="background-color:lightgrey;color:black;"><p style="margin-bottom:0;">Payment Date:</p></td>
+            <td style="background-color:grey;"><%= f.text_field :pmtdate, style: "height:25px;" %></td>
+          </tr>
+          <tr>
+            <td style="background-color:lightgrey;color:black;"><p style="margin-bottom:0;">Payment Amount:</p></td>
+            <td style="background-color:grey;" nowrap="nowrap"><%= f.text_field :amount, style: "padding-top:0;padding-bottom:0;height:25px;width:185px;" %></td>
+          </tr>
+          <tr>
+            <td style="background-color:lightgrey;color:black;"><p style="margin-bottom:0;">Payment Fee:</p></td>
+            <td style="background-color:grey;" nowrap="nowrap"><%= f.text_field :fee, style: "padding-top:0;padding-bottom:0;height:25px;width:185px;" %></td>
+          </tr>
+        </table>
+        <br/>
+        <%= f.submit "Add Payment", class: "button button-green" %>
+    <% end %>
+    <br/>
+
+    <table class="table">
+      <tbody>
+      <tr>
+        <th class="table-title blue-title">Payment Date</th>
+        <th class="table-title blue-title">Type</th>
+        <th class="table-title blue-title">Amount</th>
+        <th class="table-title blue-title">Fee</th>
+        <th class="table-title blue-title">Remove?</th>
+      </tr>
+      <% @family.payments.each do |payment| %>
+        <tr>
+          <td><%= payment.pmtdate.strftime "%m/%d/%Y" %></td>
+          <td><%= payment.pmttype %></td>
+          <td class="price"><%= number_to_currency(payment.amount) %></td>
+          <td class="price"><%= number_to_currency(payment.amount) %></td>
+          <td><img data-payment-id="<%= payment.id %>" class="remove_pmt" style="display:inline;" src="/images/remove.png"/></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+  </div>
+</div>
