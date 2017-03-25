@@ -11,7 +11,6 @@
             jQuery("#payment_id").val(payment_id);
             jQuery("#payment_delete_form").submit();
         });
-
     });
 </script>
 
@@ -23,67 +22,89 @@
 <% end %>
 
 <div class="content">
-  <div class="full-bottom"></div>
+  <div class="half-bottom"></div>
   <div class="box-960 half-bottom">
 
     <span style="font-weight:bold;"><%= @family.name %> Family</span><br/><br/>
 
-    <a href="#" class="onk_membership checkbox checkbox-class-1 <%= @family.onk_member? ? '' : 'checkbox-unselected-1' %>">ONK Member</a>
+    <div class="one-half-responsive no-bottom" style="margin-right:0;">
+      <% if @payment.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@payment.errors.count, "error") %> Error(s):</h2>
 
-    <% if @payment.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@payment.errors.count, "error") %> Error(s):</h2>
+            <ul>
+              <% @payment.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+          <br/>
+      <% end %>
 
+      <%= form_for @payment, :url => wmgr_payment_path(@family) do |f| %>
+        <div class="pricing-table pricing-selected-green" style="max-width: 400px;">
+          <h2>
+            <%= number_to_currency(@family.amount_due) %>
+            <em>total due</em>
+          </h2>
           <ul>
-            <% @payment.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-            <% end %>
+            <li>Payment Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.text_field :pmttype, style: "height:25px;display:inline;border:1px solid gray;padding-left: 5px;" %></li>
+            <li>Payment Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.text_field :pmtdate, style: "height:25px;display:inline;border:1px solid gray;padding-left: 5px;" %></li>
+            <li>Payment Amount: <%= f.text_field :amount, style: "height:25px;display:inline;border:1px solid gray;padding-left: 5px;" %></li>
+            <li>Payment Fee:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.text_field :fee, style: "height:25px;display:inline;border:1px solid gray;padding-left: 5px;" %></li>
           </ul>
+          <%= f.submit "Add Payment", class: "button center-button button-green" %>
         </div>
-    <% end %>
-    <br/>
+      <% end %>
+      <br/>
 
-    <%= form_for @payment, :url => wmgr_payment_path(@family) do |f| %>
-        <table style="width:400px;border:1px solid #000">
-          <tr>
-            <td style="background-color:lightgrey;color:black;"><p style="margin-bottom:0;">Payment Type:</p></td>
-            <td style="background-color:grey;"><%= f.text_field :pmttype, style: "height:25px;" %></td>
-          </tr>
-          <tr>
-            <td style="background-color:lightgrey;color:black;"><p style="margin-bottom:0;">Payment Date:</p></td>
-            <td style="background-color:grey;"><%= f.text_field :pmtdate, style: "height:25px;" %></td>
-          </tr>
-          <tr>
-            <td style="background-color:lightgrey;color:black;"><p style="margin-bottom:0;">Payment Amount:</p></td>
-            <td style="background-color:grey;" nowrap="nowrap"><%= f.text_field :amount, style: "padding-top:0;padding-bottom:0;height:25px;width:185px;" %></td>
-          </tr>
-          <tr>
-            <td style="background-color:lightgrey;color:black;"><p style="margin-bottom:0;">Payment Fee:</p></td>
-            <td style="background-color:grey;" nowrap="nowrap"><%= f.text_field :fee, style: "padding-top:0;padding-bottom:0;height:25px;width:185px;" %></td>
-          </tr>
-        </table>
-        <br/>
-        <%= f.submit "Add Payment", class: "button button-green" %>
-    <% end %>
-    <br/>
+    </div>
+
+    <div class="one-half-responsive no-bottom" style="margin-right:0;">
+
+      <%= form_for @family, :url => wmgr_week_path(@family) do |f| %>
+        <div class="pricing-table pricing-selected-blue" style="max-width: 400px;">
+          <h1>
+            Weekend Details
+          </h1>
+          <ul>
+            <li style="text-align: left;padding-left:100px;">
+              <a href="#" style="width:130px;padding-top:3px;" class="onk_membership checkbox checkbox-class-1 <%= @family.onk_member? ? '' : 'checkbox-unselected-1' %>">ONK Member</a>
+            </li>
+            <li style="text-align: left;padding-left:100px;">
+              Weekend
+              <select name="week" <% unless current_user.email == "mgiacomi@gltech.com" %>disabled=true;<% end %> style="height:25px;margin-left:10px;padding-left:20px;width:95px;border:1px solid gray;">
+                <option value="1" <% if @family.week == 1 %>selected="true"<% end %>>Week 1</option>
+                <option value="2" <% if @family.week == 2 %>selected="true"<% end %>>Week 2</option>
+                <option value="3" <% if @family.week == 3 %>selected="true"<% end %>>Week 3</option>
+                <option value="0" <% if @family.week == 0 %>selected="true"<% end %>>Wait List</option>
+              </select>
+            </li>
+          </ul>
+          <input type="submit" <% unless current_user.email == "mgiacomi@gltech.com" %>disabled=true;<% end %> class="button center-button button-blue" value="Update Week"/>
+        </div>
+      <% end %>
+    </div>
 
     <table class="table">
       <tbody>
       <tr>
-        <th class="table-title blue-title">Payment Date</th>
-        <th class="table-title blue-title">Type</th>
-        <th class="table-title blue-title">Amount</th>
-        <th class="table-title blue-title">Fee</th>
-        <th class="table-title blue-title">Remove?</th>
+        <th class="table-title">Payment Date</th>
+        <th class="table-title">Type</th>
+        <th class="table-title">Amount</th>
+        <th class="table-title">Fee</th>
+        <th class="table-title">Remove?</th>
       </tr>
       <% @family.payments.each do |payment| %>
-        <tr>
-          <td><%= payment.pmtdate.strftime "%m/%d/%Y" %></td>
-          <td><%= payment.pmttype %></td>
-          <td class="price"><%= number_to_currency(payment.amount) %></td>
-          <td class="price"><%= number_to_currency(payment.fee) %></td>
-          <td><img data-payment-id="<%= payment.id %>" class="remove_pmt" style="display:inline;" src="/images/remove.png"/></td>
-        </tr>
+          <tr>
+            <td><%= payment.pmtdate.strftime "%m/%d/%Y" %></td>
+            <td><%= payment.pmttype %></td>
+            <td class="price"><%= number_to_currency(payment.amount) %></td>
+            <td class="price"><%= number_to_currency(payment.fee) %></td>
+            <td>
+              <img data-payment-id="<%= payment.id %>" class="remove_pmt" style="display:inline;" src="/images/remove.png"/>
+            </td>
+          </tr>
       <% end %>
       </tbody>
     </table>

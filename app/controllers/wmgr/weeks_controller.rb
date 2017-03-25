@@ -8,6 +8,7 @@ class Wmgr::WeeksController < ApplicationController
     @week1 = Family.where(week: 1).order(:lottery)
     @week2 = Family.where(week: 2).order(:lottery)
     @week3 = Family.where(week: 3).order(:lottery)
+    @waitlist = Family.where(week: 0).order(:lottery)
   end
 
 end

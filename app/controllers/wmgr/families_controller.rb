@@ -17,6 +17,17 @@ class Wmgr::FamiliesController < ApplicationController
     redirect_to wmgr_family_path(family.id), notice: "ONK Membership Updated"
   end
 
+  def week
+    @family = Family.find params[:id]
+    @family.week = params[:week]
+
+    if @family.save
+      redirect_to wmgr_family_path(@family.id), notice: 'Week has been updated.'
+    else
+      render action: "view", alert: "Failed to change week."
+    end
+  end
+
   def payment
     @family = Family.find params[:id]
     @payment = Payment.new(payment_params(params))
