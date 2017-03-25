@@ -1,0 +1,40 @@
+<script>
+    jQuery(document).ready(function () {
+        jQuery("tr:odd").addClass("even");
+    });
+</script>
+
+<%= render '/wmgr/includes/search' %>
+
+<div class="content">
+  <div class="full-bottom"></div>
+  <div class="box-960 half-bottom">
+
+      <table class="table">
+        <tbody><tr>
+          <th class="table-title">Loggery #</th>
+          <th class="table-title">Family</th>
+          <th class="table-title">Code</th>
+          <th class="table-title">Adults</th>
+          <th class="table-title">Kids</th>
+          <th class="table-title">ONK</th>
+          <th class="table-title">Paid</th>
+          <th class="table-title">Due</th>
+        </tr>
+        <% @results.each do |family| %>
+            <tr>
+              <td><%= family.lottery %></td>
+              <td><a style="text-decoration: underline" href="<%= wmgr_family_path(family.id) %>"><%= family.name %></a></td>
+              <td><%= family.code %></td>
+              <td><%= family.adults %></td>
+              <td><%= family.kids %></td>
+              <td><%= family.onk_member? ? "Y" : "" %></td>
+              <td><%= number_to_currency(family.total_paid) %></td>
+              <td><%= number_to_currency(family.amount_due) %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+  </div>
+</div>

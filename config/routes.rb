@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   #end
 
   match '/wmgr'                => 'wmgr/overviews#index',          :as => :wmgr_overviews,      :via => :get
+  match '/wmgr/search'         => 'wmgr/overviews#search',         :as => :wmgr_search,         :via => :post
   match '/wmgr/weeks'          => 'wmgr/weeks#index',              :as => :wmgr_weeks,          :via => :get
   match '/wmgr/family/:id'     => 'wmgr/families#show',            :as => :wmgr_family,         :via => :get
   match '/wmgr/family/onk/:id' => 'wmgr/families#onk',             :as => :wmgr_onk,            :via => :post

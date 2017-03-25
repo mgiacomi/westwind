@@ -21,6 +21,11 @@ class Wmgr::OverviewsController < ApplicationController
     }
   end
 
+  def search
+    puts params[:search]
+    @results = Family.where("lower(name) like ?", "%#{params[:search]}%")
+  end
+
   def unregistered
     @students = Family.where("accepted_date is null")
     headers['Content-Disposition'] = "attachment; filename=\"unregistered_students.csv\""

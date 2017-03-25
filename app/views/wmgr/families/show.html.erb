@@ -14,6 +14,8 @@
     });
 </script>
 
+<%= render '/wmgr/includes/search' %>
+
 <%= form_tag wmgr_payment_delete_path, method: :post, id: 'payment_delete_form' do %>
     <input type="hidden" id="payment_id" name="id"/>
 <% end %>
