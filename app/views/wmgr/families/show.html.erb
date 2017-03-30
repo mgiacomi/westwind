@@ -27,7 +27,9 @@
   <div class="half-bottom"></div>
   <div class="box-960 half-bottom">
 
-    <span style="font-weight:bold;"><%= @family.name %> Family</span><br/><br/>
+    <span style="font-weight:bold;"><%= @family.name %> Family:</span>
+    <% @family.members.each do |adult|%><%= "#{adult.first} #{adult.last}, " %><% end %>
+    <br/><br/>
 
     <div class="one-half-responsive no-bottom" style="margin-right:0;">
       <% if @payment.errors.any? %>
@@ -67,11 +69,20 @@
       <%= form_for @family, :url => wmgr_week_path(@family) do |f| %>
         <div class="pricing-table pricing-selected-blue" style="max-width: 400px;">
           <h1>
-            Weekend Details
+            Family Details
           </h1>
           <ul>
             <li style="text-align: left;padding-left:100px;">
               <a href="#" style="width:130px;padding-top:3px;" class="onk_membership checkbox checkbox-class-1 <%= @family.onk_member? ? '' : 'checkbox-unselected-1' %>">ONK Member</a>
+            </li>
+            <li style="text-align: left;padding-left:100px;">
+              Email: <%= @family.email %>
+            </li>
+            <li style="text-align: left;padding-left:100px;">
+              Phone: <%= @family.phone %>
+            </li>
+            <li style="text-align: left;padding-left:100px;">
+              Code: <%= @family.code %>
             </li>
             <li style="text-align: left;padding-left:100px;">
               Weekend

@@ -1,7 +1,7 @@
 class Family < ActiveRecord::Base
   include CodeGen, Obscure
 
-  has_many :people
+  has_many :members, class_name: "People"
   has_many :payments
 
   def bread_winner
