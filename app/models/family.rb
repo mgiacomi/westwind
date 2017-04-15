@@ -1,5 +1,5 @@
 class Family < ActiveRecord::Base
-  include CodeGen, Obscure
+  include SummaryMgr, CodeGen, Obscure
 
   has_many :members, class_name: "People"
   has_many :payments
@@ -30,7 +30,7 @@ class Family < ActiveRecord::Base
     weekend_total - total_paid
   end
 
-  def weekend_total
+  def amount_per_person
     case week
       when 1
         amount = 70
@@ -41,7 +41,10 @@ class Family < ActiveRecord::Base
       else
         amount = 0
     end
+  end
 
+  def weekend_total
+    amount = amount_per_person
     amount * People.where(family_id: id).count
   end
 
