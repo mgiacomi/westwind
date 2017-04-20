@@ -10,11 +10,7 @@ class Family < ActiveRecord::Base
 
   def diet_and_allergy_complete?
     People.where(family_id: id).each do |person|
-      if !person.vegetarian? && !person.vegan? && !person.pescetarian? && !person.gluten_free? && !person.lactose_free? && !person.no_dietary_issues?
-        return false
-      end
-      if !person.no_allergies? && person.allergies.blank?
-        puts "before"
+      if !person.diet_and_allergy_complete?
         return false
       end
     end
