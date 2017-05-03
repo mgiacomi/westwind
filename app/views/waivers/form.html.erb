@@ -49,9 +49,8 @@
           <br/><br/>
 
           <blockquote class="quote-one">
-            I am "<%= "#{@person.first} #{@person.last}" %>", or I am the legal guardian of
-            "<%= "#{@person.first} #{@person.last}" %>"?
-            <br/>
+            One of the following statements needs to be true to sign this form.
+            If not, don't continue or sign this form.
             <select name="waiver[relationship]" style="-webkit-appearance: menulist; border:1px solid black; padding:3px;">
               <option></option>
               <option <%= (@waiver.relationship == "I am #{@person.first} #{@person.last}") ? 'selected="selected"' : "" %>>

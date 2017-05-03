@@ -87,7 +87,7 @@
             <a class="onk_membership" style="text-decoration: underline;" href="#">Become an Oya No Kai member</a>
           <% end %>
           <% unless current_family.waivers_complete? %>
-              Electronically Sign Waivers
+              <a href="<%= waivers_index_path %>" style="text-decoration: underline;">Electronically Sign Waivers</a>
           <% end %>
           <% unless current_family.diet_and_allergy_complete? %>
             <a style="text-decoration: underline;" href="<%= profile_campers_path %>">Specify Dietary Restrictions and Allergies</a>
