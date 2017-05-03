@@ -86,7 +86,9 @@
           <% unless current_family.onk_member? %>
             <a class="onk_membership" style="text-decoration: underline;" href="#">Become an Oya No Kai member</a>
           <% end %>
-          Electronically Sign Waivers (available soon)
+          <% unless current_family.waivers_complete? %>
+              Electronically Sign Waivers
+          <% end %>
           <% unless current_family.diet_and_allergy_complete? %>
             <a style="text-decoration: underline;" href="<%= profile_campers_path %>">Specify Dietary Restrictions and Allergies</a>
           <% end %>
@@ -103,6 +105,9 @@
         <blockquote class="quote-one green-quote">
           <% if current_family.onk_member? %>
             Become an Oya No Kai member<br/>
+          <% end %>
+          <% if current_family.waivers_complete? %>
+              Sign Waivers Complete<br/>
           <% end %>
           <% if current_family.total_paid > 99 %>
               Deposit has been paid<br/>
