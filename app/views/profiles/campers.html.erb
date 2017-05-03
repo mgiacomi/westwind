@@ -18,12 +18,14 @@
 <div class="content">
   <div class="box-960">
     <%= render '/includes/breadcrumb', page_name: 'Campers' %>
-    Details about people in your party.  Let us know your eating preferences, allergies, and volunteer preferences.
-    <span style="text-decoration: underline;">You must select an option for Dietary Preferences</span>.  If you have No Dietary Preferences then make sure to select that,
-    or you have not completed your preferences.  Same for allergies.  <span style="text-decoration: underline;">If you have an allergy then list it,
-    otherwise you need to select "No Allergies"</span>.
-
-    <br/><br/>
+    <div class="half-bottom" style="margin-right:0;">
+      <p class="dropcaps dropcaps-1">
+        Details about people in your party.  Let us know your eating preferences, allergies, and volunteer preferences.
+        <span style="text-decoration: underline;">You must select an option for Dietary Preferences</span>.  If you have No Dietary Preferences then make sure to select that,
+        or you have not completed your preferences.  Same for allergies.  <span style="text-decoration: underline;">If you have an allergy then list it,
+        otherwise you need to select "No Allergies"</span>.
+      </p>
+    </div>
     <div class="one-half-responsive no-bottom" style="margin-right:0;">
       <% @adults.each do |adult| %>
         <blockquote class="quote-one blue-quote">

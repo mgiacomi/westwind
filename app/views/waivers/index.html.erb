@@ -1,0 +1,112 @@
+<script>
+    jQuery(document).ready(function () {
+        jQuery("tr:odd").addClass("even");
+    });
+</script>
+
+<div class="content">
+  <div class="box-960">
+    <%= render '/includes/breadcrumb', page_name: 'Waivers' %>
+
+    <div class="one-half-responsive no-bottom" style="margin-right:0;">
+      <p class="dropcaps dropcaps-1">
+        Waivers must be filled out for each member of your party, and must be filled out before your departure date.
+        Adults should sign a waiver for theselves and for their children.  You should forward a waiver to the guardian of
+        any child that you are bringing that is not your own.
+        <br/><br/>
+      <table>
+        <tr>
+          <td style="text-align:left;font-weight:bold;">Family:</td>
+          <td style="text-align:left;"><%= current_family.name %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left;font-weight:bold;">Lottery#</td>
+          <td style="text-align:left;"><%= current_family.lottery %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left;font-weight:bold;">Weekend:</td>
+          <td style="text-align:left;"><%= current_family.week_desc %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left;font-weight:bold;">Phone:</td>
+          <td style="text-align:left;"><%= current_family.phone %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left;font-weight:bold;">Email:</td>
+          <td style="text-align:left;"><%= current_family.email %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left;font-weight:bold;">Adults:</td>
+          <td style="text-align:left;"><%= current_family.adults %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left;font-weight:bold;">Kids:</td>
+          <td style="text-align:left;"><%= current_family.kids %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left;font-weight:bold;">Weekend Total:</td>
+          <td style="text-align:left;"><%= number_to_currency(current_family.weekend_total) %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left;font-weight:bold;">Amount Due:</td>
+          <td style="text-align:left;"><%= number_to_currency(current_family.amount_due) %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left;font-weight:bold;">ONK Member:</td>
+          <td style="text-align:left;"><%= current_family.onk_member? ? 'Yes' : 'No' %></td>
+        </tr>
+      </table>
+      </p>
+      <br/>
+    </div>
+
+    <div class="decoration hide-if-responsive"></div>
+
+    <div class="one-fifth-responsive one-half-full" style="float:right;">
+
+      <% if current_family.waivers_complete? %>
+          <blockquote class="quote-one green-quote">
+            All your waivers have been completed.
+          </blockquote>
+      <% else %>
+          <blockquote class="quote-one red-quote">
+            Waivers still need to be completed for your party
+          </blockquote>
+      <% end %>
+
+      <br/>
+
+      <span style="font-weight:bold;">Waivers:</span>
+      <table class="table">
+        <tbody>
+        <tr>
+          <th class="table-title blue-title">Name</th>
+          <th class="table-title blue-title">Type</th>
+          <th class="table-title blue-title">Status</th>
+        </tr>
+        <% current_family.members.each do |person| %>
+            <tr>
+              <td><%= "#{person.first} #{person.last}" %></td>
+              <td class="price"><%= person.grade %></td>
+              <td>
+                <% if !person.waiver.nil? && person.waiver.complete? %>
+                    <span style="font-weight:bold;color:green;">Completed</span>
+                <% else %>
+                    <a style="display:inline;" href="<%= waivers_form_path person.id %>">Sign</a> / Email
+                <% end %>
+              </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+      <br/>
+      If you are filling out a waiver for yourself or child, then click the 'Sign' link.
+      Waivers for friends of the family can be emailed to their legal guardian via the 'Email' link.
+
+    </div>
+    <div class="clear"></div>
+    <br/>
+  </div>
+</div>
+

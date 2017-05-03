@@ -8,9 +8,19 @@ class Family < ActiveRecord::Base
     People.where(family_id: id, grade: 'Adult').first
   end
 
+  def waivers_complete?
+    members.each do |person|
+      if person.waiver.nil? || !person.waiver.complete?
+        return false
+      end
+    end
+
+    true
+  end
+
   def diet_and_allergy_complete?
-    People.where(family_id: id).each do |person|
-      if !person.diet_and_allergy_complete?
+    members.each do |person|
+      unless person.diet_and_allergy_complete?
         return false
       end
     end

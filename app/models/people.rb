@@ -1,5 +1,6 @@
 class People < ActiveRecord::Base
 
+  has_one :waiver,foreign_key: 'person_id'
   belongs_to :family
 
   def diet_and_allergy_complete?
