@@ -14,7 +14,7 @@ module SummaryMgr
           deposit_paid: deposit_paid(families, payments),
           paid_full: paid_full(families, people, payments),
           dietary: dietary(families, people),
-          #waivers: not_paid_full(people),
+          waivers: waivers(families, people),
       }
     end
 
@@ -199,6 +199,52 @@ module SummaryMgr
         end
 
         if dietary_missing.nil? || dietary_missing.length == 0
+          if family.week == 1
+            week1n << family
+          end
+          if family.week == 2
+            week2n << family
+          end
+          if family.week == 3
+            week3n << family
+          end
+        else
+          if family.week == 1
+            week1y << family
+          end
+          if family.week == 2
+            week2y << family
+          end
+          if family.week == 3
+            week3y << family
+          end
+        end
+      end
+
+      totaly = week1y.length + week2y.length + week3y.length
+      totaln = week1n.length + week2n.length + week3n.length
+      {week1y: week1y, week2y: week2y, week3y: week3y, totaly: totaly,
+       week1n: week1n, week2n: week2n, week3n: week3n, totaln: totaln}
+    end
+
+    def waivers families, people
+      week1y = Array.new
+      week2y = Array.new
+      week3y = Array.new
+      week1n = Array.new
+      week2n = Array.new
+      week3n = Array.new
+
+      families.each do |family|
+        f_people = people.select do |p|
+          p.family_id == family.id
+        end
+
+        waiver_missing = f_people.select do |p|
+          p.waiver.nil? || !p.waiver.complete?
+        end
+
+        if waiver_missing.nil? || waiver_missing.length == 0
           if family.week == 1
             week1n << family
           end

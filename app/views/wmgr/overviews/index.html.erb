@@ -60,9 +60,9 @@
     </tr>
     <tr>
       <td style="font-weight:bold;color:green;">WAIVERS COMPLETE</td>
-      <td>TBD</td>
-      <td>TBD</td>
-      <td>TBD</td>
+      <td><%= @summary[:waivers][:week1n].length %></td>
+      <td><%= @summary[:waivers][:week2n].length %></td>
+      <td><%= @summary[:waivers][:week3n].length %></td>
     </tr>
     <tr>
       <td style="font-weight:bold;color:red;">!ONK MEMBERS</td>
@@ -90,9 +90,9 @@
     </tr>
     <tr>
       <td style="font-weight:bold;color:red;">WAIVERS TO BE COMPLETED</td>
-      <td>TBD</td>
-      <td>TBD</td>
-      <td>TBD</td>
+      <td><%= @summary[:waivers][:week1y].length %></td>
+      <td><%= @summary[:waivers][:week2y].length %></td>
+      <td><%= @summary[:waivers][:week3y].length %></td>
     </tr>
     </tbody>
   </table>
