@@ -1,0 +1,30 @@
+<%- headers = ['Week', 'Family', 'Last', 'First', 'Grade', 'Vegetarian', 'Vegan', 'Pescetarian', 'Gluten Free', 'Lactose Free', 'No Dietary Issues', 'No Allergies', 'Allergies', 'Meal Captain', 'Campfire Leader', 'Cascade Head', 'Mud Mucking', 'Crafts', 'Sand Castles', 'Waiver Signed'] -%>
+<%= CSV.generate_line headers -%>
+<%=
+  CSV.generate do |csv|
+    @people.each do |person|
+      csv << [
+          person.family.week,
+          person.family.name,
+          person.last,
+          person.first,
+          person.grade,
+          person.vegetarian? ? '1' : '',
+          person.vegan? ? '1' : '',
+          person.pescetarian? ? '1' : '',
+          person.gluten_free? ? '1' : '',
+          person.lactose_free? ? '1' : '',
+          person.no_dietary_issues? ? '1' : '',
+          person.no_allergies? ? '1' : '',
+          person.allergies,
+          person.volunteer_meal_captain? ? '1' : '',
+          person.volunteer_campfire_leader? ? '1' : '',
+          person.volunteer_cascade_head? ? '1' : '',
+          person.volunteer_mud_mucking? ? '1' : '',
+          person.volunteer_crafts? ? '1' : '',
+          person.volunteer_sand_castles? ? '1' : '',
+          person.waiver_signed? ? '1' : ''
+      ]
+    end
+  end.html_safe
+%>

@@ -1,7 +1,7 @@
 <script>
-  jQuery(document).ready(function () {
-    jQuery("tr:even").addClass("even");
-  });
+    jQuery(document).ready(function () {
+        jQuery("tr:even").addClass("even");
+    });
 </script>
 
 <%= render '/wmgr/includes/search' %>
@@ -10,93 +10,95 @@
   <div class="half-bottom"></div>
   <div class="box-960 half-bottom">
 
-  <h4 style="float:left;">Camp Westwind Overview</h4>
-  <div style="float:right;"><%= Time.zone.now.strftime "%m/%d/%Y %H:%M:%S" %></div>
-  <div style="clear:both"></div>
+    <h4 style="float:left;">Camp Westwind Overview</h4>
+    <div style="float:right;"><%= Time.zone.now.strftime "%m/%d/%Y %H:%M:%S" %></div>
+    <div style="clear:both"></div>
 
-  <table class="table">
-    <tbody>
-    <tr>
-      <th></th>
-      <th class="table-title blue-title">WEEK 1</th>
-      <th class="table-title orange-title">WEEK 2</th>
-      <th class="table-title purple-title">WEEK 3</th>
-    </tr>
-    <tr>
-      <td style="font-weight:bold;">FAMILIES</td>
-      <td><%= @summary[:registered][:week1].length %></td>
-      <td><%= @summary[:registered][:week2].length %></td>
-      <td><%= @summary[:registered][:week3].length %></td>
-    </tr>
-    <tr>
-      <td style="font-weight:bold;">PEOPLE</td>
-      <td><%= @summary[:people][:week1].length %></td>
-      <td><%= @summary[:people][:week2].length %></td>
-      <td><%= @summary[:people][:week3].length %></td>
-    </tr>
-    <tr>
-      <td style="font-weight:bold;color:green;">ONK MEMBERS</td>
-      <td><%= @summary[:onk_members][:week1y].length %></td>
-      <td><%= @summary[:onk_members][:week2y].length %></td>
-      <td><%= @summary[:onk_members][:week3y].length %></td>
-    </tr>
-    <tr>
-      <td style="font-weight:bold;color:green;">DEPOSIT PAID</td>
-      <td><%= @summary[:deposit_paid][:week1y].length %></td>
-      <td><%= @summary[:deposit_paid][:week2y].length %></td>
-      <td><%= @summary[:deposit_paid][:week3y].length %></td>
-    </tr>
-    <tr>
-      <td style="font-weight:bold;color:green;">PAID IN FULL</td>
-      <td><%= @summary[:paid_full][:week1y].length %></td>
-      <td><%= @summary[:paid_full][:week2y].length %></td>
-      <td><%= @summary[:paid_full][:week3y].length %></td>
-    </tr>
-    <tr>
-      <td style="font-weight:bold;color:green;">DIETARY INFO COMPLETED</td>
-      <td><%= @summary[:dietary][:week1n].length %></td>
-      <td><%= @summary[:dietary][:week2n].length %></td>
-      <td><%= @summary[:dietary][:week3n].length %></td>
-    </tr>
-    <tr>
-      <td style="font-weight:bold;color:green;">WAIVERS COMPLETE</td>
-      <td><%= @summary[:waivers][:week1n].length %></td>
-      <td><%= @summary[:waivers][:week2n].length %></td>
-      <td><%= @summary[:waivers][:week3n].length %></td>
-    </tr>
-    <tr>
-      <td style="font-weight:bold;color:red;">!ONK MEMBERS</td>
-      <td><%= @summary[:onk_members][:week1n].length %></td>
-      <td><%= @summary[:onk_members][:week2n].length %></td>
-      <td><%= @summary[:onk_members][:week3n].length %></td>
-    </tr>
-    <tr>
-      <td style="font-weight:bold;color:red;">DEPOSIT UNPAID</td>
-      <td><%= @summary[:deposit_paid][:week1n].length %></td>
-      <td><%= @summary[:deposit_paid][:week2n].length %></td>
-      <td><%= @summary[:deposit_paid][:week3n].length %></td>
-    </tr>
-    <tr>
-      <td style="font-weight:bold;color:red;">BALANCE DUE</td>
-      <td><%= @summary[:paid_full][:week1n].length %></td>
-      <td><%= @summary[:paid_full][:week2n].length %></td>
-      <td><%= @summary[:paid_full][:week3n].length %></td>
-    </tr>
-    <tr>
-      <td style="font-weight:bold;color:red;">DIETARY INFO INCOMPLETED</td>
-      <td><%= @summary[:dietary][:week1y].length %></td>
-      <td><%= @summary[:dietary][:week2y].length %></td>
-      <td><%= @summary[:dietary][:week3y].length %></td>
-    </tr>
-    <tr>
-      <td style="font-weight:bold;color:red;">WAIVERS TO BE COMPLETED</td>
-      <td><%= @summary[:waivers][:week1y].length %></td>
-      <td><%= @summary[:waivers][:week2y].length %></td>
-      <td><%= @summary[:waivers][:week3y].length %></td>
-    </tr>
-    </tbody>
-  </table>
-  <br/>
-
+    <table class="table">
+      <tbody>
+      <tr>
+        <th></th>
+        <th class="table-title blue-title">WEEK 1</th>
+        <th class="table-title orange-title">WEEK 2</th>
+        <th class="table-title purple-title">WEEK 3</th>
+      </tr>
+      <tr>
+        <td style="font-weight:bold;">FAMILIES</td>
+        <td><%= @summary[:registered][:week1].length %></td>
+        <td><%= @summary[:registered][:week2].length %></td>
+        <td><%= @summary[:registered][:week3].length %></td>
+      </tr>
+      <tr>
+        <td style="font-weight:bold;">PEOPLE</td>
+        <td><%= @summary[:people][:week1].length %></td>
+        <td><%= @summary[:people][:week2].length %></td>
+        <td><%= @summary[:people][:week3].length %></td>
+      </tr>
+      <tr>
+        <td style="font-weight:bold;color:green;">ONK MEMBERS</td>
+        <td><%= @summary[:onk_members][:week1y].length %></td>
+        <td><%= @summary[:onk_members][:week2y].length %></td>
+        <td><%= @summary[:onk_members][:week3y].length %></td>
+      </tr>
+      <tr>
+        <td style="font-weight:bold;color:green;">DEPOSIT PAID</td>
+        <td><%= @summary[:deposit_paid][:week1y].length %></td>
+        <td><%= @summary[:deposit_paid][:week2y].length %></td>
+        <td><%= @summary[:deposit_paid][:week3y].length %></td>
+      </tr>
+      <tr>
+        <td style="font-weight:bold;color:green;">PAID IN FULL</td>
+        <td><%= @summary[:paid_full][:week1y].length %></td>
+        <td><%= @summary[:paid_full][:week2y].length %></td>
+        <td><%= @summary[:paid_full][:week3y].length %></td>
+      </tr>
+      <tr>
+        <td style="font-weight:bold;color:green;">DIETARY INFO COMPLETED</td>
+        <td><%= @summary[:dietary][:week1n].length %></td>
+        <td><%= @summary[:dietary][:week2n].length %></td>
+        <td><%= @summary[:dietary][:week3n].length %></td>
+      </tr>
+      <tr>
+        <td style="font-weight:bold;color:green;">WAIVERS COMPLETE</td>
+        <td><%= @summary[:waivers][:week1n].length %></td>
+        <td><%= @summary[:waivers][:week2n].length %></td>
+        <td><%= @summary[:waivers][:week3n].length %></td>
+      </tr>
+      <tr>
+        <td style="font-weight:bold;color:red;">!ONK MEMBERS</td>
+        <td><%= @summary[:onk_members][:week1n].length %></td>
+        <td><%= @summary[:onk_members][:week2n].length %></td>
+        <td><%= @summary[:onk_members][:week3n].length %></td>
+      </tr>
+      <tr>
+        <td style="font-weight:bold;color:red;">DEPOSIT UNPAID</td>
+        <td><%= @summary[:deposit_paid][:week1n].length %></td>
+        <td><%= @summary[:deposit_paid][:week2n].length %></td>
+        <td><%= @summary[:deposit_paid][:week3n].length %></td>
+      </tr>
+      <tr>
+        <td style="font-weight:bold;color:red;">BALANCE DUE</td>
+        <td><%= @summary[:paid_full][:week1n].length %></td>
+        <td><%= @summary[:paid_full][:week2n].length %></td>
+        <td><%= @summary[:paid_full][:week3n].length %></td>
+      </tr>
+      <tr>
+        <td style="font-weight:bold;color:red;">DIETARY INFO INCOMPLETED</td>
+        <td><%= @summary[:dietary][:week1y].length %></td>
+        <td><%= @summary[:dietary][:week2y].length %></td>
+        <td><%= @summary[:dietary][:week3y].length %></td>
+      </tr>
+      <tr>
+        <td style="font-weight:bold;color:red;">WAIVERS TO BE COMPLETED</td>
+        <td><%= @summary[:waivers][:week1y].length %></td>
+        <td><%= @summary[:waivers][:week2y].length %></td>
+        <td><%= @summary[:waivers][:week3y].length %></td>
+      </tr>
+      </tbody>
+    </table>
+    <br/>
+    <%= link_to 'Family Report', wmgr_report_families_path('csv') %>
+    <br/>
+    <%= link_to 'People Report', wmgr_report_people_path('csv') %>
   </div>
 </div>

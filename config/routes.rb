@@ -44,6 +44,9 @@ Rails.application.routes.draw do
   match '/wmgr/person/:id'     => 'wmgr/members#update',          :as => :wmgr_person_update,  :via => [:put,:patch]
   match '/wmgr/person/:id'     => 'wmgr/members#delete',          :as => :wmgr_person_delete,  :via => :delete
 
+  match '/wmgr/report/families.:format' => 'wmgr/overviews#families', :as => :wmgr_report_families, :via => :get
+  match '/wmgr/report/people.:format'   => 'wmgr/overviews#people',   :as => :wmgr_report_people,   :via => :get
+
   root 'logins#home'
 
   # The priority is based upon order of creation: first created -> highest priority.
