@@ -11,7 +11,7 @@ module SummaryMgr
           registered: registered(families),
           people: total_people(families, people),
           onk_members: onk_members(families),
-          deposit_paid: deposit_paid(families, payments),
+          deposit_paid: deposit_paid(families, people, payments),
           paid_full: paid_full(families, people, payments),
           dietary: dietary(families, people),
           waivers: waivers(families, people),
@@ -84,7 +84,7 @@ module SummaryMgr
        week1n: week1n, week2n: week2n, week3n: week3n, totaln: totaln}
     end
 
-    def deposit_paid families, payments
+    def deposit_paid families, people, payments
       week1y = Array.new
       week2y = Array.new
       week3y = Array.new
@@ -97,10 +97,17 @@ module SummaryMgr
           p.family_id == family.id
         end
 
+        f_people = people.select do |p|
+          p.family_id == family.id
+        end
+
         pmt_total = f_pmts.map{|p| p.amount }.reduce {|sum, n| sum + n}
         pmt_total = pmt_total.nil? ? 0 : pmt_total
 
-        if pmt_total > 99
+        amt_per_person = family.amount_per_person
+        total_due = amt_per_person * f_people.length
+
+        if pmt_total > 99 || pmt_total >= total_due
           if family.week == 1
             week1y << family
           end
