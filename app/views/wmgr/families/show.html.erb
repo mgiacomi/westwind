@@ -123,27 +123,29 @@
 
     <br/><br/>
 
-    <%= link_to "Add Person", wmgr_person_new_path(@family) %>
+    <% if current_user.email == "mgiacomi@gltech.com" %><%= link_to "Add Person", wmgr_person_new_path(@family) %><% end %>
     <table class="table">
       <tbody>
       <tr>
-        <th class="table-title"></th>
+        <% if current_user.email == "mgiacomi@gltech.com" %><th class="table-title"></th><% end %>
         <th class="table-title">First</th>
         <th class="table-title">Last</th>
         <th class="table-title">Grade</th>
         <th class="table-title">Waiver</th>
-        <th class="table-title">Remove?</th>
+        <% if current_user.email == "mgiacomi@gltech.com" %><th class="table-title">Remove?</th><% end %>
       </tr>
       <% @family.members.each do |person| %>
           <tr>
-            <td><%= link_to "Edit", wmgr_person_edit_path(person) %></td>
+            <% if current_user.email == "mgiacomi@gltech.com" %><td><%= link_to "Edit", wmgr_person_edit_path(person) %></td><% end %>
             <td><%= person.first %></td>
             <td><%= person.last %></td>
             <td><%= person.grade %></td>
             <td><%= person.waiver_signed %></td>
-            <td>
-              <%= link_to "X", wmgr_person_delete_path(person.id), data: { confirm: "Are you sure you want to remove person?" }, method: :delete %>
-            </td>
+            <% if current_user.email == "mgiacomi@gltech.com" %>
+              <td>
+                <%= link_to "X", wmgr_person_delete_path(person.id), data: { confirm: "Are you sure you want to remove person?" }, method: :delete %>
+              </td>
+            <% end %>
           </tr>
       <% end %>
       </tbody>
