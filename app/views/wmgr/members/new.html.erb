@@ -1,0 +1,36 @@
+<h1>New Person</h1>
+
+<% if @person.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@person.errors.count, "error") %> Error(s):</h2>
+
+      <ul>
+        <% @person.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+    <br/>
+<% end %>
+
+<%= form_for @person, :url => wmgr_person_create_path(@person.id) do |f| %>
+    <%= hidden_field_tag :family_id, @person.family_id %>
+
+    <div class="row">
+      <%= f.label :first %>
+      <%= f.text_field :first, style: "height:25px;display:inline;border:1px solid gray;padding-left: 5px;" %>
+    </div>
+    <div class="row">
+      <%= f.label :last %>
+      <%= f.text_field :last, style: "height:25px;display:inline;border:1px solid gray;padding-left: 5px;" %>
+    </div>
+    <div class="row">
+      <%= f.label :grade %>
+      <%= f.text_field :grade, style: "height:25px;display:inline;border:1px solid gray;padding-left: 5px;" %>
+    </div>
+    <div class="row">
+      <%= f.submit "Create", class: "gradient", style: "float:left;" %>
+    </div>
+<% end %>
+
+<%= link_to 'Back', wmgr_family_path(@person.family_id) %>

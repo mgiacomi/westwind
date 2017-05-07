@@ -5,12 +5,6 @@
         jQuery(".onk_membership").click(function () {
             $('#onk_member_form').submit()
         });
-
-        jQuery(".remove_pmt").click(function () {
-            var payment_id = jQuery(this).data("payment-id");
-            jQuery("#payment_id").val(payment_id);
-            jQuery("#payment_delete_form").submit();
-        });
     });
 </script>
 
@@ -18,6 +12,10 @@
 
 <%= form_tag wmgr_payment_delete_path, method: :post, id: 'payment_delete_form' do %>
     <input type="hidden" id="payment_id" name="id"/>
+<% end %>
+
+<%= form_tag wmgr_person_delete_path, method: :post, id: 'person_delete_form' do %>
+    <input type="hidden" id="person_id" name="id"/>
 <% end %>
 
 <%= form_tag wmgr_onk_path(@family.id), method: :post, id: 'onk_member_form' do %>
@@ -99,6 +97,7 @@
       <% end %>
     </div>
 
+
     <table class="table">
       <tbody>
       <tr>
@@ -115,7 +114,35 @@
             <td class="price"><%= number_to_currency(payment.amount) %></td>
             <td class="price"><%= number_to_currency(payment.fee) %></td>
             <td>
-              <img data-payment-id="<%= payment.id %>" class="remove_pmt" style="display:inline;" src="/images/remove.png"/>
+              <%= link_to "X", wmgr_payment_delete_path(payment.id), data: { confirm: "Are you sure you want to remove payment?" }, method: :delete %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+    <br/><br/>
+
+    <%= link_to "Add Person", wmgr_person_new_path(@family) %>
+    <table class="table">
+      <tbody>
+      <tr>
+        <th class="table-title"></th>
+        <th class="table-title">First</th>
+        <th class="table-title">Last</th>
+        <th class="table-title">Grade</th>
+        <th class="table-title">Waiver</th>
+        <th class="table-title">Remove?</th>
+      </tr>
+      <% @family.members.each do |person| %>
+          <tr>
+            <td><%= link_to "Edit", wmgr_person_edit_path(person) %></td>
+            <td><%= person.first %></td>
+            <td><%= person.last %></td>
+            <td><%= person.grade %></td>
+            <td><%= person.waiver_signed %></td>
+            <td>
+              <%= link_to "X", wmgr_person_delete_path(person.id), data: { confirm: "Are you sure you want to remove person?" }, method: :delete %>
             </td>
           </tr>
       <% end %>

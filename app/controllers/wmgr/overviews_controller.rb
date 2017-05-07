@@ -8,4 +8,9 @@ class Wmgr::OverviewsController < ApplicationController
     @summary = Family.get_summary
   end
 
+  def search
+    search = params[:search]
+    @results = Family.joins(:members).where("lower(people.first) like ? or lower(people.last) like ?", "%#{search.downcase}%", "%#{search.downcase}%")
+  end
+
 end
