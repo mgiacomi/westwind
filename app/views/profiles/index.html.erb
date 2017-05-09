@@ -51,11 +51,11 @@
         </tr>
         <tr>
           <td style="text-align:left;font-weight:bold;">Adults:</td>
-          <td style="text-align:left;"><%= current_family.adults %></td>
+          <td style="text-align:left;"><%= current_family.members.where("lower(grade) = ?", 'adult').count %></td>
         </tr>
         <tr>
           <td style="text-align:left;font-weight:bold;">Kids:</td>
-          <td style="text-align:left;"><%= current_family.kids %></td>
+          <td style="text-align:left;"><%= current_family.members.where("lower(grade) != ?", 'adult').count %></td>
         </tr>
         <tr>
           <td style="text-align:left;font-weight:bold;">Weekend Total:</td>

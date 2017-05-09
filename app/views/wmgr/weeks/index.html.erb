@@ -46,8 +46,8 @@
                   <td><%= family.lottery %></td>
                   <td><a style="text-decoration: underline" href="<%= wmgr_family_path(family.id) %>"><%= family.name %></a></td>
                   <td><%= family.code %></td>
-                  <td><%= family.adults %></td>
-                  <td><%= family.kids %></td>
+                  <td><%= family.members.where("lower(grade) = ?", 'adult').count %></td>
+                  <td><%= family.members.where("lower(grade) != ?", 'adult').count %></td>
                   <td><%= family.onk_member? ? "Y" : "" %></td>
                   <td><%= number_to_currency(family.total_paid) %></td>
                   <td><%= number_to_currency(family.amount_due) %></td>
