@@ -8,7 +8,7 @@
     <%= form_tag(waivers_submit_path(@person.id), id: 'waiver_form', method: 'post') do %>
 
         <div class="one-half-responsive no-bottom" style="margin-right:0;">
-          <h4>Copy the below message into an email and send <%= "#{@person.first} #{@person.last}" %> or <%= @person.first %>'s guardian.</h4>
+          <h4>Copy the below message into an email and send to <%= "#{@person.first} #{@person.last}" %> or <%= @person.first %>'s guardian.</h4>
           <div style="margin-bottom:25px;" class="decoration"></div>
 
           <p class="dropcaps dropcaps-1">
@@ -18,7 +18,7 @@
             <br/><br/>
             In order to be able to attend Camp Westwind all campers must fill out an electronic waiver.  If you are
             <%= "#{@person.first} #{@person.last}" %> and are over 18 years old then click on the link below to
-            electronically sign you waiver.  Otherwise please make sure the guardian of
+            electronically sign your waiver.  Otherwise please make sure the guardian of
             <%= "#{@person.first} #{@person.last}" %> signs the waiver.
             <br/><br/>
             <%= waivers_remote_url(@person.obscure_id) %>
@@ -51,7 +51,7 @@
             The link provided in the template will take the target user directly to the electronic waiver so they can
             complete the process.  When they have signed the waiver it will show as completed on your Waiver screen.
             <br/><br/>
-            We are sorry for the inconvience, but hope you still like the process better than paper waiver forms.
+            We are sorry for the inconvience, but hope you still like this process better than paper waiver forms.
           </blockquote>
 
         </div>
