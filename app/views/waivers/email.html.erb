@@ -1,0 +1,63 @@
+<script>
+</script>
+
+<div class="content">
+  <div class="box-960">
+    <%= render '/includes/breadcrumb', page_name: 'Waivers' %>
+
+    <%= form_tag(waivers_submit_path(@person.id), id: 'waiver_form', method: 'post') do %>
+
+        <div class="one-half-responsive no-bottom" style="margin-right:0;">
+          <h4>Copy the below message into an email and send <%= "#{@person.first} #{@person.last}" %> or <%= @person.first %>'s guardian.</h4>
+          <div style="margin-bottom:25px;" class="decoration"></div>
+
+          <p class="dropcaps dropcaps-1">
+            Hello,
+            <br/><br/>
+            <%= "#{@person.first} #{@person.last}" %> is going to be attending Camp Westwind <%= current_family.week_desc %>.
+            <br/><br/>
+            In order to be able to attend Camp Westwind all campers must fill out an electronic waiver.  If you are
+            <%= "#{@person.first} #{@person.last}" %> and are over 18 years old then click on the link below to
+            electronically sign you waiver.  Otherwise please make sure the guardian of
+            <%= "#{@person.first} #{@person.last}" %> signs the waiver.
+            <br/><br/>
+            <%= waivers_remote_url(@person.obscure_id) %>
+            <br/><br/>
+            If you have any problems signing the waiver or have questions about the process please contact Matt Giacomini
+            westwind@oyanokai.org or call 415-250-1521.
+            <br/><br/>
+            Thank you.
+          </p>
+          <br/>
+        </div>
+
+        <div class="decoration hide-if-responsive"></div>
+
+        <div class="one-fifth-responsive one-half-full" style="float:right;">
+
+          <blockquote class="quote-one blue-quote">
+            <br/>
+            <b>Email Waiver Instructions</b>
+            <br/><br/>
+            When we first designed this feature you only needed to enter an email address and we would send the waiver
+            request for you. The problem is that emails sent from this app come from a large application hosting provider
+            and are generally marked by the major email providers as spam.
+            <br/><br/>
+            We have had to resort to Plan B which is that we provide an email template for you (on the left) and all you
+            need to do is copy and paste the text into an email and send it. This has proven almost 100% reliable and will
+            have to do until we can find a better way to send automated app emails that actually make it to people's
+            inboxes.
+            <br/><br/>
+            The link provided in the template will take the target user directly to the electronic waiver so they can
+            complete the process.  When they have signed the waiver it will show as completed on your Waiver screen.
+            <br/><br/>
+            We are sorry for the inconvience, but hope you still like the process better than paper waiver forms.
+          </blockquote>
+
+        </div>
+        <div class="clear"></div>
+        <br/>
+    <% end %>
+  </div>
+</div>
+

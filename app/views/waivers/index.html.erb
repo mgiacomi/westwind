@@ -92,7 +92,7 @@
                 <% if !person.waiver.nil? && person.waiver.complete? %>
                     <span style="font-weight:bold;color:green;">Completed</span>
                 <% else %>
-                    <a style="display:inline;" href="<%= waivers_form_path person.id %>">Sign</a> / Email
+                    <a style="display:inline;" href="<%= waivers_sign_path person.id %>">Sign</a> / <a style="display:inline;" href="<%= waivers_email_path person.id %>">Email</a>
                 <% end %>
               </td>
             </tr>

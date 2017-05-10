@@ -1,0 +1,13 @@
+<script>
+</script>
+
+<div class="content">
+  <div class="box-960">
+    <%= render '/includes/breadcrumb', page_name: 'Waivers' %>
+
+    <%= form_tag(waivers_submit_path(@person.id), id: 'waiver_form', method: 'post') do %>
+        <%= render 'form' %>
+    <% end %>
+  </div>
+</div>
+

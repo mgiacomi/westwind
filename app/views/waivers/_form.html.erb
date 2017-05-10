@@ -1,0 +1,95 @@
+<div class="one-half-responsive no-bottom" style="margin-right:0;">
+  <h1>Oya No Kai</h1>
+  <h4>General Release of Liability</h4>
+  <p class="dropcaps dropcaps-1">
+    The undersigned participant hereby acknowledges and assumes all risks associated with and releases
+    OYA NO KAI from all liability related to or arising out of their visit/stay at the
+    Westwind site and facilities.<br/><br/>
+    In electronicially signing hereunder, the participant assumes the entire risk for any injury, liability or
+    other consequence of involving herself or himself or direct members of their family (including dependents
+    listed below) in their visit/ stay at the Westwind site and facilities. The participant hereby waives and
+    releases OYA NO KAI and its officers, agents, and staff from any and all liability arising out of their
+    visit, known and unknown, including without limitation, medical expenses, legal fees, loss of services,
+    etc., and shall indemnify and hold all of them harmless from and against any such item.<br/><br/>
+    IN WITNESS THEREOF the undersigned has executed this Assumption of Risk and General Relief by OYA NO KAI.
+  </p>
+  <br/>
+</div>
+
+<div class="decoration hide-if-responsive"></div>
+
+<div class="one-fifth-responsive one-half-full" style="float:right;">
+
+  <% if @waiver.errors.any? %>
+      <blockquote class="quote-one red-quote">
+        <div id="error_explanation">
+          <ul>
+            <% @waiver.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      </blockquote>
+      <br/>
+  <% end %>
+
+  <b>General Release of Liability for <%= "#{@person.first} #{@person.last}" %></b>
+
+  <br/><br/>
+
+  <blockquote class="quote-one">
+    One of the following statements needs to be true to sign this form.
+    If not, don't continue or sign this form.
+    <select name="waiver[relationship]" style="-webkit-appearance: menulist; border:1px solid black; padding:3px;">
+      <option></option>
+      <option <%= (@waiver.relationship == "I am #{@person.first} #{@person.last}") ? 'selected="selected"' : "" %>>
+        I am <%= "#{@person.first} #{@person.last}" %>
+      </option>
+      <option <%= (@waiver.relationship == "I am the legal guardian of #{@person.first} #{@person.last}") ? 'selected="selected"' : "" %>>
+        I am the legal guardian of <%= "#{@person.first} #{@person.last}" %>
+      </option>
+    </select>
+  </blockquote>
+
+  <br/>
+
+  <blockquote class="quote-one">
+    Your First Name<br/>
+    <input style="-webkit-appearance: textfield; border:1px solid black; padding:3px; margin-bottom:10px;" type="text" name="waiver[first]" value="<%= @waiver.first %>" required/>
+    Your Last Name<br/>
+    <input style="-webkit-appearance: textfield; border:1px solid black; padding:3px; margin-bottom:10px;" type="text" name="waiver[last]" value="<%= @waiver.last %>" required/>
+    Your Email<br/>
+    <input style="-webkit-appearance: textfield; border:1px solid black; padding:3px; margin-bottom:10px;" type="text" name="waiver[email]" value="<%= @waiver.email %>" required/>
+    Your Phone<br/>
+    <input style="-webkit-appearance: textfield; border:1px solid black; padding:3px; margin-bottom:10px;" type="text" name="waiver[phone]" value="<%= @waiver.phone %>" required/>
+  </blockquote>
+
+  <br/>
+
+  <blockquote class="quote-one">
+    I have fully read and fully understood the Oya No Kai General Release of Liability waiver?
+    <br/>
+    <select name="waiver[understand]" style="-webkit-appearance: menulist; border:1px solid black; padding:3px;">
+      <option></option>
+      <option <%= (@waiver.understand == "Yes, I fully understand and accept this waiver.") ? 'selected="selected"' : "" %>>
+        Yes, I fully understand and accept this waiver.
+      </option>
+      <option <%= (@waiver.understand == "No, I do not understand or do not agree with this waiver.") ? 'selected="selected"' : "" %>>
+        No, I do not understand or do not agree with this waiver.
+      </option>
+    </select>
+  </blockquote>
+
+  <br/>
+
+  <blockquote class="quote-one blue-quote">
+    <b>Electronic Signature:</b>&nbsp;&nbsp;Type your full name here.
+    <br/>
+    <input style="-webkit-appearance: textfield; border:1px solid black; padding:3px; margin-bottom:10px; width:100%;" type="text" name="waiver[signature]" value="<%= @waiver.signature %>" required/>
+  </blockquote>
+
+  <input type="submit" class="button button-green center-button" value="Sign Waiver"/>
+</div>
+<div class="clear"></div>
+<br/>
+

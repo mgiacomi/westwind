@@ -1,0 +1,12 @@
+<script>
+</script>
+
+<div class="content">
+  <div class="box-960">
+    <br/>
+    <%= form_tag(waivers_rsubmit_path(@person.obscure_id), id: 'waiver_form', method: 'post') do %>
+        <%= render 'form' %>
+    <% end %>
+  </div>
+</div>
+
