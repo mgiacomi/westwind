@@ -48,6 +48,9 @@ Rails.application.routes.draw do
   match '/wmgr/person/:id'     => 'wmgr/members#update',          :as => :wmgr_person_update,  :via => [:put,:patch]
   match '/wmgr/person/:id'     => 'wmgr/members#delete',          :as => :wmgr_person_delete,  :via => :delete
 
+  match '/wmgr/volunteers/:week'          => 'wmgr/overviews#volunteers',  :as => :wmgr_volunteers, :via => :get
+  match '/wmgr/dietary_week:week.:format' => 'wmgr/overviews#dietary',     :as => :wmgr_dietary,    :via => :get
+
   match '/wmgr/report/families.:format' => 'wmgr/overviews#families', :as => :wmgr_report_families, :via => :get
   match '/wmgr/report/people.:format'   => 'wmgr/overviews#people',   :as => :wmgr_report_people,   :via => :get
 

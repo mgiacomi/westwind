@@ -15,6 +15,8 @@ module SummaryMgr
           paid_full: paid_full(families, people, payments),
           dietary: dietary(families, people),
           waivers: waivers(families, people),
+          volunteers: volunteers(people),
+          dietary_restrictions: dietary_restrictions(people),
       }
     end
 
@@ -278,6 +280,52 @@ module SummaryMgr
       totaln = week1n.length + week2n.length + week3n.length
       {week1y: week1y, week2y: week2y, week3y: week3y, totaly: totaly,
        week1n: week1n, week2n: week2n, week3n: week3n, totaln: totaln}
+    end
+
+    def volunteers people
+      week1 = Array.new
+      week2 = Array.new
+      week3 = Array.new
+
+      people.each do |person|
+
+        if person.volunteer?
+          if person.family.week == 1
+            week1 << person
+          end
+          if person.family.week == 2
+            week2 << person
+          end
+          if person.family.week == 3
+            week3 << person
+          end
+        end
+      end
+
+      {week1: week1, week2: week2, week3: week3}
+    end
+
+    def dietary_restrictions people
+      week1 = Array.new
+      week2 = Array.new
+      week3 = Array.new
+
+      people.each do |person|
+
+        if person.dietary_restrictions?
+          if person.family.week == 1
+            week1 << person
+          end
+          if person.family.week == 2
+            week2 << person
+          end
+          if person.family.week == 3
+            week3 << person
+          end
+        end
+      end
+
+      {week1: week1, week2: week2, week3: week3}
     end
 
   end

@@ -19,4 +19,24 @@ class People < ActiveRecord::Base
     true
   end
 
+  def dietary_restrictions?
+    if self.vegetarian? || self.vegan? || self.pescetarian? || self.gluten_free? || self.lactose_free?
+      return true
+    end
+    unless self.allergies.blank?
+      return true
+    end
+
+    false
+  end
+
+  def volunteer?
+    if self.volunteer_meal_captain? || self.volunteer_campfire_leader? || self.volunteer_cascade_head? ||
+        self.volunteer_mud_mucking? || self.volunteer_crafts? || self.volunteer_sand_castles?
+      return true
+    end
+
+    false
+  end
+
 end

@@ -25,4 +25,35 @@ class Wmgr::OverviewsController < ApplicationController
     headers['Content-Type'] ||= 'text/csv'
   end
 
+  def volunteers
+    summary = Family.get_summary
+
+    if params[:week] == "1"
+      @week = "Week 1"
+      @volunteers = summary[:volunteers][:week1]
+    end
+    if params[:week] == "2"
+      @week = "Week 2"
+      @volunteers = summary[:volunteers][:week2]
+    end
+    if params[:week] == "3"
+      @week = "Week 3"
+      @volunteers = summary[:volunteers][:week3]
+    end
+  end
+
+  def dietary
+    summary = Family.get_summary
+
+    if params[:week] == "1"
+      @people = summary[:dietary_restrictions][:week1]
+    end
+    if params[:week] == "2"
+      @people = summary[:dietary_restrictions][:week2]
+    end
+    if params[:week] == "3"
+      @people = summary[:dietary_restrictions][:week3]
+    end
+  end
+
 end
