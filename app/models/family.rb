@@ -5,7 +5,13 @@ class Family < ActiveRecord::Base
   has_many :payments
 
   def bread_winner
-    People.where(family_id: id, grade: 'Adult').first
+    adult = People.where(family_id: id, grade: 'Adult').first
+
+    if adult.nil?
+      adult = People.where(family_id: id).first
+    end
+
+    adult
   end
 
   def waivers_complete?
