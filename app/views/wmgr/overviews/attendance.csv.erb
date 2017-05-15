@@ -1,0 +1,31 @@
+<%- headers = ['Week', 'Family', 'Last', 'First', 'Grade', 'Phone', 'Email', 'Adults', 'Kids'] -%>
+<%= CSV.generate_line headers -%>
+<%=
+  CSV.generate do |csv|
+    @families.each do |family|
+      family.members.each do |person|
+        csv << [
+            family.week,
+            family.name,
+            person.last,
+            person.first,
+            person.grade,
+            family.phone,
+            family.email,
+            family.members.where("lower(grade) = ?", 'adult').count,
+            family.members.where("lower(grade) != ?", 'adult').count,
+        ]
+      end
+      csv << [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+      ]
+    end
+  end.html_safe
+%>

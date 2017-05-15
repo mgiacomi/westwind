@@ -56,4 +56,8 @@ class Wmgr::OverviewsController < ApplicationController
     end
   end
 
+  def attendance
+    @families = Family.where('week=?', params[:week])
+  end
+
 end

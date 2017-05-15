@@ -106,6 +106,12 @@
         <td><%= link_to @summary[:dietary_restrictions][:week2].length, wmgr_dietary_path(2, 'csv') %></td>
         <td><%= link_to @summary[:dietary_restrictions][:week3].length, wmgr_dietary_path(3, 'csv') %></td>
       </tr>
+      <tr>
+        <td style="font-weight:bold;color:blue;">ATTENDANCE REPORTS</td>
+        <td><%= link_to @summary[:people][:week1].length, wmgr_attendance_path(1, 'csv') %></td>
+        <td><%= link_to @summary[:people][:week2].length, wmgr_attendance_path(2, 'csv') %></td>
+        <td><%= link_to @summary[:people][:week3].length, wmgr_attendance_path(3, 'csv') %></td>
+      </tr>
       </tbody>
     </table>
     <br/>
