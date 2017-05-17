@@ -1,4 +1,4 @@
-<%- headers = ['Week', 'Family', 'Last', 'First', 'Grade', 'Phone', 'Email', 'Adults', 'Kids'] -%>
+<%- headers = ['Week', 'Family', 'Cabin', 'Last', 'First', 'Grade', 'Phone', 'Email', 'Adults', 'Kids'] -%>
 <%= CSV.generate_line headers -%>
 <%=
   CSV.generate do |csv|
@@ -7,6 +7,7 @@
         csv << [
             family.week,
             family.name,
+            family.cabin.nil? ? "" : family.cabin.name,
             person.last,
             person.first,
             person.grade,
