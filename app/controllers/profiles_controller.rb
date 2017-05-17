@@ -3,6 +3,7 @@ class ProfilesController < ApplicationController
 
   def index
     @others = Family.where week: current_family.week
+    @bunkmates = Family.joins(:cabin).where("families.week=? and families.id != ?", current_family.week, current_family.id)
   end
 
   def campers

@@ -84,15 +84,19 @@
             </li>
             <li style="text-align: left;padding-left:100px;">
               Weekend
-              <select name="week" <% unless current_user.email == "mgiacomi@gltech.com" %>disabled=true;<% end %> style="height:25px;margin-left:10px;padding-left:20px;width:95px;border:1px solid gray;">
+              <select name="week" style="height:25px;margin-left:10px;padding-left:20px;width:95px;border:1px solid gray;">
                 <option value="1" <% if @family.week == 1 %>selected="true"<% end %>>Week 1</option>
                 <option value="2" <% if @family.week == 2 %>selected="true"<% end %>>Week 2</option>
                 <option value="3" <% if @family.week == 3 %>selected="true"<% end %>>Week 3</option>
                 <option value="0" <% if @family.week == 0 %>selected="true"<% end %>>Wait List</option>
               </select>
             </li>
+            <li style="text-align: left;padding-left:100px;">
+              Cabin
+              <%= f.select :cabin_id, Cabin.all.collect { |c| [ c.name, c.id ] }, {include_blank: true}, {style: 'height:25px;margin-left:10px;padding-left:20px;width:95px;border:1px solid gray;'} %>
+            </li>
           </ul>
-          <input type="submit" <% unless current_user.email == "mgiacomi@gltech.com" %>disabled=true;<% end %> class="button center-button button-blue" value="Update Week"/>
+          <input type="submit" <% unless current_user.email == "mgiacomi@gltech.com" %>disabled=true;<% end %> class="button center-button button-blue" value="Update"/>
         </div>
       <% end %>
     </div>

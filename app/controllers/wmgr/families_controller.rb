@@ -20,6 +20,7 @@ class Wmgr::FamiliesController < ApplicationController
   def week
     @family = Family.find params[:id]
     @family.week = params[:week]
+    @family.cabin_id = params[:family]['cabin_id']
 
     if @family.save
       redirect_to wmgr_family_path(@family.id), notice: 'Week has been updated.'
