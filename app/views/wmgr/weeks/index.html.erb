@@ -32,23 +32,23 @@
 
           <table class="table">
             <tbody><tr>
-              <th class="table-title">Loggery #</th>
               <th class="table-title">Family</th>
               <th class="table-title">Code</th>
               <th class="table-title">Adults</th>
               <th class="table-title">Kids</th>
               <th class="table-title">ONK</th>
+              <th class="table-title">Waivers</th>
               <th class="table-title">Paid</th>
               <th class="table-title">Due</th>
             </tr>
             <% @week.each do |family| %>
                 <tr>
-                  <td><%= family.lottery %></td>
                   <td><a style="text-decoration: underline" href="<%= wmgr_family_path(family.id) %>"><%= family.name %></a></td>
                   <td><%= family.code %></td>
                   <td><%= family.members.where("lower(grade) = ?", 'adult').count %></td>
                   <td><%= family.members.where("lower(grade) != ?", 'adult').count %></td>
                   <td><%= family.onk_member? ? "Y" : "" %></td>
+                  <td><%= family.waivers_complete? ? "Y" : "" %></td>
                   <td><%= number_to_currency(family.total_paid) %></td>
                   <td><%= number_to_currency(family.amount_due) %></td>
                 </tr>
