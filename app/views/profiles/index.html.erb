@@ -69,6 +69,7 @@
           <td style="text-align:left;font-weight:bold;">ONK Member:</td>
           <td style="text-align:left;"><%= current_family.onk_member? ? 'Yes' : 'No' %></td>
         </tr>
+        <% unless current_family.cabin.nil? %>
         <tr>
           <td style="text-align:left;font-weight:bold;">Cabin:</td>
           <td style="text-align:left;"><%= current_family.cabin.name %></td>
@@ -83,6 +84,7 @@
             <% end %>
           </td>
         </tr>
+        <% end %>
       </table>
       </p>
       <br/>
