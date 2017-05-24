@@ -1,4 +1,4 @@
-<%- headers = ['Week', 'Name', 'Lottery', 'Phone', 'Email', 'Adults', 'Kids', 'ONK', 'Waivers Complete', 'Dietary Complete', 'Total Due', 'Total Paid'] -%>
+<%- headers = ['Week', 'Name', 'Lottery', 'Cabin', 'Phone', 'Email', 'Adults', 'Kids', 'ONK', 'Waivers Complete', 'Dietary Complete', 'Total Due', 'Total Paid'] -%>
 <%= CSV.generate_line headers -%>
 <%=
   CSV.generate do |csv|
@@ -7,6 +7,7 @@
           family.week,
           family.name,
           family.lottery,
+          family.cabin.nil? ? "" : family.cabin.name,
           family.phone,
           family.email,
           family.members.where("lower(grade) = ?", 'adult').count,
