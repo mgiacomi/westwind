@@ -36,63 +36,63 @@
       </tr>
       <tr>
         <td style="font-weight:bold;color:green;">ONK MEMBERS</td>
-        <td><%= @summary[:onk_members][:week1y].length %></td>
-        <td><%= @summary[:onk_members][:week2y].length %></td>
-        <td><%= @summary[:onk_members][:week3y].length %></td>
+        <td><%= link_to @summary[:onk_members][:week1y].length, wmgr_onk_complete_path(1) %></td>
+        <td><%= link_to @summary[:onk_members][:week2y].length, wmgr_onk_complete_path(2) %></td>
+        <td><%= link_to @summary[:onk_members][:week3y].length, wmgr_onk_complete_path(3) %></td>
       </tr>
       <tr>
         <td style="font-weight:bold;color:green;">DEPOSIT PAID</td>
-        <td><%= @summary[:deposit_paid][:week1y].length %></td>
-        <td><%= @summary[:deposit_paid][:week2y].length %></td>
-        <td><%= @summary[:deposit_paid][:week3y].length %></td>
+        <td><%= link_to @summary[:deposit_paid][:week1y].length, wmgr_deposit_paid_path(1) %></td>
+        <td><%= link_to @summary[:deposit_paid][:week2y].length, wmgr_deposit_paid_path(2) %></td>
+        <td><%= link_to @summary[:deposit_paid][:week3y].length, wmgr_deposit_paid_path(3) %></td>
       </tr>
       <tr>
         <td style="font-weight:bold;color:green;">PAID IN FULL</td>
-        <td><%= @summary[:paid_full][:week1y].length %></td>
-        <td><%= @summary[:paid_full][:week2y].length %></td>
-        <td><%= @summary[:paid_full][:week3y].length %></td>
+        <td><%= link_to @summary[:paid_full][:week1y].length, wmgr_fullpayment_paid_path(1) %></td>
+        <td><%= link_to @summary[:paid_full][:week2y].length, wmgr_fullpayment_paid_path(2) %></td>
+        <td><%= link_to @summary[:paid_full][:week3y].length, wmgr_fullpayment_paid_path(3) %></td>
       </tr>
       <tr>
         <td style="font-weight:bold;color:green;">DIETARY INFO COMPLETED</td>
-        <td><%= @summary[:dietary][:week1n].length %></td>
-        <td><%= @summary[:dietary][:week2n].length %></td>
-        <td><%= @summary[:dietary][:week3n].length %></td>
+        <td><%= link_to @summary[:dietary][:week1y].length, wmgr_dietary_complete_path(1) %></td>
+        <td><%= link_to @summary[:dietary][:week2y].length, wmgr_dietary_complete_path(2) %></td>
+        <td><%= link_to @summary[:dietary][:week3y].length, wmgr_dietary_complete_path(3) %></td>
       </tr>
       <tr>
         <td style="font-weight:bold;color:green;">WAIVERS COMPLETE</td>
-        <td><%= @summary[:waivers][:week1n].length %></td>
-        <td><%= @summary[:waivers][:week2n].length %></td>
-        <td><%= @summary[:waivers][:week3n].length %></td>
+        <td><%= link_to @summary[:waivers][:week1y].length, wmgr_waivers_complete_path(1) %></td>
+        <td><%= link_to @summary[:waivers][:week2y].length, wmgr_waivers_complete_path(2) %></td>
+        <td><%= link_to @summary[:waivers][:week3y].length, wmgr_waivers_complete_path(3) %></td>
       </tr>
       <tr>
         <td style="font-weight:bold;color:red;">!ONK MEMBERS</td>
-        <td><%= @summary[:onk_members][:week1n].length %></td>
-        <td><%= @summary[:onk_members][:week2n].length %></td>
-        <td><%= @summary[:onk_members][:week3n].length %></td>
+        <td><%= link_to @summary[:onk_members][:week1n].length, wmgr_onk_incomplete_path(1) %></td>
+        <td><%= link_to @summary[:onk_members][:week2n].length, wmgr_onk_incomplete_path(2) %></td>
+        <td><%= link_to @summary[:onk_members][:week3n].length, wmgr_onk_incomplete_path(3) %></td>
       </tr>
       <tr>
         <td style="font-weight:bold;color:red;">DEPOSIT UNPAID</td>
-        <td><%= @summary[:deposit_paid][:week1n].length %></td>
-        <td><%= @summary[:deposit_paid][:week2n].length %></td>
-        <td><%= @summary[:deposit_paid][:week3n].length %></td>
+        <td><%= link_to @summary[:deposit_paid][:week1n].length, wmgr_deposit_unpaid_path(1) %></td>
+        <td><%= link_to @summary[:deposit_paid][:week2n].length, wmgr_deposit_unpaid_path(2) %></td>
+        <td><%= link_to @summary[:deposit_paid][:week3n].length, wmgr_deposit_unpaid_path(3) %></td>
       </tr>
       <tr>
         <td style="font-weight:bold;color:red;">BALANCE DUE</td>
-        <td><%= @summary[:paid_full][:week1n].length %></td>
-        <td><%= @summary[:paid_full][:week2n].length %></td>
-        <td><%= @summary[:paid_full][:week3n].length %></td>
+        <td><%= link_to @summary[:paid_full][:week1n].length, wmgr_fullpayment_unpaid_path(1) %></td>
+        <td><%= link_to @summary[:paid_full][:week2n].length, wmgr_fullpayment_unpaid_path(2) %></td>
+        <td><%= link_to @summary[:paid_full][:week3n].length, wmgr_fullpayment_unpaid_path(3) %></td>
       </tr>
       <tr>
         <td style="font-weight:bold;color:red;">DIETARY INFO INCOMPLETED</td>
-        <td><%= @summary[:dietary][:week1y].length %></td>
-        <td><%= @summary[:dietary][:week2y].length %></td>
-        <td><%= @summary[:dietary][:week3y].length %></td>
+        <td><%= link_to @summary[:dietary][:week1n].length, wmgr_dietary_incomplete_path(1) %></td>
+        <td><%= link_to @summary[:dietary][:week2n].length, wmgr_dietary_incomplete_path(2) %></td>
+        <td><%= link_to @summary[:dietary][:week3n].length, wmgr_dietary_incomplete_path(3) %></td>
       </tr>
       <tr>
         <td style="font-weight:bold;color:red;">WAIVERS TO BE COMPLETED</td>
-        <td><%= @summary[:waivers][:week1y].length %></td>
-        <td><%= @summary[:waivers][:week2y].length %></td>
-        <td><%= @summary[:waivers][:week3y].length %></td>
+        <td><%= link_to @summary[:waivers][:week1n].length, wmgr_waivers_incomplete_path(1) %></td>
+        <td><%= link_to @summary[:waivers][:week2n].length, wmgr_waivers_incomplete_path(2) %></td>
+        <td><%= link_to @summary[:waivers][:week3n].length, wmgr_waivers_incomplete_path(3) %></td>
       </tr>
       <tr>
         <td style="font-weight:bold;color:blue;">VOLUNTEERS</td>

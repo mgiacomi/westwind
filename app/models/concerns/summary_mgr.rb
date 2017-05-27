@@ -15,8 +15,8 @@ module SummaryMgr
           paid_full: paid_full(families, people, payments),
           dietary: dietary(families, people),
           waivers: waivers(families, people),
-          volunteers: volunteers(people),
-          dietary_restrictions: dietary_restrictions(people),
+          volunteers: volunteers(families, people),
+          dietary_restrictions: dietary_restrictions(families, people),
       }
     end
 
@@ -209,16 +209,6 @@ module SummaryMgr
 
         if dietary_missing.nil? || dietary_missing.length == 0
           if family.week == 1
-            week1n << family
-          end
-          if family.week == 2
-            week2n << family
-          end
-          if family.week == 3
-            week3n << family
-          end
-        else
-          if family.week == 1
             week1y << family
           end
           if family.week == 2
@@ -226,6 +216,16 @@ module SummaryMgr
           end
           if family.week == 3
             week3y << family
+          end
+        else
+          if family.week == 1
+            week1n << family
+          end
+          if family.week == 2
+            week2n << family
+          end
+          if family.week == 3
+            week3n << family
           end
         end
       end
@@ -237,6 +237,8 @@ module SummaryMgr
     end
 
     def waivers families, people
+      waivers = Waiver.all
+
       week1y = Array.new
       week2y = Array.new
       week3y = Array.new
@@ -250,20 +252,13 @@ module SummaryMgr
         end
 
         waiver_missing = f_people.select do |p|
-          p.waiver.nil? || !p.waiver.complete?
+          waiver = waivers.select do |w|
+            w.person_id == p.id
+          end
+          waiver[0].nil? || !waiver[0].complete?
         end
 
         if waiver_missing.nil? || waiver_missing.length == 0
-          if family.week == 1
-            week1n << family
-          end
-          if family.week == 2
-            week2n << family
-          end
-          if family.week == 3
-            week3n << family
-          end
-        else
           if family.week == 1
             week1y << family
           end
@@ -272,6 +267,16 @@ module SummaryMgr
           end
           if family.week == 3
             week3y << family
+          end
+        else
+          if family.week == 1
+            week1n << family
+          end
+          if family.week == 2
+            week2n << family
+          end
+          if family.week == 3
+            week3n << family
           end
         end
       end
@@ -282,51 +287,54 @@ module SummaryMgr
        week1n: week1n, week2n: week2n, week3n: week3n, totaln: totaln}
     end
 
-    def volunteers people
-      week1 = Array.new
-      week2 = Array.new
-      week3 = Array.new
-
-      people.each do |person|
-
-        if person.volunteer?
-          if person.family.week == 1
-            week1 << person
-          end
-          if person.family.week == 2
-            week2 << person
-          end
-          if person.family.week == 3
-            week3 << person
-          end
+    def volunteers families, people
+      week1 = people.select do |p|
+        f = families.select do |f|
+          p.family_id == f.id
         end
+        p.volunteer? && f[0].week == 1
+      end
+      week2 = people.select do |p|
+        f = families.select do |f|
+          p.family_id == f.id
+        end
+        p.volunteer? && f[0].week == 2
+      end
+      week3 = people.select do |p|
+        f = families.select do |f|
+          p.family_id == f.id
+        end
+        p.volunteer? && f[0].week == 3
       end
 
-      {week1: week1, week2: week2, week3: week3}
+      total = week1.length + week2.length + week3.length
+      {week1: week1, week2: week2, week3: week3, total: total}
     end
 
-    def dietary_restrictions people
-      week1 = Array.new
-      week2 = Array.new
-      week3 = Array.new
-
-      people.each do |person|
-
-        if person.dietary_restrictions?
-          if person.family.week == 1
-            week1 << person
-          end
-          if person.family.week == 2
-            week2 << person
-          end
-          if person.family.week == 3
-            week3 << person
-          end
+    def dietary_restrictions families, people
+      week1 = people.select do |p|
+        f = families.select do |f|
+          p.family_id == f.id
         end
+        p.dietary_restrictions? && f[0].week == 1
+      end
+      week2 = people.select do |p|
+        f = families.select do |f|
+          p.family_id == f.id
+        end
+        p.dietary_restrictions? && f[0].week == 2
+      end
+      week3 = people.select do |p|
+        f = families.select do |f|
+          p.family_id == f.id
+        end
+        p.dietary_restrictions? && f[0].week == 3
       end
 
-      {week1: week1, week2: week2, week3: week3}
+      total = week1.length + week2.length + week3.length
+      {week1: week1, week2: week2, week3: week3, total: total}
     end
+
 
   end
 end
