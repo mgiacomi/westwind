@@ -1,13 +1,14 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.8'
+gem 'rails', '4.2.10'
 gem "bitly"
 gem 'devise'
-gem 'pg'
+gem 'pg', '~> 0.21'
+gem 'google-api-client'
 gem 'raygun4ruby'
 gem 'request_store'
-gem 'rails_12factor', group: :production
+gem 'rails_12factor'
 gem 'puma'
 
 # Use sqlite3 as the database for Active Record

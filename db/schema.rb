@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 20160709001021) do
     t.boolean  "week3_withdrawn",            default: false
     t.boolean  "onk_member",                 default: false
     t.text     "friends"
-    t.integer  "cabin_in"
     t.integer  "cabin_id"
   end
 
