@@ -24,29 +24,29 @@ task :upload_families => :environment do
       registered = row[1].nil? ? nil : Date.strptime(row[1], "%m/%d/%Y")
 
       print week
-      family = Family.create(lottery:row[0], created_at: registered, name: row[8], phone: row[10], email: row[11], adults: row[6], kids: row[7], week: week, week1: week1, week2: week2, week3: week3)
-
-      People.create(family_id: family.id, first: row[9], last: row[8], grade: 'Adult')
+      family = Family.create(lottery:row[0], created_at: registered, name: row[9], phone: row[10], email: row[11], adults: row[6], kids: row[7], week: week, week1: week1, week2: week2, week3: week3)
+      People.create(family_id: family.id, first: row[8], last: row[9], grade: 'Adult')
       print "a"
 
-      unless row[12].nil?
-        adult2 = row[12].split(",")
-        first = adult2[1].nil? ? nil : adult2[1].strip
-        People.create(family_id: family.id, first: first, last: adult2[0].strip, grade: 'Adult')
+      unless row[12].nil? && row[13].nil?
+        first = row[12].nil? ? nil : row[12].strip
+        last = row[13].nil? ? nil : row[13].strip
+        People.create(family_id: family.id, first: first, last: last, grade: 'Adult')
         print "a"
       end
 
-      col = 13
+      col = 14
 
       5.times do
         unless row[col].nil?
-          kid = row[col].split(",")
-          first = kid[1].nil? ? nil : kid[1].strip
-          People.create(family_id: family.id, first: first, last: kid[0].strip, grade: row[(col +2)])
+          first = row[col].nil? ? nil : row[col].strip
+          last = row[(col+1)].nil? ? nil : row[(col+1)].strip
+          grade = row[(col+3)].nil? ? nil : row[(col+3)].strip
+          People.create(family_id: family.id, first: first, last: last, grade: grade)
           print "k"
         end
 
-        col +=  3
+        col += 4
       end
 
     end

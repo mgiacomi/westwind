@@ -64,11 +64,11 @@ class Family < ActiveRecord::Base
   def week_desc
     case week
       when 1
-        'Weekend 1 May 19 - May 21'
+        'Weekend 1 May 18 - May 20'
       when 2
-        'Weekend 2 May 26 - May 29'
+        'Weekend 2 May 25 - May 28'
       when 3
-        'Weekend 3 June 2 - Jun 4'
+        'Weekend 3 June 1 - Jun 3'
       else
         "Wait List"
     end
