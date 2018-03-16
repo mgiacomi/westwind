@@ -102,14 +102,18 @@
           <% if current_family.amount_due > 0 %>
             <!--a style="text-decoration: underline;" href="<%= payments_index_path %>">Make Payment</a-->
           <% end %>
-          <% unless current_family.onk_member? %>
-            <!--a class="onk_membership" style="text-decoration: underline;" href="#">Become an Oya No Kai member</a-->
-          <% end %>
           <% unless current_family.waivers_complete? %>
               <!--a href="<%= waivers_index_path %>" style="text-decoration: underline;">Electronically Sign Waivers</a-->
           <% end %>
           <% unless current_family.diet_and_allergy_complete? %>
             <a style="text-decoration: underline;" href="<%= profile_campers_path %>">Specify Dietary Restrictions and Allergies</a>
+          <% end %>
+          <% unless current_family.onk_member? %>
+            <a class="onk_membership" style="text-decoration: underline;" href="#">Become an Oya No Kai member</a>
+            <div style="color:#a1a4a4;padding-left:10px;font-size:.8em;line-height:15px;">
+              * If you think you are already a member plese email us at westwind@oyanokai.org,
+              so that we can lookup your record and mark it as paid.
+            </div>
           <% end %>
         </blockquote>
         <br/>
