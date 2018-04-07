@@ -100,7 +100,7 @@
             <a style="text-decoration: underline;" href="<%= payments_index_path %>">Pay Deposit</a>
           <% end %>
           <% if current_family.amount_due > 0 %>
-            <!--a style="text-decoration: underline;" href="<%= payments_index_path %>">Make Payment</a-->
+            <a style="text-decoration: underline;" href="<%= payments_index_path %>">Full Payment</a>
           <% end %>
           <% unless current_family.waivers_complete? %>
               <a href="<%= waivers_index_path %>" style="text-decoration: underline;">Electronically Sign Waivers</a>
