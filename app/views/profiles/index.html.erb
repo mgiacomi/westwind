@@ -103,7 +103,7 @@
             <!--a style="text-decoration: underline;" href="<%= payments_index_path %>">Make Payment</a-->
           <% end %>
           <% unless current_family.waivers_complete? %>
-              <!--a href="<%= waivers_index_path %>" style="text-decoration: underline;">Electronically Sign Waivers</a-->
+              <a href="<%= waivers_index_path %>" style="text-decoration: underline;">Electronically Sign Waivers</a>
           <% end %>
           <% unless current_family.diet_and_allergy_complete? %>
             <a style="text-decoration: underline;" href="<%= profile_campers_path %>">Specify Dietary Restrictions and Allergies</a>
