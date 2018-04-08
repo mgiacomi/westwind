@@ -106,7 +106,23 @@
           Complete your Westwind payment. <span style="font-style:italic;color:lightgrey">*After your payment is made it can take a hour before it is registered.</span><br/>
           <a href="#" class="ww_full_payment button button-icon button-green"><i class="fa fa-dollar"></i>Pay Full Amount <%= number_to_currency(current_family.amount_due) %></a>
         <% else %>
-          You need to complete your ONK membership, Dietary/Allergy information, and Waivers before making your full payment.
+          <blockquote class="quote-one red-quote">
+            <div style="margin-bottom:10px;">You need to complete all of your other requirements before completing your payment.</div>
+            <% unless current_family.waivers_complete? %>
+              <a href="<%= waivers_index_path %>" style="text-decoration: underline;">Electronically Sign Waivers</a>
+            <% end %>
+            <% unless current_family.diet_and_allergy_complete? %>
+              <a style="text-decoration: underline;" href="<%= profile_campers_path %>">Specify Dietary Restrictions and
+                Allergies</a>
+            <% end %>
+            <% unless current_family.onk_member? %>
+              <a class="onk_membership" style="text-decoration: underline;" href="#">Become an Oya No Kai member</a>
+              <div style="color:#a1a4a4;padding-left:10px;font-size:.8em;line-height:15px;">
+                * If you think you are already a member plese email us at westwind@oyanokai.org,
+                so that we can lookup your record and mark it as paid.
+              </div>
+            <% end %>
+          </blockquote>
         <% end %>
 
       <% end %>
