@@ -14,8 +14,8 @@ class Wmgr::WeeksController < ApplicationController
     @week_kids_c = People.joins(:family).where("families.week=? and grade != 'Adult'", @week_number).count
     @week_total_count = @week.length
     @week_onk_members = @week.select{ |f| f.onk_member == true }.map{ |f| f.adults}.reduce {|sum, n| sum + 1}
-    @week_deposits = @week.select{ |f| f.total_paid > 99 }.map{ |f| f.adults}.reduce {|sum, n| sum + 1}
-    @week_onk_deposits = @week.select{ |f| f.total_paid > 99 }.map{ |f| f.adults}.reduce {|sum, n| sum + 1}
+    @week_deposits = @week.select{ |f| f.total_paid > 49 }.map{ |f| f.adults}.reduce {|sum, n| sum + 1}
+    @week_onk_deposits = @week.select{ |f| f.total_paid > 49 }.map{ |f| f.adults}.reduce {|sum, n| sum + 1}
     @week_total_due = @week.map{ |f| f.amount_due}.reduce {|sum, n| sum + n}
     @week_total_paid = @week.map{ |f| f.total_paid}.reduce {|sum, n| sum + n}
 

@@ -109,7 +109,7 @@ module SummaryMgr
         amt_per_person = family.amount_per_person
         total_due = amt_per_person * f_people.length
 
-        if pmt_total > 99 || pmt_total >= total_due
+        if pmt_total > 49 || pmt_total >= total_due
           if family.week == 1
             week1y << family
           end

@@ -8,7 +8,7 @@
         });
 
         jQuery(".ww_deposit").click(function () {
-            $('#pp_amount').val("100");
+            $('#pp_amount').val("50");
             $('#ww_payment_form').submit()
         });
     });
@@ -95,10 +95,10 @@
       <% end %>
 
       <% if current_family.amount_due > 0 %>
-          <% if current_family.total_paid < 100 %>
+          <% if current_family.total_paid < 50 %>
               At this point only a deposit is required to hold your spot.  Deposit is due by April 1st.
               <span style="font-style:italic;color:lightgrey">*After your payment is made it can take a hour before it is registered.</span><br/>
-              <a href="#" class="ww_deposit button button-icon button-orange"><i class="fa fa-dollar"></i>Pay Deposit $100.00</a>
+              <a href="#" class="ww_deposit button button-icon button-orange"><i class="fa fa-dollar"></i>Pay Deposit $50.00</a>
               <br/><br/>
           <% end %>
 

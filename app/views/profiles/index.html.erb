@@ -96,7 +96,7 @@
       <% if current_family.week > 0 %>
         <span style="font-weight:bold;">Required, Not yet completed:</span>
         <blockquote class="quote-one red-quote">
-          <% if current_family.total_paid < 100 %>
+          <% if current_family.total_paid < 50 %>
             <a style="text-decoration: underline;" href="<%= payments_index_path %>">Pay Deposit</a>
           <% end %>
           <% if current_family.amount_due > 0 %>
@@ -132,7 +132,7 @@
           <% if current_family.waivers_complete? %>
               Sign Waivers Complete<br/>
           <% end %>
-          <% if current_family.total_paid > 99 %>
+          <% if current_family.total_paid > 49 %>
               Deposit has been paid<br/>
           <% end %>
           <% if current_family.amount_due == 0 %>
