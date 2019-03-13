@@ -1,4 +1,4 @@
-<%- headers = ['Week', 'Family', 'Last', 'First', 'Grade', 'Vegetarian', 'Vegan', 'Pescetarian', 'Gluten Free', 'Lactose Free', 'No Dietary Issues', 'No Allergies', 'Allergies', 'Meal Captain', 'Campfire Leader', 'Cascade Head', 'Mud Mucking', 'Crafts', 'Sand Castles', 'Waiver Signed'] -%>
+<%- headers = ['Week', 'Family', 'Last', 'First', 'Grade', 'Vegetarian', 'Vegan', 'Pescetarian', 'Gluten Free', 'Lactose Free', 'No Dietary Issues', 'No Allergies', 'Allergies', 'Campfire Leader', 'Cascade Head', 'Mud Mucking', 'Crafts', 'Sand Castles', 'Waiver Signed'] -%>
 <%= CSV.generate_line headers -%>
 <%=
   CSV.generate do |csv|
@@ -17,7 +17,6 @@
           person.no_dietary_issues? ? '1' : '',
           person.no_allergies? ? '1' : '',
           person.allergies,
-          person.volunteer_meal_captain? ? '1' : '',
           person.volunteer_campfire_leader? ? '1' : '',
           person.volunteer_cascade_head? ? '1' : '',
           person.volunteer_mud_mucking? ? '1' : '',

@@ -18,7 +18,6 @@
       <tbody>
       <tr>
         <th>Person</th>
-        <th class="table-title blue-title">Meal Captian</th>
         <th class="table-title blue-title">Campfire Leader</th>
         <th class="table-title blue-title">Cascade Head</th>
         <th class="table-title blue-title">Mud Mucking</th>
@@ -29,7 +28,6 @@
       <% @volunteers.each do |volunteer| %>
         <tr>
           <td style=""><%= "#{volunteer.first} #{volunteer.last}" %></td>
-          <td><%= volunteer.volunteer_meal_captain? ? "Yes" : "" %></td>
           <td><%= volunteer.volunteer_campfire_leader? ? "Yes" : "" %></td>
           <td><%= volunteer.volunteer_cascade_head? ? "Yes" : "" %></td>
           <td><%= volunteer.volunteer_mud_mucking? ? "Yes" : "" %></td>
