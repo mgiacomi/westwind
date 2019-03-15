@@ -96,7 +96,7 @@
               <%= f.select :cabin_id, Cabin.all.collect { |c| [ c.name, c.id ] }, {include_blank: true}, {style: 'height:25px;margin-left:10px;padding-left:20px;width:150px;border:1px solid gray;'} %>
             </li>
           </ul>
-          <input type="submit" <% unless current_user.email == "mgiacomi@gltech.com" %>disabled=true;<% end %> class="button center-button button-blue" value="Update"/>
+          <input type="submit" class="button center-button button-blue" value="Update"/>
         </div>
       <% end %>
     </div>
@@ -127,29 +127,27 @@
 
     <br/><br/>
 
-    <% if current_user.email == "mgiacomi@gltech.com" %><%= link_to "Add Person", wmgr_person_new_path(@family) %><% end %>
+    <%= link_to "Add Person", wmgr_person_new_path(@family) %>
     <table class="table">
       <tbody>
       <tr>
-        <% if current_user.email == "mgiacomi@gltech.com" %><th class="table-title"></th><% end %>
+        <th class="table-title"></th>
         <th class="table-title">First</th>
         <th class="table-title">Last</th>
         <th class="table-title">Grade</th>
         <th class="table-title">Waiver</th>
-        <% if current_user.email == "mgiacomi@gltech.com" %><th class="table-title">Remove?</th><% end %>
+        <th class="table-title">Remove?</th>
       </tr>
       <% @family.members.each do |person| %>
           <tr>
-            <% if current_user.email == "mgiacomi@gltech.com" %><td><%= link_to "Edit", wmgr_person_edit_path(person) %></td><% end %>
+            <td><%= link_to "Edit", wmgr_person_edit_path(person) %></td>
             <td><%= person.first %></td>
             <td><%= person.last %></td>
             <td><%= person.grade %></td>
             <td><%= person.waiver_signed %></td>
-            <% if current_user.email == "mgiacomi@gltech.com" %>
-              <td>
-                <%= link_to "X", wmgr_person_delete_path(person.id), data: { confirm: "Are you sure you want to remove person?" }, method: :delete %>
-              </td>
-            <% end %>
+            <td>
+              <%= link_to "X", wmgr_person_delete_path(person.id), data: { confirm: "Are you sure you want to remove person?" }, method: :delete %>
+            </td>
           </tr>
       <% end %>
       </tbody>
