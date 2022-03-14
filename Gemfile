@@ -12,11 +12,11 @@ gem 'validates_timeliness'
 #gem 'bigdecimal', '1.3.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.2.7'
+gem 'rails', '~> 6.1.3'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 6.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'duktape'
 # Use Uglifier as compressor for JavaScript assets

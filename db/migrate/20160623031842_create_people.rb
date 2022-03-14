@@ -1,8 +1,6 @@
-class CreatePeople < ActiveRecord::Migration
+class CreatePeople < ActiveRecord::Migration[5.2]
   def change
     create_table "people", force: :cascade do |t|
-      t.datetime "created_at"
-      t.datetime "updated_at"
 
       t.integer "family_id",                 limit: 4
       t.string  "first",                     limit: 56
@@ -30,6 +28,7 @@ class CreatePeople < ActiveRecord::Migration
       t.string   "waiver_signed_name",         limit: 56
       t.datetime "waiver_signed_date"
 
+      t.timestamps
     end
   end
 end

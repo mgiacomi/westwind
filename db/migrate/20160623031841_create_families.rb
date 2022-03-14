@@ -1,8 +1,6 @@
-class CreateFamilies < ActiveRecord::Migration
+class CreateFamilies < ActiveRecord::Migration[5.2]
   def change
     create_table "families", force: :cascade do |t|
-      t.datetime "created_at"
-      t.datetime "updated_at"
 
       t.string  "name",                limit: 56
       t.string  "code",                limit: 56
@@ -21,6 +19,7 @@ class CreateFamilies < ActiveRecord::Migration
       t.boolean "onk_member",          default: false
       t.text "friends"
 
+      t.timestamps
     end
   end
 end

@@ -1,11 +1,7 @@
-class CreateCabins < ActiveRecord::Migration
+class CreateCabins < ActiveRecord::Migration[5.2]
   def change
     create_table "cabins", force: :cascade do |t|
-      t.datetime "created_at"
-      t.datetime "updated_at"
-
       t.string   "name",   limit: 255
-
       t.timestamps
     end
 
