@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e92c2594-a3fd-490b-b1d6-b5ac03723293" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/controllers/vaccines_controller.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/vaccine.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/vaccines/index.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrate/20160703031844_create_vaccines.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/family.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/family.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/general_mailer/welcome_flyer.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/general_mailer/welcome_flyer.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/general_mailer/welcome_flyer.text.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/general_mailer/welcome_flyer.text.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/includes/_breadcrumb.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/includes/_breadcrumb.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/payments/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/payments/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/profiles/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/profiles/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/wmgr/overviews/families.csv.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/wmgr/overviews/families.csv.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +209,7 @@
       <workItem from="1648247845619" duration="44000" />
       <workItem from="1648780384749" duration="2600000" />
       <workItem from="1649093285723" duration="71000" />
-      <workItem from="1649393134481" duration="11282000" />
+      <workItem from="1649393134481" duration="12625000" />
     </task>
     <task id="LOCAL-00001" summary="Upgrade Rails 5">
       <created>1647153456156</created>
@@ -244,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647229142323</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add Covid Stuff">
+      <created>1649456402239</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1649456402239</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,6 +272,7 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Upgrade Rails 5" />
     <MESSAGE value="Upgrade Rails 6" />
-    <option name="LAST_COMMIT_MESSAGE" value="Upgrade Rails 6" />
+    <MESSAGE value="Add Covid Stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Covid Stuff" />
   </component>
 </project>

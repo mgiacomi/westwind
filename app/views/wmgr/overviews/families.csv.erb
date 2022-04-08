@@ -1,4 +1,4 @@
-<%- headers = ['Week', 'Name', 'Lottery', 'Cabin', 'Phone', 'Email', 'Adults', 'Kids', 'ONK', 'Waivers Complete', 'Dietary Complete', 'Total Due', 'Total Paid'] -%>
+<%- headers = ['Week', 'Name', 'Lottery', 'Cabin', 'Phone', 'Email', 'Adults', 'Kids', 'ONK', 'Waivers Complete', 'Dietary Complete', 'Total Due', 'Total Paid', 'Vaccine Complete', 'Vaccine Party'] -%>
 <%= CSV.generate_line headers -%>
 <%=
   CSV.generate do |csv|
@@ -16,7 +16,9 @@
           family.waivers_complete?,
           family.diet_and_allergy_complete?,
           family.amount_due,
-          family.total_paid
+          family.total_paid,
+          family.vaccines_complete?,
+          family.vaccine.nil? ? "" : family.vaccine.party
       ]
     end
   end.html_safe
