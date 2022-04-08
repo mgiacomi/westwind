@@ -103,7 +103,10 @@
             <a style="text-decoration: underline;" href="<%= payments_index_path %>">Full Payment</a>
           <% end %>
           <% unless current_family.waivers_complete? %>
-              <a href="<%= waivers_index_path %>" style="text-decoration: underline;">Electronically Sign Waivers</a>
+            <a href="<%= waivers_index_path %>" style="text-decoration: underline;">Electronically Sign Waivers</a>
+          <% end %>
+          <% unless current_family.vaccines_complete? %>
+            <a href="<%= vaccines_index_path %>" style="text-decoration: underline;">Electronically Sign Vaccine Attestation</a>
           <% end %>
           <% unless current_family.diet_and_allergy_complete? %>
             <a style="text-decoration: underline;" href="<%= profile_campers_path %>">Specify Dietary Restrictions and Allergies</a>
@@ -131,6 +134,9 @@
           <% end %>
           <% if current_family.waivers_complete? %>
               Sign Waivers Complete<br/>
+          <% end %>
+          <% if current_family.vaccines_complete? %>
+            Vaccine Attestation Complete<br/>
           <% end %>
           <% if current_family.total_paid > 49 %>
               Deposit has been paid<br/>

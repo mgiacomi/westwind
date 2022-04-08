@@ -2,45 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e92c2594-a3fd-490b-b1d6-b5ac03723293" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/assets/config/manifest.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/initializers/new_framework_defaults_6_1.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/initializers/permissions_policy.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tmp/pids/.keep" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/vaccines_controller.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/vaccine.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/vaccines/index.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/migrate/20160703031844_create_vaccines.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/wmgr/families_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/wmgr/families_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/wmgr/members_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/wmgr/members_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/wmgr/overviews_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/wmgr/overviews_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/wmgr/weeks_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/wmgr/weeks_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/rails" beforeDir="false" afterPath="$PROJECT_DIR$/bin/rails" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/rake" beforeDir="false" afterPath="$PROJECT_DIR$/bin/rake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/setup" beforeDir="false" afterPath="$PROJECT_DIR$/bin/setup" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/yarn" beforeDir="false" afterPath="$PROJECT_DIR$/bin/yarn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.ru" beforeDir="false" afterPath="$PROJECT_DIR$/config.ru" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/application.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/application.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/boot.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/boot.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/cable.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/cable.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/environment.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/environment.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/environments/development.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/environments/development.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/environments/production.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/environments/production.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/environments/test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/environments/test.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/initializers/backtrace_silencers.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/initializers/backtrace_silencers.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/initializers/bitly.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/initializers/content_security_policy.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/initializers/content_security_policy.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/initializers/filter_parameter_logging.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/initializers/filter_parameter_logging.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/locales/en.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/locales/en.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/puma.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/puma.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20160323031841_devise_create_users.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20160323031841_devise_create_users.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20160609001020_add_admin_to_users.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20160609001020_add_admin_to_users.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20160623031841_create_families.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20160623031841_create_families.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20160623031842_create_people.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20160623031842_create_people.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20160703031841_create_payments.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20160703031841_create_payments.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20160703031842_create_waivers.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20160703031842_create_waivers.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20160703031843_create_cabins.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20160703031843_create_cabins.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20160709001021_add_cabin_to_families.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20160709001021_add_cabin_to_families.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/family.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/family.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/general_mailer/welcome_flyer.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/general_mailer/welcome_flyer.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/general_mailer/welcome_flyer.text.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/general_mailer/welcome_flyer.text.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/includes/_breadcrumb.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/includes/_breadcrumb.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/payments/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/payments/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/profiles/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/profiles/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,14 +45,21 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/assets" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/views/vaccines" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\opendev\code\westwind\app\views\vaccines" />
+      <recent name="C:\opendev\code\westwind\app\controllers" />
+      <recent name="C:\opendev\code\westwind\app\models" />
+      <recent name="C:\opendev\code\westwind\db\migrate" />
       <recent name="C:\opendev\code\westwind\app\assets" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\opendev\code\westwind\app\views" />
     </key>
   </component>
   <component name="RunManager">
@@ -215,7 +196,7 @@
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPTS_PATHS" VALUE="" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_METHOD_NAME" VALUE="" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="CUSTOM_SET_OF_FILES" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SPRING" VALUE="false" />
@@ -235,7 +216,12 @@
       <updated>1645921968790</updated>
       <workItem from="1645921969921" duration="1323000" />
       <workItem from="1645937805990" duration="3359000" />
-      <workItem from="1647150589103" duration="9852000" />
+      <workItem from="1647150589103" duration="11556000" />
+      <workItem from="1648246312753" duration="378000" />
+      <workItem from="1648247845619" duration="44000" />
+      <workItem from="1648780384749" duration="2600000" />
+      <workItem from="1649093285723" duration="71000" />
+      <workItem from="1649393134481" duration="11282000" />
     </task>
     <task id="LOCAL-00001" summary="Upgrade Rails 5">
       <created>1647153456156</created>
@@ -244,7 +230,21 @@
       <option name="project" value="LOCAL" />
       <updated>1647153456156</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Upgrade Rails 6">
+      <created>1647229106219</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1647229106219</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Upgrade Rails 6">
+      <created>1647229142323</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1647229142323</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,7 +273,10 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Upgrade Rails 5" />
-    <option name="LAST_COMMIT_MESSAGE" value="Upgrade Rails 5" />
+    <MESSAGE value="Upgrade Rails 6" />
+    <option name="LAST_COMMIT_MESSAGE" value="Upgrade Rails 6" />
   </component>
 </project>

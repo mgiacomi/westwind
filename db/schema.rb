@@ -15,13 +15,15 @@ ActiveRecord::Schema.define(version: 2016_07_09_001021) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "cabins", force: :cascade do |t|
+  create_table "cabins", id: :serial, force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string "name", limit: 255
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
-  create_table "families", force: :cascade do |t|
+  create_table "families", id: :serial, force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string "name", limit: 56
     t.string "code", limit: 56
     t.integer "lottery", default: 0
@@ -38,22 +40,22 @@ ActiveRecord::Schema.define(version: 2016_07_09_001021) do
     t.boolean "week3_withdrawn", default: false
     t.boolean "onk_member", default: false
     t.text "friends"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "cabin_id"
   end
 
-  create_table "payments", force: :cascade do |t|
+  create_table "payments", id: :serial, force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer "family_id"
     t.string "pmttype", limit: 255
     t.datetime "pmtdate"
     t.decimal "amount", precision: 6, scale: 2, default: "0.0"
     t.decimal "fee", precision: 6, scale: 2, default: "0.0"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
-  create_table "people", force: :cascade do |t|
+  create_table "people", id: :serial, force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer "family_id"
     t.string "first", limit: 56
     t.string "last", limit: 56
@@ -76,11 +78,9 @@ ActiveRecord::Schema.define(version: 2016_07_09_001021) do
     t.string "waiver_signed_relationship", limit: 56
     t.string "waiver_signed_name", limit: 56
     t.datetime "waiver_signed_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :serial, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -98,7 +98,20 @@ ActiveRecord::Schema.define(version: 2016_07_09_001021) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "waivers", force: :cascade do |t|
+  create_table "vaccines", force: :cascade do |t|
+    t.integer "family_id"
+    t.string "understand", limit: 255
+    t.string "signature", limit: 255
+    t.string "first", limit: 255
+    t.string "last", limit: 255
+    t.string "party", limit: 1024
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "waivers", id: :serial, force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer "person_id"
     t.string "understand", limit: 255
     t.string "signature", limit: 255
@@ -107,8 +120,6 @@ ActiveRecord::Schema.define(version: 2016_07_09_001021) do
     t.string "last", limit: 255
     t.string "email", limit: 255
     t.string "phone", limit: 255
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end

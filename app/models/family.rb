@@ -4,6 +4,7 @@ class Family < ActiveRecord::Base
   belongs_to :cabin
   has_many :members, class_name: "People"
   has_many :payments
+  has_one :vaccine
 
   def bread_winner
     adult = People.where(family_id: id, grade: 'Adult').first
@@ -13,6 +14,14 @@ class Family < ActiveRecord::Base
     end
 
     adult
+  end
+
+  def vaccines_complete?
+    if !vaccine.nil? && vaccine.complete?
+      return true
+    end
+
+    false
   end
 
   def waivers_complete?

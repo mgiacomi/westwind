@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   match '/forgot/screen' => 'logins#forgot_screen', :as => :forgot_s,  :via => :get
   match '/forgot/email'  => 'logins#forgot_email',  :as => :forgot_e,  :via => :post
 
+  match '/vaccines'        => 'vaccines#index',     :as => :vaccines_index,     :via => :get
+  match '/vaccines/submit' => 'vaccines#submit',    :as => :vaccines_submit,    :via => :post
+
   match '/waivers'             => 'waivers#index',     :as => :waivers_index,   :via => :get
   match '/waivers/sign/:id'    => 'waivers#sign',      :as => :waivers_sign,    :via => :get
   match '/waivers/submit/:id'  => 'waivers#submit',    :as => :waivers_submit,  :via => :post
