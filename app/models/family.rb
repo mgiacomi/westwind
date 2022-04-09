@@ -1,7 +1,7 @@
 class Family < ActiveRecord::Base
   include SummaryMgr, CodeGen, Obscure
 
-  belongs_to :cabin
+  belongs_to :cabin, optional: true
   has_many :members, class_name: "People"
   has_many :payments
   has_one :vaccine
