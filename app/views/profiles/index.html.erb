@@ -136,7 +136,7 @@
               Sign Waivers Complete<br/>
           <% end %>
           <% if current_family.vaccines_complete? %>
-            Vaccine Attestation Complete<br/>
+            <a href="<%= vaccines_index_path %>" style="color:rgba(46, 204, 113,1.0);text-decoration: underline;">Vaccine Attestation Complete</a>
           <% end %>
           <% if current_family.total_paid > 49 %>
               Deposit has been paid<br/>

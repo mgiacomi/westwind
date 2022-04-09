@@ -7,8 +7,8 @@ class VaccinesController < ApplicationController
   end
 
   def submit
-    @vaccine = Vaccine.new(vaccine_params)
-    @vaccine.family = current_family
+    @vaccine = Vaccine.find_or_create_by(family_id: current_family.id)
+    @vaccine.attributes = vaccine_params
 
     if @vaccine.save
       redirect_to :profile_index, notice: "Vaccine Attestation signed."
