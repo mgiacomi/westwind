@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e92c2594-a3fd-490b-b1d6-b5ac03723293" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/payments/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/payments/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/vaccines/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/vaccines/index.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,7 +209,7 @@
       <workItem from="1648247845619" duration="44000" />
       <workItem from="1648780384749" duration="2600000" />
       <workItem from="1649093285723" duration="71000" />
-      <workItem from="1649393134481" duration="19659000" />
+      <workItem from="1649393134481" duration="20776000" />
     </task>
     <task id="LOCAL-00001" summary="Upgrade Rails 5">
       <created>1647153456156</created>
@@ -267,7 +267,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649481600854</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Update Pricing">
+      <created>1649482033688</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1649482033688</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,6 +309,7 @@
     <MESSAGE value="Upgrade Rails 6" />
     <MESSAGE value="Add Covid Stuff" />
     <MESSAGE value="Rails 6 Changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rails 6 Changes" />
+    <MESSAGE value="Update Pricing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Pricing" />
   </component>
 </project>
