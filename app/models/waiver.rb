@@ -1,6 +1,6 @@
 class Waiver < ActiveRecord::Base
 
-  belongs_to :person
+  belongs_to :person, optional: true
 
   validates :relationship, :first, :last, :understand, :signature, :email, :phone, presence: {message: " is required"}
   validates :understand, acceptance: { accept: 'Yes, I fully understand and accept this waiver.' }
