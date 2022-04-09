@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e92c2594-a3fd-490b-b1d6-b5ac03723293" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/family.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/family.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20160703031843_create_cabins.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20160703031843_create_cabins.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/tasks/upload_families.rake" beforeDir="false" afterPath="$PROJECT_DIR$/lib/tasks/upload_families.rake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/payments/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/payments/index.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,7 +209,7 @@
       <workItem from="1648247845619" duration="44000" />
       <workItem from="1648780384749" duration="2600000" />
       <workItem from="1649093285723" duration="71000" />
-      <workItem from="1649393134481" duration="17973000" />
+      <workItem from="1649393134481" duration="19659000" />
     </task>
     <task id="LOCAL-00001" summary="Upgrade Rails 5">
       <created>1647153456156</created>
@@ -250,7 +246,28 @@
       <option name="project" value="LOCAL" />
       <updated>1649459726201</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Rails 6 Changes">
+      <created>1649479699709</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1649479699709</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Rails 6 Changes">
+      <created>1649481050792</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1649481050792</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Rails 6 Changes">
+      <created>1649481600854</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1649481600854</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -284,6 +301,7 @@
     <MESSAGE value="Upgrade Rails 5" />
     <MESSAGE value="Upgrade Rails 6" />
     <MESSAGE value="Add Covid Stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Covid Stuff" />
+    <MESSAGE value="Rails 6 Changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rails 6 Changes" />
   </component>
 </project>

@@ -55,11 +55,11 @@ class Family < ActiveRecord::Base
   def amount_per_person
     case week
       when 1
-        amount = 70
+        amount = 100
       when 2
-        amount = 105
+        amount = 145
       when 3
-        amount = 70
+        amount = 100
       else
         amount = 0
     end
