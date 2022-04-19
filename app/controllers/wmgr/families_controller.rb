@@ -21,11 +21,12 @@ class Wmgr::FamiliesController < ApplicationController
     @family = Family.find params[:id]
     @family.week = params[:week]
     @family.cabin_id = params[:family]['cabin_id']
+    @family.email = params[:family]['email']
 
     if @family.save
-      redirect_to wmgr_family_path(@family.id), notice: 'Week has been updated.'
+      redirect_to wmgr_family_path(@family.id), notice: 'Family details updated.'
     else
-      render action: "view", alert: "Failed to change week."
+      redirect_to wmgr_family_path(@family.id), notice: 'Failed to update family details.'
     end
   end
 

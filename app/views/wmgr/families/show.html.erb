@@ -65,7 +65,7 @@
     <div class="one-half-responsive no-bottom" style="margin-right:0;">
 
       <%= form_for @family, :url => wmgr_week_path(@family) do |f| %>
-        <div class="pricing-table pricing-selected-blue" style="max-width: 400px;">
+        <div class="pricing-table pricing-selected-blue" style="max-width: 400px;padding-bottom:20px;">
           <h1>
             Family Details
           </h1>
@@ -74,7 +74,7 @@
               <a href="#" style="width:130px;padding-top:3px;" class="onk_membership checkbox checkbox-class-1 <%= @family.onk_member? ? '' : 'checkbox-unselected-1' %>">ONK Member</a>
             </li>
             <li style="text-align: left;padding-left:100px;">
-              Email: <%= @family.email %>
+              Email: <%= f.email_field :email,  style: 'height:25px;margin-left:10px;padding-left:10px;width:200px;border:1px solid gray;display:inline;'%>
             </li>
             <li style="text-align: left;padding-left:100px;">
               Phone: <%= @family.phone %>
@@ -97,6 +97,7 @@
             </li>
           </ul>
           <input type="submit" class="button center-button button-blue" value="Update"/>
+        </div>
         </div>
       <% end %>
     </div>

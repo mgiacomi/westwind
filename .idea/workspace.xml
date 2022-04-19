@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e92c2594-a3fd-490b-b1d6-b5ac03723293" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6903f3a5-8136-4eec-8033-678427b26987.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6903f3a5-8136-4eec-8033-678427b26987.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/wmgr/families_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/wmgr/families_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/family.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/family.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/wmgr/families/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/wmgr/families/show.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,15 +34,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/views/vaccines" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "ruby.rails.projectView.checked": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\opendev\code\westwind\app\views\vaccines" />
@@ -209,6 +212,8 @@
       <workItem from="1648780384749" duration="2600000" />
       <workItem from="1649093285723" duration="71000" />
       <workItem from="1649393134481" duration="23916000" />
+      <workItem from="1649696009020" duration="107000" />
+      <workItem from="1650338816716" duration="1027000" />
     </task>
     <task id="LOCAL-00001" summary="Upgrade Rails 5">
       <created>1647153456156</created>
@@ -294,7 +299,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649532125058</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Fix Weeks">
+      <created>1649696105816</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1649696105816</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,6 +344,7 @@
     <MESSAGE value="Update Pricing" />
     <MESSAGE value="Fix Waivers" />
     <MESSAGE value="Resign Vaccine" />
-    <option name="LAST_COMMIT_MESSAGE" value="Resign Vaccine" />
+    <MESSAGE value="Fix Weeks" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix Weeks" />
   </component>
 </project>

@@ -6,6 +6,8 @@ class Family < ActiveRecord::Base
   has_many :payments
   has_one :vaccine
 
+  validates :email, presence: {message: " is required"}
+
   def bread_winner
     adult = People.where(family_id: id, grade: 'Adult').first
 
