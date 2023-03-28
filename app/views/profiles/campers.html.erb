@@ -33,16 +33,16 @@
           Dietary Preferences:<br/>
           <table style="width:97%;margin-bottom:10px;">
             <tr>
-              <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="vegetarian" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.vegetarian? %>checkbox-unselected-1<% end %>">Vegetarian</a></td>
-              <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="vegan" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.vegan? %>checkbox-unselected-1<% end %>">Vegan</a></td>
+              <td style="padding: 5px 14px;text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="vegetarian" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.vegetarian? %>checkbox-unselected-1<% end %>">Vegetarian</a></td>
+              <td style="padding: 5px 14px;text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="vegan" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.vegan? %>checkbox-unselected-1<% end %>">Vegan</a></td>
             </tr>
             <tr>
-              <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="pescetarian" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.pescetarian? %>checkbox-unselected-1<% end %>">Pescetarian</a></td>
-              <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="gluten_free" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.gluten_free? %>checkbox-unselected-1<% end %>">Gluten Free</a></td>
+              <td style="padding: 5px 14px;text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="pescetarian" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.pescetarian? %>checkbox-unselected-1<% end %>">Pescetarian</a></td>
+              <td style="padding: 5px 14px;text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="gluten_free" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.gluten_free? %>checkbox-unselected-1<% end %>">Gluten Free</a></td>
             </tr>
             <tr>
-              <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="lactose_free" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.lactose_free? %>checkbox-unselected-1<% end %>">Lactose Free</a></td>
-              <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="no_dietary_issues" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.no_dietary_issues? %>checkbox-unselected-1<% end %>">No Dietary Preferences</a></td>
+              <td style="padding: 5px 14px;text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="lactose_free" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.lactose_free? %>checkbox-unselected-1<% end %>">Lactose Free</a></td>
+              <td style="padding: 5px 14px;text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="no_dietary_issues" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.no_dietary_issues? %>checkbox-unselected-1<% end %>">No Dietary Preferences</a></td>
             </tr>
           </table>
           Food Allergies:
@@ -56,16 +56,25 @@
           Volunteer Opportunities:<br/>
           <table style="width:97%;margin-bottom:10px;">
             <tr>
-              <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="volunteer_sand_castles" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.volunteer_sand_castles? %>checkbox-unselected-1<% end %>">Sand Castles</a></td>
-              <td></td>
+              <td style="padding: 10px 14px 1px 14px;text-align: left;vertical-align:top;"><a href="#" data-people-id="<%= adult.id %>" data-column="volunteer_sand_castles" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.volunteer_sand_castles? %>checkbox-unselected-1<% end %>">Sand Castles Judge</a></td>
             </tr>
             <tr>
-              <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="volunteer_campfire_leader" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.volunteer_campfire_leader? %>checkbox-unselected-1<% end %>">Campfire Leader</a></td>
-              <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="volunteer_crafts" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.volunteer_crafts? %>checkbox-unselected-1<% end %>">Crafts</a></td>
+              <td style="padding: 1px 14px;text-align: left;vertical-align:top;"><a href="#" data-people-id="<%= adult.id %>" data-column="volunteer_meal_captain" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.volunteer_meal_captain? %>checkbox-unselected-1<% end %>">Japanese Meal Captain</a></td>
             </tr>
             <tr>
-              <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="volunteer_cascade_head" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.volunteer_cascade_head? %>checkbox-unselected-1<% end %>">Cascade Head</a></td>
-              <td style="text-align: left;"><a href="#" data-people-id="<%= adult.id %>" data-column="volunteer_mud_mucking" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.volunteer_mud_mucking? %>checkbox-unselected-1<% end %>">Mud Mucking</a></td>
+              <td style="padding: 1px 14px;text-align: left;vertical-align:top;"><a href="#" data-people-id="<%= adult.id %>" data-column="volunteer_campfire_leader" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.volunteer_campfire_leader? %>checkbox-unselected-1<% end %>">Campfire Leader</a></td>
+            </tr>
+            <tr>
+              <td style="padding: 1px 14px;text-align: left;vertical-align:top;"><a href="#" data-people-id="<%= adult.id %>" data-column="volunteer_crafts" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.volunteer_crafts? %>checkbox-unselected-1<% end %>">Crafts</a></td>
+            </tr>
+            <tr>
+              <td style="padding: 1px 14px;text-align: left;vertical-align:top;"><a href="#" data-people-id="<%= adult.id %>" data-column="volunteer_cascade_head" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.volunteer_cascade_head? %>checkbox-unselected-1<% end %>">Cascade Head Hike</a></td>
+            </tr>
+            <tr>
+              <td style="padding: 1px 14px;text-align: left;vertical-align:top;"><a href="#" data-people-id="<%= adult.id %>" data-column="volunteer_mud_mucking" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.volunteer_mud_mucking? %>checkbox-unselected-1<% end %>">Mud Mucking</a></td>
+            </tr>
+            <tr>
+              <td style="padding: 1px 14px 10px 14px;text-align: left;vertical-align:top;"><a href="#" data-people-id="<%= adult.id %>" data-column="volunteer_intern_ride" class="toggle_prefs checkbox checkbox-class-1 <% unless adult.volunteer_intern_ride? %>checkbox-unselected-1<% end %>">Intern Carpool</a></td>
             </tr>
           </table>
         </blockquote>
@@ -82,16 +91,16 @@
             Dietary Preferences:<br/>
             <table style="width:97%;margin-bottom:10px;">
               <tr>
-                <td style="text-align: left;"><a href="#" data-people-id="<%= kid.id %>" data-column="vegetarian" class="toggle_prefs checkbox checkbox-class-1 <% unless kid.vegetarian? %>checkbox-unselected-1<% end %>">Vegetarian</a></td>
-                <td style="text-align: left;"><a href="#" data-people-id="<%= kid.id %>" data-column="vegan" class="toggle_prefs checkbox checkbox-class-1 <% unless kid.vegan? %>checkbox-unselected-1<% end %>">Vegan</a></td>
+                <td style="padding: 5px 14px;text-align: left;"><a href="#" data-people-id="<%= kid.id %>" data-column="vegetarian" class="toggle_prefs checkbox checkbox-class-1 <% unless kid.vegetarian? %>checkbox-unselected-1<% end %>">Vegetarian</a></td>
+                <td style="padding: 5px 14px;text-align: left;"><a href="#" data-people-id="<%= kid.id %>" data-column="vegan" class="toggle_prefs checkbox checkbox-class-1 <% unless kid.vegan? %>checkbox-unselected-1<% end %>">Vegan</a></td>
               </tr>
               <tr>
-                <td style="text-align: left;"><a href="#" data-people-id="<%= kid.id %>" data-column="pescetarian" class="toggle_prefs checkbox checkbox-class-1 <% unless kid.pescetarian? %>checkbox-unselected-1<% end %>">Pescetarian</a></td>
-                <td style="text-align: left;"><a href="#" data-people-id="<%= kid.id %>" data-column="gluten_free" class="toggle_prefs checkbox checkbox-class-1 <% unless kid.gluten_free? %>checkbox-unselected-1<% end %>">Gluten Free</a></td>
+                <td style="padding: 5px 14px;text-align: left;"><a href="#" data-people-id="<%= kid.id %>" data-column="pescetarian" class="toggle_prefs checkbox checkbox-class-1 <% unless kid.pescetarian? %>checkbox-unselected-1<% end %>">Pescetarian</a></td>
+                <td style="padding: 5px 14px;text-align: left;"><a href="#" data-people-id="<%= kid.id %>" data-column="gluten_free" class="toggle_prefs checkbox checkbox-class-1 <% unless kid.gluten_free? %>checkbox-unselected-1<% end %>">Gluten Free</a></td>
               </tr>
               <tr>
-                <td style="text-align: left;"><a href="#" data-people-id="<%= kid.id %>" data-column="lactose_free" class="toggle_prefs checkbox checkbox-class-1 <% unless kid.lactose_free? %>checkbox-unselected-1<% end %>">Lactose Free</a></td>
-                <td style="text-align: left;"><a href="#" data-people-id="<%= kid.id %>" data-column="no_dietary_issues" class="toggle_prefs checkbox checkbox-class-1 <% unless kid.no_dietary_issues? %>checkbox-unselected-1<% end %>">No Dietary Preferences</a></td>
+                <td style="padding: 5px 14px;text-align: left;"><a href="#" data-people-id="<%= kid.id %>" data-column="lactose_free" class="toggle_prefs checkbox checkbox-class-1 <% unless kid.lactose_free? %>checkbox-unselected-1<% end %>">Lactose Free</a></td>
+                <td style="padding: 5px 14px;text-align: left;"><a href="#" data-people-id="<%= kid.id %>" data-column="no_dietary_issues" class="toggle_prefs checkbox checkbox-class-1 <% unless kid.no_dietary_issues? %>checkbox-unselected-1<% end %>">No Dietary Preferences</a></td>
               </tr>
             </table>
             Food Allergies:

@@ -17,6 +17,8 @@ class CreateFamilies < ActiveRecord::Migration[5.2]
       t.integer "week3",               limit: 1, default: 0
       t.boolean "week3_withdrawn",     default: false
       t.boolean "onk_member",          default: false
+      t.boolean "host",                default: false
+
       t.text "friends"
 
       t.timestamps

@@ -1,10 +1,6 @@
 <script>
     jQuery(document).ready(function () {
         jQuery("tr:odd").addClass("even");
-
-        jQuery(".onk_membership").click(function () {
-            $('#onk_member_form').submit()
-        });
     });
 </script>
 
@@ -16,9 +12,6 @@
 
 <%= form_tag wmgr_person_delete_path, method: :post, id: 'person_delete_form' do %>
     <input type="hidden" id="person_id" name="id"/>
-<% end %>
-
-<%= form_tag wmgr_onk_path(@family.id), method: :post, id: 'onk_member_form' do %>
 <% end %>
 
 <div class="content">
@@ -64,14 +57,17 @@
 
     <div class="one-half-responsive no-bottom" style="margin-right:0;">
 
-      <%= form_for @family, :url => wmgr_week_path(@family) do |f| %>
+      <%= form_for @family, :url => wmgr_family_update_path(@family) do |f| %>
         <div class="pricing-table pricing-selected-blue" style="max-width: 400px;padding-bottom:20px;">
           <h1>
             Family Details
           </h1>
           <ul>
             <li style="text-align: left;padding-left:100px;">
-              <a href="#" style="width:130px;padding-top:3px;" class="onk_membership checkbox checkbox-class-1 <%= @family.onk_member? ? '' : 'checkbox-unselected-1' %>">ONK Member</a>
+              Camp Host: <%= f.check_box :host, style: 'position:relative;vertical-align: middle; margin-left:10px;display:inline; -webkit-appearance: checkbox;-moz-appearance: checkbox;' %>
+            </li>
+            <li style="text-align: left;padding-left:100px;">
+              ONK Member: <%= f.check_box :onk_member, style: 'position:relative;vertical-align: middle; margin-left:10px;display:inline; -webkit-appearance: checkbox;-moz-appearance: checkbox;' %>
             </li>
             <li style="text-align: left;padding-left:100px;">
               Email: <%= f.email_field :email,  style: 'height:25px;margin-left:10px;padding-left:10px;width:200px;border:1px solid gray;display:inline;'%>

@@ -16,6 +16,7 @@ class CreatePeople < ActiveRecord::Migration[5.2]
       t.boolean  "no_allergies",              default: false
       t.text     "allergies"
 
+      t.boolean  "volunteer_intern_ride",     default: false
       t.boolean  "volunteer_meal_captain",    default: false
       t.boolean  "volunteer_campfire_leader", default: false
       t.boolean  "volunteer_cascade_head",    default: false

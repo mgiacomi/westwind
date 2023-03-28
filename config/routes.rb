@@ -41,9 +41,8 @@ Rails.application.routes.draw do
   match '/wmgr/weeks'          => 'wmgr/weeks#index',             :as => :wmgr_weeks_index,    :via => :get
   match '/wmgr/weeks/:id'      => 'wmgr/weeks#index',             :as => :wmgr_weeks,          :via => :get
   match '/wmgr/family/:id'     => 'wmgr/families#show',           :as => :wmgr_family,         :via => :get
-  match '/wmgr/family/onk/:id' => 'wmgr/families#onk',            :as => :wmgr_onk,            :via => :post
+  match '/wmgr/family/:id'     => 'wmgr/families#update',         :as => :wmgr_family_update,  :via => [:post,:put,:patch]
   match '/wmgr/payment/:id'    => 'wmgr/families#payment',        :as => :wmgr_payment,        :via => [:post,:put]
-  match '/wmgr/week/:id'       => 'wmgr/families#week',           :as => :wmgr_week,           :via => [:post,:put,:patch]
   match '/wmgr/payment/:id'    => 'wmgr/families#payment_delete', :as => :wmgr_payment_delete, :via => :delete
   match '/wmgr/person/new/:id' => 'wmgr/members#new',             :as => :wmgr_person_new,     :via => :get
   match '/wmgr/person'         => 'wmgr/members#create',          :as => :wmgr_person_create,  :via => :post

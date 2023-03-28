@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2016_07_09_001021) do
     t.integer "week3", limit: 2, default: 0
     t.boolean "week3_withdrawn", default: false
     t.boolean "onk_member", default: false
+    t.boolean "host", default: false
     t.text "friends"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -66,6 +67,7 @@ ActiveRecord::Schema.define(version: 2016_07_09_001021) do
     t.boolean "no_dietary_issues", default: false
     t.boolean "no_allergies", default: false
     t.text "allergies"
+    t.boolean "volunteer_intern_ride", default: false
     t.boolean "volunteer_meal_captain", default: false
     t.boolean "volunteer_campfire_leader", default: false
     t.boolean "volunteer_cascade_head", default: false

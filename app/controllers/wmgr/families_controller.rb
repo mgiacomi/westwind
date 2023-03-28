@@ -10,18 +10,13 @@ class Wmgr::FamiliesController < ApplicationController
     @payment.family = @family
   end
 
-  def onk
-    family = Family.find params[:id]
-    family.toggle :onk_member
-    family.save
-    redirect_to wmgr_family_path(family.id), notice: "ONK Membership Updated"
-  end
-
-  def week
+  def update
     @family = Family.find params[:id]
     @family.week = params[:week]
     @family.cabin_id = params[:family]['cabin_id']
     @family.email = params[:family]['email']
+    @family.onk_member = params[:family]['onk_member']
+    @family.host = params[:family]['host']
 
     if @family.save
       redirect_to wmgr_family_path(@family.id), notice: 'Family details updated.'
