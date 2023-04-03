@@ -100,17 +100,6 @@ ActiveRecord::Schema.define(version: 2016_07_09_001021) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "vaccines", force: :cascade do |t|
-    t.integer "family_id"
-    t.string "understand", limit: 255
-    t.string "signature", limit: 255
-    t.string "first", limit: 255
-    t.string "last", limit: 255
-    t.string "party", limit: 1024
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "waivers", force: :cascade do |t|
     t.integer "person_id"
     t.string "understand", limit: 255
