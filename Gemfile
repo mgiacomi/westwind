@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 ruby "2.7.6"
 
+gem 'caxlsx'
+gem 'caxlsx_rails'
 gem 'devise'
 gem 'pg'
 gem 'raygun4ruby'

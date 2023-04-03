@@ -1,0 +1,111 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: 'Overview') do |sheet|
+    sheet.add_row ['Week', 'Name', 'Lottery#', 'Cabin', 'Phone', 'Email', 'Adults', 'Kids', 'ONK Member', 'Waivers Complete', 'Diet/Allergy Complete', 'Amount Due', 'Total Paid']
+
+    @families.each do |family|
+        sheet.add_row [
+            family.week,
+            family.name,
+            family.lottery,
+            family.cabin.nil? ? "" : family.cabin.name,
+            family.phone,
+            family.email,
+            family.members.where("lower(grade) = ?", 'adult').count,
+            family.members.where("lower(grade) != ?", 'adult').count,
+            family.onk_member,
+            family.waivers_complete?,
+            family.diet_and_allergy_complete?,
+            family.amount_due,
+            family.total_paid
+        ]
+    end
+
+    # Add Header Style
+    s = wb.styles
+    header_style = s.add_style b: true, u: true
+    sheet.row_style 0, header_style
+
+    # Auto Filtering
+    sheet.auto_filter = 'A1:M1'
+end
+
+wb.add_worksheet(name: 'Kids') do |sheet|
+    sheet.add_row ['Week', 'Family', 'Last Name', 'First Name', 'Grade']
+    @people.each do |person|
+        unless person.grade == 'Adult'
+            sheet.add_row [
+                person.family.week,
+                person.family.name,
+                person.last,
+                person.first,
+                person.grade
+            ]
+        end
+    end
+
+    # Add Header Style
+    s = wb.styles
+    header_style = s.add_style b: true, u: true
+    sheet.row_style 0, header_style
+
+    # Auto Filtering
+    sheet.auto_filter = 'A1:E1'
+end
+
+wb.add_worksheet(name: 'Volunteers') do |sheet|
+    sheet.add_row ['Week', 'Family', 'Last Name', 'First Name', 'Campfire Leader', 'Cascade Head', 'Mud Mucking', 'Crafts', 'Sand Castles', 'Meal Captain', 'Intern Ride']
+    @people.each do |person|
+        if person.volunteer?
+            sheet.add_row [
+                person.family.week,
+                person.family.name,
+                person.last,
+                person.first,
+                person.volunteer_campfire_leader? ? '1' : '',
+                person.volunteer_cascade_head? ? '1' : '',
+                person.volunteer_mud_mucking? ? '1' : '',
+                person.volunteer_crafts? ? '1' : '',
+                person.volunteer_sand_castles? ? '1' : '',
+                person.volunteer_meal_captain? ? '1' : '',
+                person.volunteer_intern_ride? ? '1' : ''
+            ]
+        end
+    end
+
+    # Add Header Style
+    s = wb.styles
+    header_style = s.add_style b: true, u: true
+    sheet.row_style 0, header_style
+
+    # Auto Filtering
+    sheet.auto_filter = 'A1:K1'
+end
+
+wb.add_worksheet(name: 'Diet and Allergies') do |sheet|
+    sheet.add_row ['Week', 'Family', 'Last Name', 'First Name', 'Vegetarian', 'Vegan', 'Pescetarian', 'Gluten Free', 'Lactose Free', 'No Dietary Issues', 'No Allergies', 'Allergies']
+    @people.each do |person|
+        sheet.add_row [
+            person.family.week,
+            person.family.name,
+            person.last,
+            person.first,
+            person.vegetarian? ? '1' : '',
+            person.vegan? ? '1' : '',
+            person.pescetarian? ? '1' : '',
+            person.gluten_free? ? '1' : '',
+            person.lactose_free? ? '1' : '',
+            person.no_dietary_issues? ? '1' : '',
+            person.no_allergies? ? '1' : '',
+            person.allergies
+        ]
+    end
+
+    # Add Header Style
+    s = wb.styles
+    header_style = s.add_style b: true, u: true
+    sheet.row_style 0, header_style
+
+    # Auto Filtering
+    sheet.auto_filter = 'A1:L1'
+end

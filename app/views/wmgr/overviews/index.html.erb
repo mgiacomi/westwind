@@ -95,27 +95,12 @@
         <td><%= link_to @summary[:waivers][:week3n].length, wmgr_waivers_incomplete_path(3) %></td>
       </tr>
       <tr>
-        <td style="font-weight:bold;color:blue;">VOLUNTEERS</td>
-        <td><%= link_to @summary[:volunteers][:week1].length, wmgr_volunteers_path(1) %></td>
-        <td><%= link_to @summary[:volunteers][:week2].length, wmgr_volunteers_path(2) %></td>
-        <td><%= link_to @summary[:volunteers][:week3].length, wmgr_volunteers_path(3) %></td>
-      </tr>
-      <tr>
-        <td style="font-weight:bold;color:blue;">DIETARY REPORTS</td>
-        <td><%= link_to @summary[:dietary_restrictions][:week1].length, wmgr_dietary_path(1, 'csv') %></td>
-        <td><%= link_to @summary[:dietary_restrictions][:week2].length, wmgr_dietary_path(2, 'csv') %></td>
-        <td><%= link_to @summary[:dietary_restrictions][:week3].length, wmgr_dietary_path(3, 'csv') %></td>
-      </tr>
-      <tr>
-        <td style="font-weight:bold;color:blue;">ATTENDANCE REPORTS</td>
-        <td><%= link_to @summary[:people][:week1].length, wmgr_attendance_path(1, 'csv') %></td>
-        <td><%= link_to @summary[:people][:week2].length, wmgr_attendance_path(2, 'csv') %></td>
-        <td><%= link_to @summary[:people][:week3].length, wmgr_attendance_path(3, 'csv') %></td>
+        <td style="font-weight:bold;color:blue;">REPORTS</td>
+        <td><%= link_to "Week 1 Report", wmgr_reports_weekly_path(1, 'xlsx') %></td>
+        <td><%= link_to "Week 2 Report", wmgr_reports_weekly_path(2, 'xlsx') %></td>
+        <td><%= link_to "Week 3 Report", wmgr_reports_weekly_path(3, 'xlsx') %></td>
       </tr>
       </tbody>
     </table>
-    <br/>
-    <%= link_to 'Family Report', wmgr_report_families_path('csv') %>
-    <%= link_to 'People Report', wmgr_report_people_path('csv') %>
   </div>
 </div>

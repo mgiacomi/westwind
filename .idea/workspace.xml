@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="e92c2594-a3fd-490b-b1d6-b5ac03723293" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/controllers/wmgr/reports_controller.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/wmgr/reports/weekly.xlsx.axlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/6903f3a5-8136-4eec-8033-678427b26987.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6903f3a5-8136-4eec-8033-678427b26987.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/wmgr/families_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/wmgr/families_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/family.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/family.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/wmgr/families/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/wmgr/families/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/wmgr/overviews_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/wmgr/overviews_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/profiles/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/profiles/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/wmgr/overviews/attendance.csv.erb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/wmgr/overviews/dietary.csv.erb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/wmgr/overviews/families.csv.erb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/wmgr/overviews/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/wmgr/overviews/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/wmgr/overviews/people.csv.erb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/wmgr/overviews/volunteers.html.erb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20160703031844_create_vaccines.rb" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +40,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="true" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -36,19 +53,36 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.vendoring.notification.had.been.shown": "true",
     "WebServerToolWindowFactoryState": "false",
-    "ruby.rails.projectView.checked": "true"
+    "go.import.settings.migrated": "true",
+    "last_opened_file_path": "C:/opendev/code/westwind/app/controllers/wmgr",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "ruby.rails.projectView.checked": "true",
+    "ruby.structure.view.model.defaults.configured": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\opendev\code\westwind\app\controllers\wmgr" />
+      <recent name="C:\opendev\code\westwind\db\migrate" />
       <recent name="C:\opendev\code\westwind\app\views\vaccines" />
       <recent name="C:\opendev\code\westwind\app\controllers" />
       <recent name="C:\opendev\code\westwind\app\models" />
-      <recent name="C:\opendev\code\westwind\db\migrate" />
-      <recent name="C:\opendev\code\westwind\app\assets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\opendev\code\westwind\app\views\wmgr\reports" />
+      <recent name="C:\opendev\code\westwind\app\views\wmgr\overviews" />
       <recent name="C:\opendev\code\westwind\app\views" />
     </key>
   </component>
@@ -213,7 +247,11 @@
       <workItem from="1649093285723" duration="71000" />
       <workItem from="1649393134481" duration="23916000" />
       <workItem from="1649696009020" duration="107000" />
-      <workItem from="1650338816716" duration="1027000" />
+      <workItem from="1650338816716" duration="1617000" />
+      <workItem from="1651158671660" duration="623000" />
+      <workItem from="1651553370562" duration="2512000" />
+      <workItem from="1679856292869" duration="677000" />
+      <workItem from="1679896516999" duration="26135000" />
     </task>
     <task id="LOCAL-00001" summary="Upgrade Rails 5">
       <created>1647153456156</created>
@@ -306,7 +344,21 @@
       <option name="project" value="LOCAL" />
       <updated>1649696105816</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Add ability to edit email.">
+      <created>1650339915161</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1650339915161</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Adding Host feature and new volunteer iterm">
+      <created>1680028171794</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1680028171794</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -345,6 +397,16 @@
     <MESSAGE value="Fix Waivers" />
     <MESSAGE value="Resign Vaccine" />
     <MESSAGE value="Fix Weeks" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix Weeks" />
+    <MESSAGE value="Add ability to edit email." />
+    <MESSAGE value="Adding Host feature and new volunteer iterm" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding Host feature and new volunteer iterm" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>false</integration-enabled>
+    <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

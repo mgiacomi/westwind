@@ -151,6 +151,10 @@
         <br/>
       <% end %>
 
+      <% if current_family.host? %>
+        <%= link_to "Week #{current_family.week} Report", wmgr_reports_weekly_path(current_family.week, 'xlsx') %><br/>
+      <% end %>
+
       <% if current_family.week > 0 %>
         <span style="font-weight:bold;">Other families attending your weekend:</span><br/>
       <% else %>

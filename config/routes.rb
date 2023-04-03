@@ -60,12 +60,8 @@ Rails.application.routes.draw do
   match '/wmgr/dietary/incomplete/:week'   => 'wmgr/overviews#dietary_incomplete',   :as => :wmgr_dietary_incomplete, :via => :get
   match '/wmgr/waivers/complete/:week'     => 'wmgr/overviews#waivers_complete',     :as => :wmgr_waivers_complete,   :via => :get
   match '/wmgr/waivers/incomplete/:week'   => 'wmgr/overviews#waivers_incomplete',   :as => :wmgr_waivers_incomplete, :via => :get
-  match '/wmgr/volunteers/:week'           => 'wmgr/overviews#volunteers',           :as => :wmgr_volunteers,         :via => :get
-  match '/wmgr/attendance:week.:format'    => 'wmgr/overviews#attendance',           :as => :wmgr_attendance,         :via => :get
-  match '/wmgr/dietary_week:week.:format'  => 'wmgr/overviews#dietary',              :as => :wmgr_dietary,            :via => :get
 
-  match '/wmgr/report/families.:format' => 'wmgr/overviews#families', :as => :wmgr_report_families, :via => :get
-  match '/wmgr/report/people.:format'   => 'wmgr/overviews#people',   :as => :wmgr_report_people,   :via => :get
+  match '/wmgr/reports/weekly/:week.:format'  => 'wmgr/reports#weekly', :as => :wmgr_reports_weekly,  :via => :get
 
   root 'logins#home'
 
