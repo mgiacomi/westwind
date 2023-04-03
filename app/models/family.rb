@@ -48,11 +48,11 @@ class Family < ActiveRecord::Base
   def amount_per_person
     case week
       when 1
-        amount = 100
+        amount = 125
       when 2
-        amount = 145
+        amount = 170
       when 3
-        amount = 100
+        amount = 125
       else
         amount = 0
     end
@@ -66,9 +66,9 @@ class Family < ActiveRecord::Base
   def week_desc
     case week
       when 1
-        'Weekend 1 May 20 - May 22'
+        'Weekend 1 May 19 - May 21'
       when 2
-        'Weekend 2 May 27 - May 30'
+        'Weekend 2 May 26 - May 29'
       when 3
         'Weekend 3 Jun 2 - Jun 4'
       else
